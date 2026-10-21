@@ -4,6 +4,7 @@
 # Data that is downloaded or generated
 data/raw/*.pdf
 data/qdrant/
+data/processed/
 
 # Python
 __pycache__/

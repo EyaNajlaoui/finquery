@@ -15,6 +15,9 @@ The files in `eval/` are derived from it and keep the same license.
 | `raw/*.pdf` | no | 18 source filings (≈17 MB), downloaded by `scripts/download_data.py` |
 | `eval/dev.jsonl` | yes | 20 questions used while building and tuning the system |
 | `eval/test.jsonl` | yes | 30 questions kept aside, used **once** for the final evaluation |
+| `documents.jsonl` | yes | company, document type and fiscal year of each document |
+| `processed/pages/` | no | parsed text of each page, one file per document (cache) |
+| `processed/chunks.jsonl` | no | chunks with metadata, built by `scripts/ingest.py` |
 | `qdrant/` | no | local vector index (created in step 2) |
 
 Rebuild everything with:

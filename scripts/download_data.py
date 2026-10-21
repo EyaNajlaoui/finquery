@@ -16,6 +16,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
 from finquery.config import get_settings, resolve
 from finquery.data.financebench import (
+    document_catalog,
     merge_documents,
     normalize,
     read_jsonl,
@@ -76,6 +77,7 @@ def main() -> None:
     eval_dir = resolve(cfg["eval_dir"])
     write_jsonl(dev, eval_dir / "dev.jsonl")
     write_jsonl(test, eval_dir / "test.jsonl")
+    write_jsonl(document_catalog(questions), resolve(cfg["documents_file"]))
     print(f"\n{len(questions)} questions -> dev {len(dev)}, test {len(test)}")
     for name, rows in (("dev", dev), ("test", test)):
         print(f"  {name:<4} {dict(Counter(q['question_type'] for q in rows))}")

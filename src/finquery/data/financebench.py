@@ -48,6 +48,13 @@ def normalize(raw: dict[str, Any]) -> dict[str, Any]:
     return row
 
 
+def document_catalog(questions: list[dict]) -> list[dict]:
+    """One row per document with the metadata used by ingestion (company, type, period)."""
+    docs = {q["doc_name"]: {k: q[k] for k in ("doc_name", "company", "doc_type", "doc_period")}
+            for q in questions}
+    return [docs[name] for name in sorted(docs)]
+
+
 def select(questions: list[dict], documents: list[str]) -> list[dict]:
     wanted = set(documents)
     return [q for q in questions if q["doc_name"] in wanted]

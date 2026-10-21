@@ -4,6 +4,8 @@
 data:
   raw_dir: data/raw            # downloaded PDFs (not committed)
   eval_dir: data/eval          # dev.jsonl / test.jsonl
+  documents_file: data/documents.jsonl   # company, type and period of each document
+  processed_dir: data/processed          # parsed pages and chunks (not committed)
   dev_size: 20                 # questions used for tuning; the rest is the held-out test set
   seed: 42                     # makes the dev/test split reproducible
   questions_url: https://huggingface.co/datasets/PatronusAI/financebench/resolve/main/financebench_merged.jsonl
@@ -31,7 +33,7 @@ data:
     - NIKE_2019_10K
 
 chunking:
-  max_words: 150               # to be tuned on the dev set (step 2)
+  max_words: 150               # chunks never cross a page; split on line boundaries
   overlap_words: 30
 
 embedding:

@@ -1,1 +1,1 @@
-"""Step 2: PDF parsing (text + tables), chunking and metadata."""
+"""Step 1: PDF parsing, cleaning and chunking with metadata."""

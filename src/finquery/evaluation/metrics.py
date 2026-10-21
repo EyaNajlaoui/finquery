@@ -35,3 +35,21 @@ def contains_number(text: str, expected: float, rel_tol: float = 0.01) -> bool:
     targets = [expected] + ([expected * 100] if abs(expected) < 1 else [])
     return any(abs(n - t) <= max(abs(t) * rel_tol, 1e-9)
                for n in extract_numbers(text) for t in targets)
+
+
+_TOKEN = re.compile(r"[a-z0-9]+(?:[.,]\d+)*")
+
+
+def tokens(text: str) -> list[str]:
+    """Lowercase words and numbers; '1,234.5' -> '1234.5' so number formats match."""
+    return [t.replace(",", "") for t in _TOKEN.findall(text.lower())]
+
+
+def token_coverage(reference: str, text: str) -> float:
+    """Share of the reference tokens that appear in text (1.0 = everything found).
+    Used to check that the evidence of a question survived parsing and chunking."""
+    ref = tokens(reference)
+    if not ref:
+        return 1.0
+    available = set(tokens(text))
+    return sum(t in available for t in ref) / len(ref)

@@ -49,3 +49,13 @@ def test_merge_and_select():
 
 def test_settings_list_18_documents():
     assert len(get_settings()["data"]["documents"]) == 18
+
+
+def test_document_catalog():
+    from finquery.data.financebench import document_catalog
+    rows = [{"doc_name": "B", "company": "b", "doc_type": "10k", "doc_period": 2020, "question": "x"},
+            {"doc_name": "A", "company": "a", "doc_type": "8k", "doc_period": 2021, "question": "y"},
+            {"doc_name": "A", "company": "a", "doc_type": "8k", "doc_period": 2021, "question": "z"}]
+    assert document_catalog(rows) == [
+        {"doc_name": "A", "company": "a", "doc_type": "8k", "doc_period": 2021},
+        {"doc_name": "B", "company": "b", "doc_type": "10k", "doc_period": 2020}]

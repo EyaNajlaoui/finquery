@@ -152,5 +152,5 @@ FinQuery is an educational and analysis tool. Its answers can be wrong and are *
 
 ## License
 
-Code: to be added. Evaluation data derived from FinanceBench is under
+Code: [MIT](LICENSE). Evaluation data derived from FinanceBench is under
 [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).

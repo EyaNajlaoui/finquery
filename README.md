@@ -9,8 +9,8 @@ instead of letting the LLM do arithmetic, and says so when the documents do not 
 
 Every design choice is measured on a public benchmark (FinanceBench) with a fixed dev/test split.
 
-> **Status: step 1 – ingestion.** The 18 filings are parsed and split into 5,373 chunks with metadata;
-> 100% of the evidence text of the dev questions is found in the parsed pages.
+> **Status: step 2 – indexing.** The 18 filings are parsed into 5,373 chunks (100% of the dev evidence
+> text is kept), embedded in Qdrant and indexed with BM25, both searchable with metadata filters.
 > See the [roadmap](#roadmap) for what comes next.
 
 ## Planned features
@@ -83,6 +83,8 @@ pip install -e .
 cp .env.example .env             # Windows: copy .env.example .env   then add your GROQ_API_KEY
 python scripts/download_data.py  # 18 PDFs (~17 MB) + dev/test files
 python scripts/ingest.py         # parse + chunk (~5 min the first time, then cached)
+python scripts/build_index.py    # embeddings -> Qdrant (incremental)
+python scripts/search.py "What were Costco's total assets in FY2021?" --company Costco
 streamlit run app/Home.py        # http://localhost:8501
 ```
 
@@ -117,7 +119,9 @@ finquery/
 ├── scripts/                # command-line entry points
 │   ├── download_data.py
 │   ├── ingest.py           # PDFs -> data/processed/chunks.jsonl
-│   └── check_ingestion.py  # is the evidence still there after parsing/chunking?
+│   ├── check_ingestion.py  # is the evidence still there after parsing/chunking?
+│   ├── build_index.py      # chunks -> embeddings -> Qdrant
+│   └── search.py           # dense vs BM25 results for one question
 ├── src/finquery/
 │   ├── config.py           # settings loading + env overrides
 │   ├── data/               # FinanceBench loading, normalization, split
@@ -138,7 +142,7 @@ finquery/
 
 - [x] **Step 0 – Foundations**: structure, config, data download and split, Docker, tests, CI
 - [x] **Step 1 – Ingestion**: PDF parsing (text + tables), chunking, metadata
-- [ ] **Step 2 – Indexing**: embeddings in Qdrant, BM25 index
+- [x] **Step 2 – Indexing**: embeddings in Qdrant, BM25 index
 - [ ] **Step 3 – Retrieval evaluation**: Recall@k / MRR on evidence pages, dense vs hybrid vs rerank
 - [ ] **Step 4 – Generation**: grounded answers with citations, refusal, LLM judge
 - [ ] **Step 5 – Agent**: multi-step search + calculator tool, traces
@@ -167,6 +171,16 @@ Check on the 23 evidence passages of the dev set (`python scripts/check_ingestio
 
 Bigger chunks hold more of the evidence but make search less precise. The final size is chosen in step 3
 on retrieval metrics, not on this table alone.
+
+## Indexing
+
+| Choice | Reason |
+|---|---|
+| Embeddings `bge-small-en-v1.5`, query instruction on queries only | the model is trained this way; passages are encoded as-is |
+| Token count checked before indexing | text above the 512-token limit would be silently cut |
+| Qdrant point id = UUID of `chunk_id`, `content_hash` in the payload | re-running only embeds new or changed chunks and deletes removed ones |
+| Filters on `company`, `doc_type`, `doc_period`, `doc_name` | "Amazon 2017" questions only search Amazon's 2017 filing; payload indexes on the server |
+| BM25 rebuilt in memory from `chunks.jsonl` | exact matches on numbers and line items; nothing extra to keep in sync |
 
 ## Results
 

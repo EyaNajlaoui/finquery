@@ -22,7 +22,7 @@ st.caption(f"Question answering over financial filings with RAG · v{__version__
 st.warning("FinQuery is an analysis tool, not investment advice.")
 
 st.subheader("Project status")
-st.info("Step 0 (foundations) is in place. The chat interface arrives in step 6.")
+st.info("Steps 0-2 are in place: data, ingestion and indexing. The chat interface arrives in step 6.")
 
 col_data, col_eval, col_store = st.columns(3)
 
@@ -47,15 +47,19 @@ def get_qdrant():
     return QdrantClient(path=str(resolve(store["local_path"])))
 
 
+vectors = 0
 try:
-    get_qdrant().get_collections()
-    col_store.metric("Vector store", "Qdrant server" if store["url"] else "Qdrant local")
+    client = get_qdrant()
+    vectors = client.count(store["collection"]).count if client.collection_exists(store["collection"]) else 0
+    col_store.metric("Vectors in " + ("Qdrant server" if store["url"] else "Qdrant local"), f"{vectors:,}")
 except Exception as error:  # the app must still start if Qdrant is down
     col_store.metric("Vector store", "unavailable")
     st.error(f"Qdrant: {error}")
 
 if len(pdfs) < expected or not counts["dev"]:
     st.markdown("Run `python scripts/download_data.py` to download the data.")
+elif not vectors:
+    st.markdown("Run `python scripts/ingest.py` then `python scripts/build_index.py` to build the index.")
 
 with st.expander("Configuration"):
     sections = ("chunking", "embedding", "reranker", "retrieval", "llm", "vector_store")

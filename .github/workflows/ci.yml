@@ -12,7 +12,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      # Only light dependencies: the tested modules do not load any model
-      - run: pip install pyyaml -r requirements-dev.txt
+      # Light dependencies only: tests never download a model (Qdrant runs in memory)
+      - run: pip install pyyaml numpy qdrant-client rank-bm25 -r requirements-dev.txt
       - run: ruff check .
       - run: pytest -q

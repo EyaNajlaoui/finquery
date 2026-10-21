@@ -1,0 +1,22 @@
+# Secrets
+.env
+
+# Data that is downloaded or generated
+data/raw/*.pdf
+data/qdrant/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env_rag/
+.pytest_cache/
+.ruff_cache/
+
+# Editors and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

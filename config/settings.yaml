@@ -1,0 +1,55 @@
+# FinQuery configuration: every tunable setting lives here.
+# Environment variables (see .env.example) override the values marked "env".
+
+data:
+  raw_dir: data/raw            # downloaded PDFs (not committed)
+  eval_dir: data/eval          # dev.jsonl / test.jsonl
+  dev_size: 20                 # questions used for tuning; the rest is the held-out test set
+  seed: 42                     # makes the dev/test split reproducible
+  questions_url: https://huggingface.co/datasets/PatronusAI/financebench/resolve/main/financebench_merged.jsonl
+  fallback_questions_url: https://raw.githubusercontent.com/patronus-ai/financebench/main/data/financebench_open_source.jsonl
+  fallback_documents_url: https://raw.githubusercontent.com/patronus-ai/financebench/main/data/financebench_document_information.jsonl
+  pdf_url: https://raw.githubusercontent.com/patronus-ai/financebench/main/pdfs/{doc_name}.pdf
+  documents:                   # 18 documents, 13 companies, 50 FinanceBench questions
+    - ULTABEAUTY_2023Q4_EARNINGS
+    - MGMRESORTS_2022Q4_EARNINGS
+    - AMCOR_2023Q4_EARNINGS
+    - PEPSICO_2023Q1_EARNINGS
+    - JOHNSON_JOHNSON_2022Q4_EARNINGS
+    - JOHNSON_JOHNSON_2023_8K_dated-2023-08-30
+    - BESTBUY_2024Q2_10Q
+    - Pfizer_2023Q2_10Q
+    - AMD_2022_10K
+    - BOEING_2022_10K
+    - AMCOR_2023_10K
+    - BESTBUY_2023_10K
+    - AMAZON_2017_10K
+    - AMAZON_2019_10K
+    - NETFLIX_2015_10K
+    - NETFLIX_2017_10K
+    - COSTCO_2021_10K
+    - NIKE_2019_10K
+
+chunking:
+  max_words: 150               # to be tuned on the dev set (step 2)
+  overlap_words: 30
+
+embedding:
+  model: BAAI/bge-small-en-v1.5
+
+reranker:
+  model: cross-encoder/ms-marco-MiniLM-L-6-v2
+
+retrieval:
+  candidates: 20               # chunks retrieved before reranking
+  top_k: 4                     # chunks sent to the LLM
+
+llm:
+  model: openai/gpt-oss-120b   # Groq; API key in GROQ_API_KEY (env)
+  judge_model: openai/gpt-oss-120b
+  temperature: 0
+
+vector_store:
+  collection: finquery
+  local_path: data/qdrant      # local mode (no server) when QDRANT_URL is not set
+  url: null                    # env QDRANT_URL, e.g. http://qdrant:6333 in Docker Compose

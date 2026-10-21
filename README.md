@@ -9,8 +9,9 @@ instead of letting the LLM do arithmetic, and says so when the documents do not 
 
 Every design choice is measured on a public benchmark (FinanceBench) with a fixed dev/test split.
 
-> **Status: step 2 – indexing.** The 18 filings are parsed into 5,373 chunks (100% of the dev evidence
-> text is kept), embedded in Qdrant and indexed with BM25, both searchable with metadata filters.
+> **Status: step 3 – retrieval evaluated.** 18 filings, 5,373 chunks, hybrid search (Qdrant + BM25, RRF)
+> with cross-encoder reranking. On the 20 dev questions, reranked hybrid search finds the evidence page
+> in first position for 60% of the questions, against 30% for dense search alone.
 > See the [roadmap](#roadmap) for what comes next.
 
 ## Planned features
@@ -85,6 +86,7 @@ python scripts/download_data.py  # 18 PDFs (~17 MB) + dev/test files
 python scripts/ingest.py         # parse + chunk (~5 min the first time, then cached)
 python scripts/build_index.py    # embeddings -> Qdrant (incremental)
 python scripts/search.py "What were Costco's total assets in FY2021?" --company Costco
+python scripts/eval_retrieval.py # Recall@k / MRR on the dev set -> results/
 streamlit run app/Home.py        # http://localhost:8501
 ```
 
@@ -121,7 +123,9 @@ finquery/
 │   ├── ingest.py           # PDFs -> data/processed/chunks.jsonl
 │   ├── check_ingestion.py  # is the evidence still there after parsing/chunking?
 │   ├── build_index.py      # chunks -> embeddings -> Qdrant
-│   └── search.py           # dense vs BM25 results for one question
+│   ├── search.py           # dense vs BM25 results for one question
+│   ├── eval_retrieval.py   # Recall@k / MRR of the 4 search modes
+│   └── experiment_chunk_size.py  # chunk size comparison (in memory)
 ├── src/finquery/
 │   ├── config.py           # settings loading + env overrides
 │   ├── data/               # FinanceBench loading, normalization, split
@@ -132,6 +136,7 @@ finquery/
 │   ├── tools/              # safe calculator
 │   ├── sql/                # SQL safety checks (optional structured data)
 │   └── evaluation/         # retrieval + answer metrics
+├── results/                # evaluation outputs (JSON), committed
 ├── tests/
 ├── Dockerfile
 ├── docker-compose.yml
@@ -143,7 +148,7 @@ finquery/
 - [x] **Step 0 – Foundations**: structure, config, data download and split, Docker, tests, CI
 - [x] **Step 1 – Ingestion**: PDF parsing (text + tables), chunking, metadata
 - [x] **Step 2 – Indexing**: embeddings in Qdrant, BM25 index
-- [ ] **Step 3 – Retrieval evaluation**: Recall@k / MRR on evidence pages, dense vs hybrid vs rerank
+- [x] **Step 3 – Retrieval evaluation**: Recall@k / MRR on evidence pages, dense vs hybrid vs rerank
 - [ ] **Step 4 – Generation**: grounded answers with citations, refusal, LLM judge
 - [ ] **Step 5 – Agent**: multi-step search + calculator tool, traces
 - [ ] **Step 6 – Streamlit app**: chat, filters, sources, upload of new filings
@@ -169,8 +174,8 @@ Check on the 23 evidence passages of the dev set (`python scripts/check_ingestio
 | 250 / 50 | 3,332 | 100% | 95% |
 | 400 / 80 | 2,236 | 100% | 99% |
 
-Bigger chunks hold more of the evidence but make search less precise. The final size is chosen in step 3
-on retrieval metrics, not on this table alone.
+Bigger chunks hold more of the evidence but make search less precise. The size was then chosen in step 3
+on retrieval metrics: see [Retrieval evaluation](#retrieval-evaluation).
 
 ## Indexing
 
@@ -181,6 +186,38 @@ on retrieval metrics, not on this table alone.
 | Qdrant point id = UUID of `chunk_id`, `content_hash` in the payload | re-running only embeds new or changed chunks and deletes removed ones |
 | Filters on `company`, `doc_type`, `doc_period`, `doc_name` | "Amazon 2017" questions only search Amazon's 2017 filing; payload indexes on the server |
 | BM25 rebuilt in memory from `chunks.jsonl` | exact matches on numbers and line items; nothing extra to keep in sync |
+
+## Retrieval evaluation
+
+A question counts as found when a retrieved chunk comes from its FinanceBench evidence page.
+Two settings: **corpus** (search all 18 filings) and **document** (search only the question's filing,
+as when the user selects it). 20 dev questions, `python scripts/eval_retrieval.py`.
+
+| Mode | Corpus R@1 | Corpus R@4 | Corpus MRR@10 | Document R@4 | Document MRR@10 |
+|---|---:|---:|---:|---:|---:|
+| Dense (bge-small) | 0.30 | 0.55 | 0.47 | 0.68 | 0.53 |
+| BM25 | 0.25 | 0.25 | 0.30 | 0.40 | 0.38 |
+| Hybrid (RRF) | 0.40 | 0.60 | 0.53 | 0.72 | 0.62 |
+| **Hybrid + rerank** | **0.60** | **0.65** | **0.65** | **0.72** | **0.65** |
+
+- Each stage helps; reranking mostly moves the evidence to the top (R@1 0.30 → 0.60).
+- BM25 alone is weak on long natural-language questions but adds chunks the dense search misses.
+- Corpus vs document gap is small: the context header (company, year) lets the search find the right filing.
+- The misses share one cause: the question names a **computed metric** (quick ratio, EBITDA margin,
+  "topline performance") while the page only holds its ingredients (cash, receivables, revenue...).
+  This is addressed by query rewriting and the agent (steps 4-5).
+
+**Chunk size** (`python scripts/experiment_chunk_size.py`, hybrid + rerank, Recall@4 / MRR@10):
+
+| Words / overlap | Chunks | Over 512 tokens | Corpus | Document |
+|---|---:|---:|---:|---:|
+| **150 / 30** | 5,373 | 3 | 0.65 / **0.65** | 0.72 / **0.65** |
+| 250 / 50 | 3,332 | 44 | 0.70 / 0.60 | 0.70 / 0.58 |
+| 400 / 80 | 2,236 | 646 | 0.65 / 0.55 | 0.75 / 0.59 |
+
+Recall@4 differences are within one question (0.05) on 20 questions, while MRR is best at 150 words in
+both settings. 150 / 30 is kept: best ranking, almost no truncation, and 4 × 150 words sent to the LLM
+instead of 4 × 400. With 20 questions these are indications, not proof; the test set is used only once.
 
 ## Results
 

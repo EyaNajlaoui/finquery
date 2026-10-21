@@ -43,10 +43,13 @@ embedding:
   device: cpu
 
 reranker:
-  model: cross-encoder/ms-marco-MiniLM-L-6-v2
+  model: cross-encoder/ms-marco-MiniLM-L-6-v2   # ~90 MB, reads question + chunk together
+  batch_size: 16
+  device: cpu
 
 retrieval:
-  candidates: 20               # chunks retrieved before reranking
+  candidates: 20               # chunks taken from dense and from BM25, fused, then reranked
+  rrf_k: 60                    # Reciprocal Rank Fusion constant: 1 / (rrf_k + rank)
   top_k: 4                     # chunks sent to the LLM
 
 llm:

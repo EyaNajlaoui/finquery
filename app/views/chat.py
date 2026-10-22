@@ -31,20 +31,21 @@ docs = ui.catalog()
 by_name = {d["doc_name"]: d for d in docs}
 uploaded = [d for d in docs if d["source"] == "upload"]
 library = [d for d in docs if d["source"] == "library"]
-# By default, search the user's own documents (the sample library only if there are none)
-st.session_state.setdefault("scope", [d["doc_name"] for d in uploaded])
-if "pending_scope" in st.session_state:
-    st.session_state.scope = st.session_state.pop("pending_scope")
-st.session_state.scope = [n for n in st.session_state.scope if n in by_name]
+# Which documents are searched: one checkbox per document. New uploads start checked,
+# sample filings unchecked; with nothing checked, every document is searched.
+for d in uploaded:
+    st.session_state.setdefault(f"sel_{d['doc_name']}", True)
+for d in library:
+    st.session_state.setdefault(f"sel_{d['doc_name']}", False)
 
 
-def select(names: list[str]) -> None:
-    st.session_state.pending_scope = names
-    st.session_state.messages = []
+def set_all(names: list[str], value: bool) -> None:
+    for name in names:
+        st.session_state[f"sel_{name}"] = value
 
 
 def handle_upload(file) -> None:
-    """Index an uploaded file once, then select it."""
+    """Index an uploaded file once, then check it."""
     if file is None or st.session_state.get("last_upload") == file.file_id:
         return
     st.session_state.last_upload = file.file_id
@@ -58,9 +59,18 @@ def handle_upload(file) -> None:
             status.update(label=str(error), state="error")
             return
         status.update(label=f"Ready: {ui.doc_label({**doc, 'source': 'upload'})}", state="complete")
-    select([doc["doc_name"]])
+    st.session_state[f"sel_{doc['doc_name']}"] = True
     st.session_state.uploader_n = st.session_state.get("uploader_n", 0) + 1  # empties the upload widget
     st.rerun()
+
+
+def document_list(group: list[dict], key: str) -> None:
+    names = [d["doc_name"] for d in group]
+    left, right = st.columns(2)
+    left.button("Select all", key=f"all_{key}", width="stretch", on_click=set_all, args=(names, True))
+    right.button("Clear", key=f"none_{key}", width="stretch", on_click=set_all, args=(names, False))
+    for d in group:
+        st.checkbox(ui.doc_label(d).removeprefix("📄 "), key=f"sel_{d['doc_name']}")
 
 
 # --- sidebar ---------------------------------------------------------------------------------
@@ -71,26 +81,17 @@ with st.sidebar:
                                     key=f"side_upload_{st.session_state.get('uploader_n', 0)}",
                                     help="Annual or quarterly report, earnings release, 10-K... "
                                          "PDF with selectable text, or a text file.")
-    st.markdown(f'<div class="fq-side-label">MY DOCUMENTS · {len(uploaded)}</div>', unsafe_allow_html=True)
-    if not uploaded:
+    checked_mine = sum(st.session_state[f"sel_{d['doc_name']}"] for d in uploaded)
+    st.markdown(f'<div class="fq-side-label">MY DOCUMENTS · {checked_mine}/{len(uploaded)} SELECTED</div>',
+                unsafe_allow_html=True)
+    if uploaded:
+        document_list(uploaded, "mine")
+    else:
         st.caption("Upload a PDF to start.")
-    for d in uploaded:
-        active = st.session_state.scope == [d["doc_name"]]
-        label = ui.doc_label(d).removeprefix("📄 ")
-        st.button(label, key=f"doc_{d['doc_name']}", icon=":material/description:", width="stretch",
-                  type="primary" if active else "secondary", on_click=select, args=([d["doc_name"]],))
-    if len(uploaded) > 1:
-        mine = [d["doc_name"] for d in uploaded]
-        st.button("All my documents", icon=":material/folder_copy:", width="stretch",
-                  type="primary" if st.session_state.scope == mine else "secondary",
-                  on_click=select, args=(mine,))
     if library:
-        with st.expander(f"Sample library · {len(library)}"):
-            for d in library:
-                st.button(ui.doc_label(d), key=f"lib_{d['doc_name']}", width="stretch",
-                          type="primary" if st.session_state.scope == [d["doc_name"]] else "secondary",
-                          on_click=select, args=([d["doc_name"]],))
-            st.button("All sample filings", key="lib_all", width="stretch", on_click=select, args=([],))
+        checked_lib = sum(st.session_state[f"sel_{d['doc_name']}"] for d in library)
+        with st.expander(f"Sample library · {checked_lib}/{len(library)} selected"):
+            document_list(library, "lib")
 
     st.markdown('<div class="fq-side-label">ANSWER MODE</div>', unsafe_allow_html=True)
     mode = st.segmented_control("Mode", ["Agent", "Fast"], default="Agent", key="mode",
@@ -101,6 +102,7 @@ with st.sidebar:
     chunks = sum(d.get("chunks", 0) for d in uploaded)
     st.markdown(f'<div class="fq-status"><span class="fq-dot"></span>Index up to date'
                 f'{f" · {chunks:,} chunks" if chunks else ""}</div>', unsafe_allow_html=True)
+st.session_state.scope = [d["doc_name"] for d in docs if st.session_state.get(f"sel_{d['doc_name']}")]
 handle_upload(sidebar_file)
 
 problems = ui.settings_ready()
@@ -118,7 +120,8 @@ elif scope_docs:
     title = f"{len(scope_docs)} documents"
     sub = " · ".join(ui.short_label(d["doc_name"]) for d in scope_docs[:3])
 else:
-    title, sub = "All documents", f"{len(uploaded)} uploaded · {len(library)} sample filings"
+    title = "All documents"
+    sub = f"No document selected: searching all {len(uploaded)} uploaded and {len(library)} sample filings"
 left, right = st.columns([2.3, 1], gap="large") if show_sources else (st.container(), None)
 
 with left:

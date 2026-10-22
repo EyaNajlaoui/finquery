@@ -12,6 +12,7 @@ Usage:
     python scripts/eval_generation.py --limit 5             # quick try on 5 questions
     python scripts/eval_generation.py --system agent        # step 5: tool-calling agent
     python scripts/eval_generation.py --limit 10 --model openai/gpt-oss-20b   # smaller model
+    python scripts/eval_generation.py --split test --sample 15 ...            # stratified subset
 """
 from __future__ import annotations
 
@@ -25,7 +26,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
 from finquery.agent.agent import AGENT_SYSTEM, TOOLS
 from finquery.config import ROOT, get_settings, resolve
-from finquery.data.financebench import read_jsonl, write_jsonl
+from finquery.data.financebench import read_jsonl, stratified_split, write_jsonl
 from finquery.evaluation.answer_eval import code_checks, judge, summarize
 from finquery.generation.answerer import check_citations
 from finquery.generation.llm import DailyLimitError, GroqLLM
@@ -42,6 +43,8 @@ def main() -> None:
     parser.add_argument("--setting", default="corpus", choices=["corpus", "document"],
                         help="search all filings, or only the question's filing")
     parser.add_argument("--limit", type=int, help="only the first N questions")
+    parser.add_argument("--sample", type=int, help="a fixed sample of N questions with the same mix of "
+                                                   "question types as the full set (seed from settings)")
     parser.add_argument("--model", help="answer with another Groq model than settings.yaml "
                                         "(e.g. openai/gpt-oss-20b when the main model's daily quota is used)")
     parser.add_argument("--regenerate", action="store_true")
@@ -50,7 +53,11 @@ def main() -> None:
 
     settings = get_settings()
     context_mode = args.context or settings["generation"]["context_mode"]
-    questions = read_jsonl(resolve(settings["data"]["eval_dir"]) / f"{args.split}.jsonl")[:args.limit]
+    questions = read_jsonl(resolve(settings["data"]["eval_dir"]) / f"{args.split}.jsonl")
+    if args.sample and args.sample < len(questions):
+        # chosen by rule (stratified, fixed seed), never by looking at results
+        questions = stratified_split(questions, args.sample, settings["data"]["seed"])[0]
+    questions = questions[:args.limit]
     model = args.model or settings["llm"]["model"]
     name = f"{args.split}_{context_mode}_{args.setting}" if args.system == "rag" else \
         f"{args.split}_agent_{args.setting}"

@@ -1,0 +1,12208 @@
+{
+ "summary": {
+  "corpus/dense": {
+   "recall@1": 0.3,
+   "recall@4": 0.5,
+   "recall@10": 0.65,
+   "mrr@10": 0.39694444444444443
+  },
+  "corpus/bm25": {
+   "recall@1": 0.1,
+   "recall@4": 0.2,
+   "recall@10": 0.4,
+   "mrr@10": 0.16420634920634922
+  },
+  "corpus/hybrid": {
+   "recall@1": 0.16666666666666666,
+   "recall@4": 0.45,
+   "recall@10": 0.6166666666666667,
+   "mrr@10": 0.3162037037037037
+  },
+  "corpus/hybrid_rerank": {
+   "recall@1": 0.3,
+   "recall@4": 0.4166666666666667,
+   "recall@10": 0.65,
+   "mrr@10": 0.4014285714285714
+  },
+  "document/dense": {
+   "recall@1": 0.3333333333333333,
+   "recall@4": 0.6166666666666667,
+   "recall@10": 0.7166666666666667,
+   "mrr@10": 0.46111111111111114
+  },
+  "document/bm25": {
+   "recall@1": 0.13333333333333333,
+   "recall@4": 0.3333333333333333,
+   "recall@10": 0.5166666666666667,
+   "mrr@10": 0.2548148148148148
+  },
+  "document/hybrid": {
+   "recall@1": 0.2,
+   "recall@4": 0.55,
+   "recall@10": 0.65,
+   "mrr@10": 0.3706878306878307
+  },
+  "document/hybrid_rerank": {
+   "recall@1": 0.3333333333333333,
+   "recall@4": 0.5166666666666667,
+   "recall@10": 0.7833333333333333,
+   "mrr@10": 0.45267195767195767
+  }
+ },
+ "questions": [
+  {
+   "financebench_id": "financebench_id_01198",
+   "question_type": "domain-relevant",
+   "relevant": [
+    [
+     "AMD_2022_10K",
+     43
+    ]
+   ],
+   "runs": {
+    "corpus/dense": {
+     "first_hit": 2,
+     "retrieved": [
+      [
+       "AMD_2022_10K",
+       65
+      ],
+      [
+       "AMD_2022_10K",
+       43
+      ],
+      [
+       "AMD_2022_10K",
+       49
+      ],
+      [
+       "AMD_2022_10K",
+       67
+      ],
+      [
+       "AMD_2022_10K",
+       4
+      ],
+      [
+       "AMD_2022_10K",
+       19
+      ],
+      [
+       "AMD_2022_10K",
+       44
+      ],
+      [
+       "AMD_2022_10K",
+       104
+      ],
+      [
+       "AMD_2022_10K",
+       81
+      ],
+      [
+       "AMD_2022_10K",
+       24
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.5
+    },
+    "corpus/bm25": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "NIKE_2019_10K",
+       37
+      ],
+      [
+       "NIKE_2019_10K",
+       37
+      ],
+      [
+       "BESTBUY_2023_10K",
+       25
+      ],
+      [
+       "BESTBUY_2023_10K",
+       27
+      ],
+      [
+       "BESTBUY_2023_10K",
+       25
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       17
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       16
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       5
+      ],
+      [
+       "AMD_2022_10K",
+       4
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       17
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "corpus/hybrid": {
+     "first_hit": 3,
+     "retrieved": [
+      [
+       "AMD_2022_10K",
+       65
+      ],
+      [
+       "NIKE_2019_10K",
+       37
+      ],
+      [
+       "AMD_2022_10K",
+       43
+      ],
+      [
+       "NIKE_2019_10K",
+       37
+      ],
+      [
+       "AMD_2022_10K",
+       49
+      ],
+      [
+       "BESTBUY_2023_10K",
+       25
+      ],
+      [
+       "AMD_2022_10K",
+       67
+      ],
+      [
+       "BESTBUY_2023_10K",
+       27
+      ],
+      [
+       "AMD_2022_10K",
+       4
+      ],
+      [
+       "BESTBUY_2023_10K",
+       25
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.3333333333333333
+    },
+    "corpus/hybrid_rerank": {
+     "first_hit": 3,
+     "retrieved": [
+      [
+       "AMD_2022_10K",
+       65
+      ],
+      [
+       "AMD_2022_10K",
+       49
+      ],
+      [
+       "AMD_2022_10K",
+       43
+      ],
+      [
+       "AMD_2022_10K",
+       19
+      ],
+      [
+       "AMD_2022_10K",
+       67
+      ],
+      [
+       "AMD_2022_10K",
+       4
+      ],
+      [
+       "AMD_2022_10K",
+       4
+      ],
+      [
+       "AMD_2022_10K",
+       44
+      ],
+      [
+       "AMD_2022_10K",
+       81
+      ],
+      [
+       "AMD_2022_10K",
+       24
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.3333333333333333
+    },
+    "document/dense": {
+     "first_hit": 2,
+     "retrieved": [
+      [
+       "AMD_2022_10K",
+       65
+      ],
+      [
+       "AMD_2022_10K",
+       43
+      ],
+      [
+       "AMD_2022_10K",
+       49
+      ],
+      [
+       "AMD_2022_10K",
+       67
+      ],
+      [
+       "AMD_2022_10K",
+       4
+      ],
+      [
+       "AMD_2022_10K",
+       19
+      ],
+      [
+       "AMD_2022_10K",
+       44
+      ],
+      [
+       "AMD_2022_10K",
+       104
+      ],
+      [
+       "AMD_2022_10K",
+       81
+      ],
+      [
+       "AMD_2022_10K",
+       24
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.5
+    },
+    "document/bm25": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "AMD_2022_10K",
+       4
+      ],
+      [
+       "AMD_2022_10K",
+       46
+      ],
+      [
+       "AMD_2022_10K",
+       20
+      ],
+      [
+       "AMD_2022_10K",
+       4
+      ],
+      [
+       "AMD_2022_10K",
+       28
+      ],
+      [
+       "AMD_2022_10K",
+       49
+      ],
+      [
+       "AMD_2022_10K",
+       60
+      ],
+      [
+       "AMD_2022_10K",
+       61
+      ],
+      [
+       "AMD_2022_10K",
+       75
+      ],
+      [
+       "AMD_2022_10K",
+       19
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "document/hybrid": {
+     "first_hit": 2,
+     "retrieved": [
+      [
+       "AMD_2022_10K",
+       49
+      ],
+      [
+       "AMD_2022_10K",
+       43
+      ],
+      [
+       "AMD_2022_10K",
+       26
+      ],
+      [
+       "AMD_2022_10K",
+       65
+      ],
+      [
+       "AMD_2022_10K",
+       4
+      ],
+      [
+       "AMD_2022_10K",
+       43
+      ],
+      [
+       "AMD_2022_10K",
+       46
+      ],
+      [
+       "AMD_2022_10K",
+       20
+      ],
+      [
+       "AMD_2022_10K",
+       67
+      ],
+      [
+       "AMD_2022_10K",
+       4
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.5
+    },
+    "document/hybrid_rerank": {
+     "first_hit": 3,
+     "retrieved": [
+      [
+       "AMD_2022_10K",
+       65
+      ],
+      [
+       "AMD_2022_10K",
+       49
+      ],
+      [
+       "AMD_2022_10K",
+       43
+      ],
+      [
+       "AMD_2022_10K",
+       19
+      ],
+      [
+       "AMD_2022_10K",
+       28
+      ],
+      [
+       "AMD_2022_10K",
+       43
+      ],
+      [
+       "AMD_2022_10K",
+       46
+      ],
+      [
+       "AMD_2022_10K",
+       20
+      ],
+      [
+       "AMD_2022_10K",
+       67
+      ],
+      [
+       "AMD_2022_10K",
+       4
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.3333333333333333
+    }
+   }
+  },
+  {
+   "financebench_id": "financebench_id_01077",
+   "question_type": "domain-relevant",
+   "relevant": [
+    [
+     "BESTBUY_2023_10K",
+     51
+    ]
+   ],
+   "runs": {
+    "corpus/dense": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "BESTBUY_2023_10K",
+       69
+      ],
+      [
+       "BESTBUY_2023_10K",
+       28
+      ],
+      [
+       "BESTBUY_2023_10K",
+       19
+      ],
+      [
+       "BESTBUY_2023_10K",
+       22
+      ],
+      [
+       "BESTBUY_2023_10K",
+       24
+      ],
+      [
+       "BESTBUY_2023_10K",
+       30
+      ],
+      [
+       "BESTBUY_2023_10K",
+       42
+      ],
+      [
+       "BESTBUY_2023_10K",
+       28
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       25
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       6
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "corpus/bm25": {
+     "first_hit": 7,
+     "retrieved": [
+      [
+       "AMCOR_2023_10K",
+       66
+      ],
+      [
+       "BESTBUY_2023_10K",
+       48
+      ],
+      [
+       "BESTBUY_2023_10K",
+       44
+      ],
+      [
+       "AMCOR_2023_10K",
+       144
+      ],
+      [
+       "BESTBUY_2023_10K",
+       69
+      ],
+      [
+       "BESTBUY_2023_10K",
+       69
+      ],
+      [
+       "BESTBUY_2023_10K",
+       51
+      ],
+      [
+       "BESTBUY_2023_10K",
+       5
+      ],
+      [
+       "AMCOR_2023_10K",
+       144
+      ],
+      [
+       "BESTBUY_2023_10K",
+       45
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.14285714285714285
+    },
+    "corpus/hybrid": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "BESTBUY_2023_10K",
+       69
+      ],
+      [
+       "BESTBUY_2023_10K",
+       69
+      ],
+      [
+       "AMCOR_2023_10K",
+       66
+      ],
+      [
+       "BESTBUY_2023_10K",
+       28
+      ],
+      [
+       "BESTBUY_2023_10K",
+       48
+      ],
+      [
+       "BESTBUY_2023_10K",
+       19
+      ],
+      [
+       "BESTBUY_2023_10K",
+       44
+      ],
+      [
+       "BESTBUY_2023_10K",
+       22
+      ],
+      [
+       "AMCOR_2023_10K",
+       144
+      ],
+      [
+       "BESTBUY_2023_10K",
+       24
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "corpus/hybrid_rerank": {
+     "first_hit": 1,
+     "retrieved": [
+      [
+       "BESTBUY_2023_10K",
+       51
+      ],
+      [
+       "BESTBUY_2023_10K",
+       44
+      ],
+      [
+       "BESTBUY_2023_10K",
+       28
+      ],
+      [
+       "BESTBUY_2023_10K",
+       45
+      ],
+      [
+       "BESTBUY_2023_10K",
+       24
+      ],
+      [
+       "BESTBUY_2023_10K",
+       69
+      ],
+      [
+       "BESTBUY_2023_10K",
+       5
+      ],
+      [
+       "BESTBUY_2023_10K",
+       28
+      ],
+      [
+       "BESTBUY_2023_10K",
+       48
+      ],
+      [
+       "BESTBUY_2023_10K",
+       69
+      ]
+     ],
+     "recall@1": 1.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 1.0
+    },
+    "document/dense": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "BESTBUY_2023_10K",
+       69
+      ],
+      [
+       "BESTBUY_2023_10K",
+       28
+      ],
+      [
+       "BESTBUY_2023_10K",
+       19
+      ],
+      [
+       "BESTBUY_2023_10K",
+       22
+      ],
+      [
+       "BESTBUY_2023_10K",
+       24
+      ],
+      [
+       "BESTBUY_2023_10K",
+       30
+      ],
+      [
+       "BESTBUY_2023_10K",
+       42
+      ],
+      [
+       "BESTBUY_2023_10K",
+       28
+      ],
+      [
+       "BESTBUY_2023_10K",
+       39
+      ],
+      [
+       "BESTBUY_2023_10K",
+       69
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "document/bm25": {
+     "first_hit": 5,
+     "retrieved": [
+      [
+       "BESTBUY_2023_10K",
+       48
+      ],
+      [
+       "BESTBUY_2023_10K",
+       44
+      ],
+      [
+       "BESTBUY_2023_10K",
+       69
+      ],
+      [
+       "BESTBUY_2023_10K",
+       69
+      ],
+      [
+       "BESTBUY_2023_10K",
+       51
+      ],
+      [
+       "BESTBUY_2023_10K",
+       5
+      ],
+      [
+       "BESTBUY_2023_10K",
+       45
+      ],
+      [
+       "BESTBUY_2023_10K",
+       23
+      ],
+      [
+       "BESTBUY_2023_10K",
+       44
+      ],
+      [
+       "BESTBUY_2023_10K",
+       4
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.2
+    },
+    "document/hybrid": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "BESTBUY_2023_10K",
+       69
+      ],
+      [
+       "BESTBUY_2023_10K",
+       69
+      ],
+      [
+       "BESTBUY_2023_10K",
+       66
+      ],
+      [
+       "BESTBUY_2023_10K",
+       69
+      ],
+      [
+       "BESTBUY_2023_10K",
+       48
+      ],
+      [
+       "BESTBUY_2023_10K",
+       28
+      ],
+      [
+       "BESTBUY_2023_10K",
+       44
+      ],
+      [
+       "BESTBUY_2023_10K",
+       19
+      ],
+      [
+       "BESTBUY_2023_10K",
+       22
+      ],
+      [
+       "BESTBUY_2023_10K",
+       24
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "document/hybrid_rerank": {
+     "first_hit": 1,
+     "retrieved": [
+      [
+       "BESTBUY_2023_10K",
+       51
+      ],
+      [
+       "BESTBUY_2023_10K",
+       44
+      ],
+      [
+       "BESTBUY_2023_10K",
+       28
+      ],
+      [
+       "BESTBUY_2023_10K",
+       45
+      ],
+      [
+       "BESTBUY_2023_10K",
+       24
+      ],
+      [
+       "BESTBUY_2023_10K",
+       69
+      ],
+      [
+       "BESTBUY_2023_10K",
+       44
+      ],
+      [
+       "BESTBUY_2023_10K",
+       5
+      ],
+      [
+       "BESTBUY_2023_10K",
+       23
+      ],
+      [
+       "BESTBUY_2023_10K",
+       28
+      ]
+     ],
+     "recall@1": 1.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 1.0
+    }
+   }
+  },
+  {
+   "financebench_id": "financebench_id_00517",
+   "question_type": "domain-relevant",
+   "relevant": [
+    [
+     "BOEING_2022_10K",
+     62
+    ]
+   ],
+   "runs": {
+    "corpus/dense": {
+     "first_hit": 3,
+     "retrieved": [
+      [
+       "BOEING_2022_10K",
+       55
+      ],
+      [
+       "BOEING_2022_10K",
+       115
+      ],
+      [
+       "BOEING_2022_10K",
+       62
+      ],
+      [
+       "BOEING_2022_10K",
+       100
+      ],
+      [
+       "BOEING_2022_10K",
+       114
+      ],
+      [
+       "BOEING_2022_10K",
+       58
+      ],
+      [
+       "BOEING_2022_10K",
+       116
+      ],
+      [
+       "BOEING_2022_10K",
+       3
+      ],
+      [
+       "BOEING_2022_10K",
+       35
+      ],
+      [
+       "BOEING_2022_10K",
+       40
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.3333333333333333
+    },
+    "corpus/bm25": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "BESTBUY_2024Q2_10Q",
+       16
+      ],
+      [
+       "BESTBUY_2023_10K",
+       24
+      ],
+      [
+       "BESTBUY_2023_10K",
+       10
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       3
+      ],
+      [
+       "BESTBUY_2023_10K",
+       10
+      ],
+      [
+       "NIKE_2019_10K",
+       30
+      ],
+      [
+       "BESTBUY_2023_10K",
+       12
+      ],
+      [
+       "AMAZON_2019_10K",
+       20
+      ],
+      [
+       "NIKE_2019_10K",
+       36
+      ],
+      [
+       "AMAZON_2017_10K",
+       20
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "corpus/hybrid": {
+     "first_hit": 5,
+     "retrieved": [
+      [
+       "BOEING_2022_10K",
+       55
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       16
+      ],
+      [
+       "BOEING_2022_10K",
+       115
+      ],
+      [
+       "BESTBUY_2023_10K",
+       24
+      ],
+      [
+       "BOEING_2022_10K",
+       62
+      ],
+      [
+       "BESTBUY_2023_10K",
+       10
+      ],
+      [
+       "BOEING_2022_10K",
+       100
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       3
+      ],
+      [
+       "BOEING_2022_10K",
+       114
+      ],
+      [
+       "BESTBUY_2023_10K",
+       10
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.2
+    },
+    "corpus/hybrid_rerank": {
+     "first_hit": 6,
+     "retrieved": [
+      [
+       "BOEING_2022_10K",
+       114
+      ],
+      [
+       "BOEING_2022_10K",
+       115
+      ],
+      [
+       "BOEING_2022_10K",
+       116
+      ],
+      [
+       "BOEING_2022_10K",
+       40
+      ],
+      [
+       "BOEING_2022_10K",
+       55
+      ],
+      [
+       "BOEING_2022_10K",
+       62
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       16
+      ],
+      [
+       "BOEING_2022_10K",
+       3
+      ],
+      [
+       "BOEING_2022_10K",
+       58
+      ],
+      [
+       "BOEING_2022_10K",
+       100
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.16666666666666666
+    },
+    "document/dense": {
+     "first_hit": 3,
+     "retrieved": [
+      [
+       "BOEING_2022_10K",
+       55
+      ],
+      [
+       "BOEING_2022_10K",
+       115
+      ],
+      [
+       "BOEING_2022_10K",
+       62
+      ],
+      [
+       "BOEING_2022_10K",
+       100
+      ],
+      [
+       "BOEING_2022_10K",
+       114
+      ],
+      [
+       "BOEING_2022_10K",
+       58
+      ],
+      [
+       "BOEING_2022_10K",
+       116
+      ],
+      [
+       "BOEING_2022_10K",
+       3
+      ],
+      [
+       "BOEING_2022_10K",
+       35
+      ],
+      [
+       "BOEING_2022_10K",
+       40
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.3333333333333333
+    },
+    "document/bm25": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "BOEING_2022_10K",
+       117
+      ],
+      [
+       "BOEING_2022_10K",
+       66
+      ],
+      [
+       "BOEING_2022_10K",
+       48
+      ],
+      [
+       "BOEING_2022_10K",
+       116
+      ],
+      [
+       "BOEING_2022_10K",
+       65
+      ],
+      [
+       "BOEING_2022_10K",
+       117
+      ],
+      [
+       "BOEING_2022_10K",
+       165
+      ],
+      [
+       "BOEING_2022_10K",
+       88
+      ],
+      [
+       "BOEING_2022_10K",
+       49
+      ],
+      [
+       "BOEING_2022_10K",
+       155
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "document/hybrid": {
+     "first_hit": 5,
+     "retrieved": [
+      [
+       "BOEING_2022_10K",
+       55
+      ],
+      [
+       "BOEING_2022_10K",
+       117
+      ],
+      [
+       "BOEING_2022_10K",
+       115
+      ],
+      [
+       "BOEING_2022_10K",
+       66
+      ],
+      [
+       "BOEING_2022_10K",
+       62
+      ],
+      [
+       "BOEING_2022_10K",
+       48
+      ],
+      [
+       "BOEING_2022_10K",
+       100
+      ],
+      [
+       "BOEING_2022_10K",
+       116
+      ],
+      [
+       "BOEING_2022_10K",
+       114
+      ],
+      [
+       "BOEING_2022_10K",
+       65
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.2
+    },
+    "document/hybrid_rerank": {
+     "first_hit": 7,
+     "retrieved": [
+      [
+       "BOEING_2022_10K",
+       114
+      ],
+      [
+       "BOEING_2022_10K",
+       115
+      ],
+      [
+       "BOEING_2022_10K",
+       116
+      ],
+      [
+       "BOEING_2022_10K",
+       40
+      ],
+      [
+       "BOEING_2022_10K",
+       55
+      ],
+      [
+       "BOEING_2022_10K",
+       117
+      ],
+      [
+       "BOEING_2022_10K",
+       62
+      ],
+      [
+       "BOEING_2022_10K",
+       116
+      ],
+      [
+       "BOEING_2022_10K",
+       65
+      ],
+      [
+       "BOEING_2022_10K",
+       66
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.14285714285714285
+    }
+   }
+  },
+  {
+   "financebench_id": "financebench_id_00678",
+   "question_type": "domain-relevant",
+   "relevant": [
+    [
+     "BOEING_2022_10K",
+     55
+    ]
+   ],
+   "runs": {
+    "corpus/dense": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "BOEING_2022_10K",
+       51
+      ],
+      [
+       "BOEING_2022_10K",
+       47
+      ],
+      [
+       "BOEING_2022_10K",
+       24
+      ],
+      [
+       "BOEING_2022_10K",
+       50
+      ],
+      [
+       "BOEING_2022_10K",
+       49
+      ],
+      [
+       "BOEING_2022_10K",
+       15
+      ],
+      [
+       "BOEING_2022_10K",
+       62
+      ],
+      [
+       "BOEING_2022_10K",
+       100
+      ],
+      [
+       "BOEING_2022_10K",
+       30
+      ],
+      [
+       "BOEING_2022_10K",
+       35
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "corpus/bm25": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "AMD_2022_10K",
+       49
+      ],
+      [
+       "COSTCO_2021_10K",
+       26
+      ],
+      [
+       "NIKE_2019_10K",
+       31
+      ],
+      [
+       "COSTCO_2021_10K",
+       22
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       18
+      ],
+      [
+       "COSTCO_2021_10K",
+       26
+      ],
+      [
+       "AMD_2022_10K",
+       46
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       15
+      ],
+      [
+       "BOEING_2022_10K",
+       50
+      ],
+      [
+       "COSTCO_2021_10K",
+       26
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "corpus/hybrid": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "BOEING_2022_10K",
+       51
+      ],
+      [
+       "BOEING_2022_10K",
+       50
+      ],
+      [
+       "AMD_2022_10K",
+       49
+      ],
+      [
+       "BOEING_2022_10K",
+       47
+      ],
+      [
+       "COSTCO_2021_10K",
+       26
+      ],
+      [
+       "BOEING_2022_10K",
+       24
+      ],
+      [
+       "NIKE_2019_10K",
+       31
+      ],
+      [
+       "COSTCO_2021_10K",
+       22
+      ],
+      [
+       "BOEING_2022_10K",
+       49
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       18
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "corpus/hybrid_rerank": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "BOEING_2022_10K",
+       35
+      ],
+      [
+       "BOEING_2022_10K",
+       51
+      ],
+      [
+       "BOEING_2022_10K",
+       50
+      ],
+      [
+       "BOEING_2022_10K",
+       30
+      ],
+      [
+       "COSTCO_2021_10K",
+       22
+      ],
+      [
+       "BOEING_2022_10K",
+       15
+      ],
+      [
+       "BOEING_2022_10K",
+       47
+      ],
+      [
+       "AMD_2022_10K",
+       46
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       18
+      ],
+      [
+       "COSTCO_2021_10K",
+       26
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "document/dense": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "BOEING_2022_10K",
+       51
+      ],
+      [
+       "BOEING_2022_10K",
+       47
+      ],
+      [
+       "BOEING_2022_10K",
+       24
+      ],
+      [
+       "BOEING_2022_10K",
+       50
+      ],
+      [
+       "BOEING_2022_10K",
+       49
+      ],
+      [
+       "BOEING_2022_10K",
+       15
+      ],
+      [
+       "BOEING_2022_10K",
+       62
+      ],
+      [
+       "BOEING_2022_10K",
+       100
+      ],
+      [
+       "BOEING_2022_10K",
+       30
+      ],
+      [
+       "BOEING_2022_10K",
+       35
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "document/bm25": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "BOEING_2022_10K",
+       50
+      ],
+      [
+       "BOEING_2022_10K",
+       51
+      ],
+      [
+       "BOEING_2022_10K",
+       35
+      ],
+      [
+       "BOEING_2022_10K",
+       79
+      ],
+      [
+       "BOEING_2022_10K",
+       120
+      ],
+      [
+       "BOEING_2022_10K",
+       47
+      ],
+      [
+       "BOEING_2022_10K",
+       103
+      ],
+      [
+       "BOEING_2022_10K",
+       30
+      ],
+      [
+       "BOEING_2022_10K",
+       145
+      ],
+      [
+       "BOEING_2022_10K",
+       48
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "document/hybrid": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "BOEING_2022_10K",
+       51
+      ],
+      [
+       "BOEING_2022_10K",
+       50
+      ],
+      [
+       "BOEING_2022_10K",
+       47
+      ],
+      [
+       "BOEING_2022_10K",
+       35
+      ],
+      [
+       "BOEING_2022_10K",
+       120
+      ],
+      [
+       "BOEING_2022_10K",
+       30
+      ],
+      [
+       "BOEING_2022_10K",
+       24
+      ],
+      [
+       "BOEING_2022_10K",
+       79
+      ],
+      [
+       "BOEING_2022_10K",
+       49
+      ],
+      [
+       "BOEING_2022_10K",
+       15
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "document/hybrid_rerank": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "BOEING_2022_10K",
+       35
+      ],
+      [
+       "BOEING_2022_10K",
+       51
+      ],
+      [
+       "BOEING_2022_10K",
+       50
+      ],
+      [
+       "BOEING_2022_10K",
+       30
+      ],
+      [
+       "BOEING_2022_10K",
+       48
+      ],
+      [
+       "BOEING_2022_10K",
+       120
+      ],
+      [
+       "BOEING_2022_10K",
+       15
+      ],
+      [
+       "BOEING_2022_10K",
+       47
+      ],
+      [
+       "BOEING_2022_10K",
+       79
+      ],
+      [
+       "BOEING_2022_10K",
+       49
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    }
+   }
+  },
+  {
+   "financebench_id": "financebench_id_01275",
+   "question_type": "domain-relevant",
+   "relevant": [
+    [
+     "BESTBUY_2023_10K",
+     42
+    ]
+   ],
+   "runs": {
+    "corpus/dense": {
+     "first_hit": 6,
+     "retrieved": [
+      [
+       "BESTBUY_2023_10K",
+       29
+      ],
+      [
+       "BESTBUY_2023_10K",
+       29
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       21
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       21
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       21
+      ],
+      [
+       "BESTBUY_2023_10K",
+       42
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       6
+      ],
+      [
+       "BESTBUY_2023_10K",
+       29
+      ],
+      [
+       "BESTBUY_2023_10K",
+       42
+      ],
+      [
+       "BESTBUY_2023_10K",
+       28
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.16666666666666666
+    },
+    "corpus/bm25": {
+     "first_hit": 10,
+     "retrieved": [
+      [
+       "AMAZON_2019_10K",
+       29
+      ],
+      [
+       "BESTBUY_2023_10K",
+       29
+      ],
+      [
+       "AMAZON_2017_10K",
+       30
+      ],
+      [
+       "NETFLIX_2017_10K",
+       28
+      ],
+      [
+       "BESTBUY_2023_10K",
+       29
+      ],
+      [
+       "AMAZON_2019_10K",
+       29
+      ],
+      [
+       "AMCOR_2023_10K",
+       39
+      ],
+      [
+       "AMAZON_2019_10K",
+       29
+      ],
+      [
+       "AMAZON_2017_10K",
+       30
+      ],
+      [
+       "BESTBUY_2023_10K",
+       42
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.1
+    },
+    "corpus/hybrid": {
+     "first_hit": 5,
+     "retrieved": [
+      [
+       "BESTBUY_2023_10K",
+       29
+      ],
+      [
+       "BESTBUY_2023_10K",
+       29
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       21
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       21
+      ],
+      [
+       "BESTBUY_2023_10K",
+       42
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       21
+      ],
+      [
+       "AMAZON_2019_10K",
+       29
+      ],
+      [
+       "AMAZON_2017_10K",
+       30
+      ],
+      [
+       "NETFLIX_2017_10K",
+       28
+      ],
+      [
+       "BESTBUY_2023_10K",
+       42
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.2
+    },
+    "corpus/hybrid_rerank": {
+     "first_hit": 6,
+     "retrieved": [
+      [
+       "BESTBUY_2024Q2_10Q",
+       21
+      ],
+      [
+       "BESTBUY_2023_10K",
+       29
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       21
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       21
+      ],
+      [
+       "BESTBUY_2023_10K",
+       29
+      ],
+      [
+       "BESTBUY_2023_10K",
+       42
+      ],
+      [
+       "AMAZON_2017_10K",
+       30
+      ],
+      [
+       "BESTBUY_2023_10K",
+       29
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       6
+      ],
+      [
+       "AMAZON_2019_10K",
+       29
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.16666666666666666
+    },
+    "document/dense": {
+     "first_hit": 3,
+     "retrieved": [
+      [
+       "BESTBUY_2023_10K",
+       29
+      ],
+      [
+       "BESTBUY_2023_10K",
+       29
+      ],
+      [
+       "BESTBUY_2023_10K",
+       42
+      ],
+      [
+       "BESTBUY_2023_10K",
+       29
+      ],
+      [
+       "BESTBUY_2023_10K",
+       42
+      ],
+      [
+       "BESTBUY_2023_10K",
+       28
+      ],
+      [
+       "BESTBUY_2023_10K",
+       30
+      ],
+      [
+       "BESTBUY_2023_10K",
+       29
+      ],
+      [
+       "BESTBUY_2023_10K",
+       24
+      ],
+      [
+       "BESTBUY_2023_10K",
+       39
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.3333333333333333
+    },
+    "document/bm25": {
+     "first_hit": 3,
+     "retrieved": [
+      [
+       "BESTBUY_2023_10K",
+       29
+      ],
+      [
+       "BESTBUY_2023_10K",
+       29
+      ],
+      [
+       "BESTBUY_2023_10K",
+       42
+      ],
+      [
+       "BESTBUY_2023_10K",
+       29
+      ],
+      [
+       "BESTBUY_2023_10K",
+       21
+      ],
+      [
+       "BESTBUY_2023_10K",
+       42
+      ],
+      [
+       "BESTBUY_2023_10K",
+       32
+      ],
+      [
+       "BESTBUY_2023_10K",
+       29
+      ],
+      [
+       "BESTBUY_2023_10K",
+       37
+      ],
+      [
+       "BESTBUY_2023_10K",
+       42
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.3333333333333333
+    },
+    "document/hybrid": {
+     "first_hit": 3,
+     "retrieved": [
+      [
+       "BESTBUY_2023_10K",
+       29
+      ],
+      [
+       "BESTBUY_2023_10K",
+       29
+      ],
+      [
+       "BESTBUY_2023_10K",
+       42
+      ],
+      [
+       "BESTBUY_2023_10K",
+       29
+      ],
+      [
+       "BESTBUY_2023_10K",
+       42
+      ],
+      [
+       "BESTBUY_2023_10K",
+       29
+      ],
+      [
+       "BESTBUY_2023_10K",
+       30
+      ],
+      [
+       "BESTBUY_2023_10K",
+       21
+      ],
+      [
+       "BESTBUY_2023_10K",
+       28
+      ],
+      [
+       "BESTBUY_2023_10K",
+       32
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.3333333333333333
+    },
+    "document/hybrid_rerank": {
+     "first_hit": 3,
+     "retrieved": [
+      [
+       "BESTBUY_2023_10K",
+       29
+      ],
+      [
+       "BESTBUY_2023_10K",
+       29
+      ],
+      [
+       "BESTBUY_2023_10K",
+       42
+      ],
+      [
+       "BESTBUY_2023_10K",
+       29
+      ],
+      [
+       "BESTBUY_2023_10K",
+       18
+      ],
+      [
+       "BESTBUY_2023_10K",
+       42
+      ],
+      [
+       "BESTBUY_2023_10K",
+       29
+      ],
+      [
+       "BESTBUY_2023_10K",
+       30
+      ],
+      [
+       "BESTBUY_2023_10K",
+       42
+      ],
+      [
+       "BESTBUY_2023_10K",
+       44
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.3333333333333333
+    }
+   }
+  },
+  {
+   "financebench_id": "financebench_id_01290",
+   "question_type": "domain-relevant",
+   "relevant": [
+    [
+     "BOEING_2022_10K",
+     8
+    ],
+    [
+     "BOEING_2022_10K",
+     10
+    ],
+    [
+     "BOEING_2022_10K",
+     14
+    ]
+   ],
+   "runs": {
+    "corpus/dense": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "BOEING_2022_10K",
+       58
+      ],
+      [
+       "BOEING_2022_10K",
+       115
+      ],
+      [
+       "BOEING_2022_10K",
+       55
+      ],
+      [
+       "BOEING_2022_10K",
+       5
+      ],
+      [
+       "BOEING_2022_10K",
+       3
+      ],
+      [
+       "BOEING_2022_10K",
+       21
+      ],
+      [
+       "BOEING_2022_10K",
+       128
+      ],
+      [
+       "BOEING_2022_10K",
+       62
+      ],
+      [
+       "BOEING_2022_10K",
+       139
+      ],
+      [
+       "BOEING_2022_10K",
+       59
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "corpus/bm25": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "BOEING_2022_10K",
+       118
+      ],
+      [
+       "BOEING_2022_10K",
+       46
+      ],
+      [
+       "AMD_2022_10K",
+       11
+      ],
+      [
+       "BOEING_2022_10K",
+       149
+      ],
+      [
+       "BOEING_2022_10K",
+       118
+      ],
+      [
+       "BOEING_2022_10K",
+       29
+      ],
+      [
+       "BOEING_2022_10K",
+       12
+      ],
+      [
+       "AMD_2022_10K",
+       22
+      ],
+      [
+       "BOEING_2022_10K",
+       33
+      ],
+      [
+       "BOEING_2022_10K",
+       30
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "corpus/hybrid": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "BOEING_2022_10K",
+       118
+      ],
+      [
+       "BOEING_2022_10K",
+       58
+      ],
+      [
+       "BOEING_2022_10K",
+       115
+      ],
+      [
+       "BOEING_2022_10K",
+       46
+      ],
+      [
+       "BOEING_2022_10K",
+       55
+      ],
+      [
+       "AMD_2022_10K",
+       11
+      ],
+      [
+       "BOEING_2022_10K",
+       5
+      ],
+      [
+       "BOEING_2022_10K",
+       149
+      ],
+      [
+       "BOEING_2022_10K",
+       3
+      ],
+      [
+       "BOEING_2022_10K",
+       118
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "corpus/hybrid_rerank": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "BOEING_2022_10K",
+       5
+      ],
+      [
+       "BOEING_2022_10K",
+       128
+      ],
+      [
+       "BOEING_2022_10K",
+       46
+      ],
+      [
+       "BOEING_2022_10K",
+       118
+      ],
+      [
+       "BOEING_2022_10K",
+       3
+      ],
+      [
+       "BOEING_2022_10K",
+       12
+      ],
+      [
+       "BOEING_2022_10K",
+       115
+      ],
+      [
+       "BOEING_2022_10K",
+       30
+      ],
+      [
+       "BOEING_2022_10K",
+       29
+      ],
+      [
+       "BOEING_2022_10K",
+       58
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "document/dense": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "BOEING_2022_10K",
+       58
+      ],
+      [
+       "BOEING_2022_10K",
+       115
+      ],
+      [
+       "BOEING_2022_10K",
+       55
+      ],
+      [
+       "BOEING_2022_10K",
+       5
+      ],
+      [
+       "BOEING_2022_10K",
+       3
+      ],
+      [
+       "BOEING_2022_10K",
+       21
+      ],
+      [
+       "BOEING_2022_10K",
+       128
+      ],
+      [
+       "BOEING_2022_10K",
+       62
+      ],
+      [
+       "BOEING_2022_10K",
+       139
+      ],
+      [
+       "BOEING_2022_10K",
+       59
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "document/bm25": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "BOEING_2022_10K",
+       118
+      ],
+      [
+       "BOEING_2022_10K",
+       46
+      ],
+      [
+       "BOEING_2022_10K",
+       149
+      ],
+      [
+       "BOEING_2022_10K",
+       118
+      ],
+      [
+       "BOEING_2022_10K",
+       29
+      ],
+      [
+       "BOEING_2022_10K",
+       12
+      ],
+      [
+       "BOEING_2022_10K",
+       33
+      ],
+      [
+       "BOEING_2022_10K",
+       30
+      ],
+      [
+       "BOEING_2022_10K",
+       150
+      ],
+      [
+       "BOEING_2022_10K",
+       153
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "document/hybrid": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "BOEING_2022_10K",
+       118
+      ],
+      [
+       "BOEING_2022_10K",
+       58
+      ],
+      [
+       "BOEING_2022_10K",
+       115
+      ],
+      [
+       "BOEING_2022_10K",
+       46
+      ],
+      [
+       "BOEING_2022_10K",
+       55
+      ],
+      [
+       "BOEING_2022_10K",
+       149
+      ],
+      [
+       "BOEING_2022_10K",
+       5
+      ],
+      [
+       "BOEING_2022_10K",
+       118
+      ],
+      [
+       "BOEING_2022_10K",
+       3
+      ],
+      [
+       "BOEING_2022_10K",
+       29
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "document/hybrid_rerank": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "BOEING_2022_10K",
+       5
+      ],
+      [
+       "BOEING_2022_10K",
+       128
+      ],
+      [
+       "BOEING_2022_10K",
+       46
+      ],
+      [
+       "BOEING_2022_10K",
+       118
+      ],
+      [
+       "BOEING_2022_10K",
+       3
+      ],
+      [
+       "BOEING_2022_10K",
+       12
+      ],
+      [
+       "BOEING_2022_10K",
+       115
+      ],
+      [
+       "BOEING_2022_10K",
+       30
+      ],
+      [
+       "BOEING_2022_10K",
+       29
+      ],
+      [
+       "BOEING_2022_10K",
+       58
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    }
+   }
+  },
+  {
+   "financebench_id": "financebench_id_00685",
+   "question_type": "domain-relevant",
+   "relevant": [
+    [
+     "BESTBUY_2023_10K",
+     40
+    ]
+   ],
+   "runs": {
+    "corpus/dense": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "BESTBUY_2023_10K",
+       18
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       19
+      ],
+      [
+       "BESTBUY_2023_10K",
+       23
+      ],
+      [
+       "BESTBUY_2023_10K",
+       22
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       14
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       18
+      ],
+      [
+       "BESTBUY_2023_10K",
+       23
+      ],
+      [
+       "BESTBUY_2023_10K",
+       24
+      ],
+      [
+       "BESTBUY_2023_10K",
+       32
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       14
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "corpus/bm25": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "BOEING_2022_10K",
+       51
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       46
+      ],
+      [
+       "AMCOR_2023_10K",
+       60
+      ],
+      [
+       "BOEING_2022_10K",
+       50
+      ],
+      [
+       "COSTCO_2021_10K",
+       26
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       18
+      ],
+      [
+       "COSTCO_2021_10K",
+       10
+      ],
+      [
+       "NIKE_2019_10K",
+       12
+      ],
+      [
+       "NETFLIX_2015_10K",
+       31
+      ],
+      [
+       "BESTBUY_2023_10K",
+       9
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "corpus/hybrid": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "BESTBUY_2023_10K",
+       18
+      ],
+      [
+       "BOEING_2022_10K",
+       51
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       19
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       46
+      ],
+      [
+       "BESTBUY_2023_10K",
+       23
+      ],
+      [
+       "AMCOR_2023_10K",
+       60
+      ],
+      [
+       "BESTBUY_2023_10K",
+       22
+      ],
+      [
+       "BOEING_2022_10K",
+       50
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       14
+      ],
+      [
+       "COSTCO_2021_10K",
+       26
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "corpus/hybrid_rerank": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "BESTBUY_2024Q2_10Q",
+       18
+      ],
+      [
+       "BESTBUY_2023_10K",
+       18
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       19
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       18
+      ],
+      [
+       "COSTCO_2021_10K",
+       26
+      ],
+      [
+       "BESTBUY_2023_10K",
+       32
+      ],
+      [
+       "BESTBUY_2023_10K",
+       24
+      ],
+      [
+       "BOEING_2022_10K",
+       50
+      ],
+      [
+       "BESTBUY_2023_10K",
+       22
+      ],
+      [
+       "BESTBUY_2023_10K",
+       23
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "document/dense": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "BESTBUY_2023_10K",
+       18
+      ],
+      [
+       "BESTBUY_2023_10K",
+       23
+      ],
+      [
+       "BESTBUY_2023_10K",
+       22
+      ],
+      [
+       "BESTBUY_2023_10K",
+       23
+      ],
+      [
+       "BESTBUY_2023_10K",
+       24
+      ],
+      [
+       "BESTBUY_2023_10K",
+       32
+      ],
+      [
+       "BESTBUY_2023_10K",
+       25
+      ],
+      [
+       "BESTBUY_2023_10K",
+       32
+      ],
+      [
+       "BESTBUY_2023_10K",
+       10
+      ],
+      [
+       "BESTBUY_2023_10K",
+       62
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "document/bm25": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "BESTBUY_2023_10K",
+       9
+      ],
+      [
+       "BESTBUY_2023_10K",
+       11
+      ],
+      [
+       "BESTBUY_2023_10K",
+       18
+      ],
+      [
+       "BESTBUY_2023_10K",
+       14
+      ],
+      [
+       "BESTBUY_2023_10K",
+       61
+      ],
+      [
+       "BESTBUY_2023_10K",
+       10
+      ],
+      [
+       "BESTBUY_2023_10K",
+       61
+      ],
+      [
+       "BESTBUY_2023_10K",
+       8
+      ],
+      [
+       "BESTBUY_2023_10K",
+       33
+      ],
+      [
+       "BESTBUY_2023_10K",
+       8
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "document/hybrid": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "BESTBUY_2023_10K",
+       18
+      ],
+      [
+       "BESTBUY_2023_10K",
+       10
+      ],
+      [
+       "BESTBUY_2023_10K",
+       23
+      ],
+      [
+       "BESTBUY_2023_10K",
+       33
+      ],
+      [
+       "BESTBUY_2023_10K",
+       18
+      ],
+      [
+       "BESTBUY_2023_10K",
+       23
+      ],
+      [
+       "BESTBUY_2023_10K",
+       9
+      ],
+      [
+       "BESTBUY_2023_10K",
+       23
+      ],
+      [
+       "BESTBUY_2023_10K",
+       11
+      ],
+      [
+       "BESTBUY_2023_10K",
+       22
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "document/hybrid_rerank": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "BESTBUY_2023_10K",
+       18
+      ],
+      [
+       "BESTBUY_2023_10K",
+       32
+      ],
+      [
+       "BESTBUY_2023_10K",
+       33
+      ],
+      [
+       "BESTBUY_2023_10K",
+       11
+      ],
+      [
+       "BESTBUY_2023_10K",
+       10
+      ],
+      [
+       "BESTBUY_2023_10K",
+       14
+      ],
+      [
+       "BESTBUY_2023_10K",
+       61
+      ],
+      [
+       "BESTBUY_2023_10K",
+       23
+      ],
+      [
+       "BESTBUY_2023_10K",
+       18
+      ],
+      [
+       "BESTBUY_2023_10K",
+       25
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    }
+   }
+  },
+  {
+   "financebench_id": "financebench_id_01148",
+   "question_type": "domain-relevant",
+   "relevant": [
+    [
+     "AMCOR_2023_10K",
+     5
+    ]
+   ],
+   "runs": {
+    "corpus/dense": {
+     "first_hit": 4,
+     "retrieved": [
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       6
+      ],
+      [
+       "AMCOR_2023_10K",
+       30
+      ],
+      [
+       "AMCOR_2023_10K",
+       7
+      ],
+      [
+       "AMCOR_2023_10K",
+       5
+      ],
+      [
+       "AMCOR_2023_10K",
+       55
+      ],
+      [
+       "AMCOR_2023_10K",
+       55
+      ],
+      [
+       "AMCOR_2023_10K",
+       11
+      ],
+      [
+       "AMCOR_2023_10K",
+       37
+      ],
+      [
+       "AMCOR_2023_10K",
+       29
+      ],
+      [
+       "AMCOR_2023_10K",
+       118
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.25
+    },
+    "corpus/bm25": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "AMCOR_2023_10K",
+       14
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       16
+      ],
+      [
+       "AMCOR_2023_10K",
+       15
+      ],
+      [
+       "AMAZON_2019_10K",
+       26
+      ],
+      [
+       "AMCOR_2023_10K",
+       12
+      ],
+      [
+       "AMCOR_2023_10K",
+       14
+      ],
+      [
+       "AMAZON_2017_10K",
+       12
+      ],
+      [
+       "BOEING_2022_10K",
+       89
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       43
+      ],
+      [
+       "BESTBUY_2023_10K",
+       10
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "corpus/hybrid": {
+     "first_hit": 8,
+     "retrieved": [
+      [
+       "AMCOR_2023_10K",
+       12
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       6
+      ],
+      [
+       "AMCOR_2023_10K",
+       14
+      ],
+      [
+       "AMCOR_2023_10K",
+       30
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       16
+      ],
+      [
+       "AMCOR_2023_10K",
+       7
+      ],
+      [
+       "AMCOR_2023_10K",
+       15
+      ],
+      [
+       "AMCOR_2023_10K",
+       5
+      ],
+      [
+       "AMAZON_2019_10K",
+       26
+      ],
+      [
+       "AMCOR_2023_10K",
+       55
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.125
+    },
+    "corpus/hybrid_rerank": {
+     "first_hit": 5,
+     "retrieved": [
+      [
+       "AMCOR_2023_10K",
+       55
+      ],
+      [
+       "AMCOR_2023_10K",
+       30
+      ],
+      [
+       "AMCOR_2023_10K",
+       55
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       6
+      ],
+      [
+       "AMCOR_2023_10K",
+       5
+      ],
+      [
+       "AMCOR_2023_10K",
+       7
+      ],
+      [
+       "AMCOR_2023_10K",
+       14
+      ],
+      [
+       "AMCOR_2023_10K",
+       14
+      ],
+      [
+       "AMCOR_2023_10K",
+       15
+      ],
+      [
+       "AMCOR_2023_10K",
+       11
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.2
+    },
+    "document/dense": {
+     "first_hit": 3,
+     "retrieved": [
+      [
+       "AMCOR_2023_10K",
+       30
+      ],
+      [
+       "AMCOR_2023_10K",
+       7
+      ],
+      [
+       "AMCOR_2023_10K",
+       5
+      ],
+      [
+       "AMCOR_2023_10K",
+       55
+      ],
+      [
+       "AMCOR_2023_10K",
+       55
+      ],
+      [
+       "AMCOR_2023_10K",
+       11
+      ],
+      [
+       "AMCOR_2023_10K",
+       37
+      ],
+      [
+       "AMCOR_2023_10K",
+       29
+      ],
+      [
+       "AMCOR_2023_10K",
+       118
+      ],
+      [
+       "AMCOR_2023_10K",
+       151
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.3333333333333333
+    },
+    "document/bm25": {
+     "first_hit": 8,
+     "retrieved": [
+      [
+       "AMCOR_2023_10K",
+       14
+      ],
+      [
+       "AMCOR_2023_10K",
+       15
+      ],
+      [
+       "AMCOR_2023_10K",
+       12
+      ],
+      [
+       "AMCOR_2023_10K",
+       14
+      ],
+      [
+       "AMCOR_2023_10K",
+       24
+      ],
+      [
+       "AMCOR_2023_10K",
+       17
+      ],
+      [
+       "AMCOR_2023_10K",
+       46
+      ],
+      [
+       "AMCOR_2023_10K",
+       5
+      ],
+      [
+       "AMCOR_2023_10K",
+       7
+      ],
+      [
+       "AMCOR_2023_10K",
+       22
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.125
+    },
+    "document/hybrid": {
+     "first_hit": 4,
+     "retrieved": [
+      [
+       "AMCOR_2023_10K",
+       12
+      ],
+      [
+       "AMCOR_2023_10K",
+       7
+      ],
+      [
+       "AMCOR_2023_10K",
+       9
+      ],
+      [
+       "AMCOR_2023_10K",
+       5
+      ],
+      [
+       "AMCOR_2023_10K",
+       30
+      ],
+      [
+       "AMCOR_2023_10K",
+       14
+      ],
+      [
+       "AMCOR_2023_10K",
+       7
+      ],
+      [
+       "AMCOR_2023_10K",
+       15
+      ],
+      [
+       "AMCOR_2023_10K",
+       5
+      ],
+      [
+       "AMCOR_2023_10K",
+       55
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.25
+    },
+    "document/hybrid_rerank": {
+     "first_hit": 5,
+     "retrieved": [
+      [
+       "AMCOR_2023_10K",
+       55
+      ],
+      [
+       "AMCOR_2023_10K",
+       30
+      ],
+      [
+       "AMCOR_2023_10K",
+       55
+      ],
+      [
+       "AMCOR_2023_10K",
+       7
+      ],
+      [
+       "AMCOR_2023_10K",
+       5
+      ],
+      [
+       "AMCOR_2023_10K",
+       5
+      ],
+      [
+       "AMCOR_2023_10K",
+       7
+      ],
+      [
+       "AMCOR_2023_10K",
+       14
+      ],
+      [
+       "AMCOR_2023_10K",
+       14
+      ],
+      [
+       "AMCOR_2023_10K",
+       5
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.2
+    }
+   }
+  },
+  {
+   "financebench_id": "financebench_id_00222",
+   "question_type": "domain-relevant",
+   "relevant": [
+    [
+     "AMD_2022_10K",
+     56
+    ]
+   ],
+   "runs": {
+    "corpus/dense": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "AMD_2022_10K",
+       80
+      ],
+      [
+       "AMD_2022_10K",
+       53
+      ],
+      [
+       "NETFLIX_2015_10K",
+       27
+      ],
+      [
+       "AMD_2022_10K",
+       41
+      ],
+      [
+       "AMD_2022_10K",
+       51
+      ],
+      [
+       "AMD_2022_10K",
+       53
+      ],
+      [
+       "AMD_2022_10K",
+       19
+      ],
+      [
+       "AMD_2022_10K",
+       19
+      ],
+      [
+       "AMD_2022_10K",
+       67
+      ],
+      [
+       "AMD_2022_10K",
+       1
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "corpus/bm25": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "BESTBUY_2024Q2_10Q",
+       22
+      ],
+      [
+       "NETFLIX_2015_10K",
+       27
+      ],
+      [
+       "BESTBUY_2023_10K",
+       18
+      ],
+      [
+       "NETFLIX_2017_10K",
+       28
+      ],
+      [
+       "NETFLIX_2017_10K",
+       28
+      ],
+      [
+       "BOEING_2022_10K",
+       42
+      ],
+      [
+       "BESTBUY_2023_10K",
+       31
+      ],
+      [
+       "AMCOR_2023_10K",
+       21
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       9
+      ],
+      [
+       "AMAZON_2017_10K",
+       79
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "corpus/hybrid": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "NETFLIX_2015_10K",
+       27
+      ],
+      [
+       "AMD_2022_10K",
+       80
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       22
+      ],
+      [
+       "AMD_2022_10K",
+       53
+      ],
+      [
+       "BESTBUY_2023_10K",
+       18
+      ],
+      [
+       "AMD_2022_10K",
+       41
+      ],
+      [
+       "NETFLIX_2017_10K",
+       28
+      ],
+      [
+       "AMD_2022_10K",
+       51
+      ],
+      [
+       "NETFLIX_2017_10K",
+       28
+      ],
+      [
+       "AMD_2022_10K",
+       53
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "corpus/hybrid_rerank": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "AMD_2022_10K",
+       53
+      ],
+      [
+       "AMD_2022_10K",
+       67
+      ],
+      [
+       "AMD_2022_10K",
+       53
+      ],
+      [
+       "AMD_2022_10K",
+       51
+      ],
+      [
+       "AMD_2022_10K",
+       19
+      ],
+      [
+       "AMD_2022_10K",
+       80
+      ],
+      [
+       "BESTBUY_2023_10K",
+       18
+      ],
+      [
+       "AMD_2022_10K",
+       1
+      ],
+      [
+       "NETFLIX_2017_10K",
+       28
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       9
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "document/dense": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "AMD_2022_10K",
+       80
+      ],
+      [
+       "AMD_2022_10K",
+       53
+      ],
+      [
+       "AMD_2022_10K",
+       41
+      ],
+      [
+       "AMD_2022_10K",
+       51
+      ],
+      [
+       "AMD_2022_10K",
+       53
+      ],
+      [
+       "AMD_2022_10K",
+       19
+      ],
+      [
+       "AMD_2022_10K",
+       19
+      ],
+      [
+       "AMD_2022_10K",
+       67
+      ],
+      [
+       "AMD_2022_10K",
+       1
+      ],
+      [
+       "AMD_2022_10K",
+       1
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "document/bm25": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "AMD_2022_10K",
+       36
+      ],
+      [
+       "AMD_2022_10K",
+       15
+      ],
+      [
+       "AMD_2022_10K",
+       65
+      ],
+      [
+       "AMD_2022_10K",
+       92
+      ],
+      [
+       "AMD_2022_10K",
+       53
+      ],
+      [
+       "AMD_2022_10K",
+       53
+      ],
+      [
+       "AMD_2022_10K",
+       45
+      ],
+      [
+       "AMD_2022_10K",
+       87
+      ],
+      [
+       "AMD_2022_10K",
+       36
+      ],
+      [
+       "AMD_2022_10K",
+       51
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "document/hybrid": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "AMD_2022_10K",
+       53
+      ],
+      [
+       "AMD_2022_10K",
+       53
+      ],
+      [
+       "AMD_2022_10K",
+       51
+      ],
+      [
+       "AMD_2022_10K",
+       67
+      ],
+      [
+       "AMD_2022_10K",
+       80
+      ],
+      [
+       "AMD_2022_10K",
+       36
+      ],
+      [
+       "AMD_2022_10K",
+       15
+      ],
+      [
+       "AMD_2022_10K",
+       41
+      ],
+      [
+       "AMD_2022_10K",
+       65
+      ],
+      [
+       "AMD_2022_10K",
+       92
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "document/hybrid_rerank": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "AMD_2022_10K",
+       36
+      ],
+      [
+       "AMD_2022_10K",
+       92
+      ],
+      [
+       "AMD_2022_10K",
+       36
+      ],
+      [
+       "AMD_2022_10K",
+       53
+      ],
+      [
+       "AMD_2022_10K",
+       18
+      ],
+      [
+       "AMD_2022_10K",
+       67
+      ],
+      [
+       "AMD_2022_10K",
+       53
+      ],
+      [
+       "AMD_2022_10K",
+       45
+      ],
+      [
+       "AMD_2022_10K",
+       51
+      ],
+      [
+       "AMD_2022_10K",
+       65
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    }
+   }
+  },
+  {
+   "financebench_id": "financebench_id_00684",
+   "question_type": "domain-relevant",
+   "relevant": [
+    [
+     "AMCOR_2023_10K",
+     50
+    ]
+   ],
+   "runs": {
+    "corpus/dense": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       7
+      ],
+      [
+       "AMCOR_2023_10K",
+       35
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       3
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       1
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       7
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       7
+      ],
+      [
+       "AMCOR_2023_10K",
+       29
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       1
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       2
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       6
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "corpus/bm25": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "COSTCO_2021_10K",
+       26
+      ],
+      [
+       "NIKE_2019_10K",
+       31
+      ],
+      [
+       "COSTCO_2021_10K",
+       22
+      ],
+      [
+       "AMD_2022_10K",
+       49
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       18
+      ],
+      [
+       "COSTCO_2021_10K",
+       26
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       15
+      ],
+      [
+       "AMD_2022_10K",
+       46
+      ],
+      [
+       "COSTCO_2021_10K",
+       26
+      ],
+      [
+       "NIKE_2019_10K",
+       37
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "corpus/hybrid": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       7
+      ],
+      [
+       "COSTCO_2021_10K",
+       26
+      ],
+      [
+       "AMCOR_2023_10K",
+       35
+      ],
+      [
+       "NIKE_2019_10K",
+       31
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       3
+      ],
+      [
+       "COSTCO_2021_10K",
+       22
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       1
+      ],
+      [
+       "AMD_2022_10K",
+       49
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       7
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       18
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "corpus/hybrid_rerank": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       7
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       2
+      ],
+      [
+       "COSTCO_2021_10K",
+       22
+      ],
+      [
+       "AMCOR_2023_10K",
+       35
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       3
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       6
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       7
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       18
+      ],
+      [
+       "COSTCO_2021_10K",
+       26
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       7
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "document/dense": {
+     "first_hit": 6,
+     "retrieved": [
+      [
+       "AMCOR_2023_10K",
+       35
+      ],
+      [
+       "AMCOR_2023_10K",
+       29
+      ],
+      [
+       "AMCOR_2023_10K",
+       49
+      ],
+      [
+       "AMCOR_2023_10K",
+       32
+      ],
+      [
+       "AMCOR_2023_10K",
+       58
+      ],
+      [
+       "AMCOR_2023_10K",
+       50
+      ],
+      [
+       "AMCOR_2023_10K",
+       61
+      ],
+      [
+       "AMCOR_2023_10K",
+       77
+      ],
+      [
+       "AMCOR_2023_10K",
+       56
+      ],
+      [
+       "AMCOR_2023_10K",
+       100
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.16666666666666666
+    },
+    "document/bm25": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "AMCOR_2023_10K",
+       60
+      ],
+      [
+       "AMCOR_2023_10K",
+       138
+      ],
+      [
+       "AMCOR_2023_10K",
+       145
+      ],
+      [
+       "AMCOR_2023_10K",
+       33
+      ],
+      [
+       "AMCOR_2023_10K",
+       119
+      ],
+      [
+       "AMCOR_2023_10K",
+       144
+      ],
+      [
+       "AMCOR_2023_10K",
+       33
+      ],
+      [
+       "AMCOR_2023_10K",
+       133
+      ],
+      [
+       "AMCOR_2023_10K",
+       86
+      ],
+      [
+       "AMCOR_2023_10K",
+       58
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "document/hybrid": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "AMCOR_2023_10K",
+       60
+      ],
+      [
+       "AMCOR_2023_10K",
+       33
+      ],
+      [
+       "AMCOR_2023_10K",
+       35
+      ],
+      [
+       "AMCOR_2023_10K",
+       29
+      ],
+      [
+       "AMCOR_2023_10K",
+       138
+      ],
+      [
+       "AMCOR_2023_10K",
+       49
+      ],
+      [
+       "AMCOR_2023_10K",
+       145
+      ],
+      [
+       "AMCOR_2023_10K",
+       32
+      ],
+      [
+       "AMCOR_2023_10K",
+       33
+      ],
+      [
+       "AMCOR_2023_10K",
+       58
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "document/hybrid_rerank": {
+     "first_hit": 10,
+     "retrieved": [
+      [
+       "AMCOR_2023_10K",
+       33
+      ],
+      [
+       "AMCOR_2023_10K",
+       60
+      ],
+      [
+       "AMCOR_2023_10K",
+       33
+      ],
+      [
+       "AMCOR_2023_10K",
+       61
+      ],
+      [
+       "AMCOR_2023_10K",
+       35
+      ],
+      [
+       "AMCOR_2023_10K",
+       58
+      ],
+      [
+       "AMCOR_2023_10K",
+       32
+      ],
+      [
+       "AMCOR_2023_10K",
+       58
+      ],
+      [
+       "AMCOR_2023_10K",
+       49
+      ],
+      [
+       "AMCOR_2023_10K",
+       50
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.1
+    }
+   }
+  },
+  {
+   "financebench_id": "financebench_id_03282",
+   "question_type": "metrics-generated",
+   "relevant": [
+    [
+     "NETFLIX_2017_10K",
+     45
+    ]
+   ],
+   "runs": {
+    "corpus/dense": {
+     "first_hit": 1,
+     "retrieved": [
+      [
+       "NETFLIX_2017_10K",
+       45
+      ],
+      [
+       "NETFLIX_2015_10K",
+       43
+      ],
+      [
+       "NETFLIX_2017_10K",
+       45
+      ],
+      [
+       "NETFLIX_2017_10K",
+       13
+      ],
+      [
+       "NETFLIX_2015_10K",
+       45
+      ],
+      [
+       "NETFLIX_2017_10K",
+       41
+      ],
+      [
+       "NETFLIX_2017_10K",
+       44
+      ],
+      [
+       "NETFLIX_2015_10K",
+       17
+      ],
+      [
+       "NETFLIX_2017_10K",
+       47
+      ],
+      [
+       "NETFLIX_2017_10K",
+       60
+      ]
+     ],
+     "recall@1": 1.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 1.0
+    },
+    "corpus/bm25": {
+     "first_hit": 9,
+     "retrieved": [
+      [
+       "AMCOR_2023_10K",
+       88
+      ],
+      [
+       "BESTBUY_2023_10K",
+       31
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       22
+      ],
+      [
+       "AMCOR_2023_10K",
+       38
+      ],
+      [
+       "NIKE_2019_10K",
+       77
+      ],
+      [
+       "NETFLIX_2017_10K",
+       51
+      ],
+      [
+       "AMCOR_2023_10K",
+       88
+      ],
+      [
+       "AMCOR_2023_10K",
+       78
+      ],
+      [
+       "NETFLIX_2017_10K",
+       45
+      ],
+      [
+       "NETFLIX_2017_10K",
+       31
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.1111111111111111
+    },
+    "corpus/hybrid": {
+     "first_hit": 1,
+     "retrieved": [
+      [
+       "NETFLIX_2017_10K",
+       45
+      ],
+      [
+       "NETFLIX_2017_10K",
+       13
+      ],
+      [
+       "NETFLIX_2015_10K",
+       43
+      ],
+      [
+       "NETFLIX_2017_10K",
+       30
+      ],
+      [
+       "AMCOR_2023_10K",
+       88
+      ],
+      [
+       "BESTBUY_2023_10K",
+       31
+      ],
+      [
+       "NETFLIX_2017_10K",
+       45
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       22
+      ],
+      [
+       "AMCOR_2023_10K",
+       38
+      ],
+      [
+       "NETFLIX_2015_10K",
+       45
+      ]
+     ],
+     "recall@1": 1.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 1.0
+    },
+    "corpus/hybrid_rerank": {
+     "first_hit": 1,
+     "retrieved": [
+      [
+       "NETFLIX_2017_10K",
+       45
+      ],
+      [
+       "NETFLIX_2017_10K",
+       45
+      ],
+      [
+       "NETFLIX_2017_10K",
+       30
+      ],
+      [
+       "NETFLIX_2015_10K",
+       43
+      ],
+      [
+       "NETFLIX_2015_10K",
+       17
+      ],
+      [
+       "NETFLIX_2017_10K",
+       60
+      ],
+      [
+       "NETFLIX_2017_10K",
+       31
+      ],
+      [
+       "NETFLIX_2017_10K",
+       51
+      ],
+      [
+       "NETFLIX_2017_10K",
+       13
+      ],
+      [
+       "NETFLIX_2017_10K",
+       44
+      ]
+     ],
+     "recall@1": 1.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 1.0
+    },
+    "document/dense": {
+     "first_hit": 1,
+     "retrieved": [
+      [
+       "NETFLIX_2017_10K",
+       45
+      ],
+      [
+       "NETFLIX_2017_10K",
+       45
+      ],
+      [
+       "NETFLIX_2017_10K",
+       13
+      ],
+      [
+       "NETFLIX_2017_10K",
+       41
+      ],
+      [
+       "NETFLIX_2017_10K",
+       44
+      ],
+      [
+       "NETFLIX_2017_10K",
+       47
+      ],
+      [
+       "NETFLIX_2017_10K",
+       60
+      ],
+      [
+       "NETFLIX_2017_10K",
+       54
+      ],
+      [
+       "NETFLIX_2017_10K",
+       44
+      ],
+      [
+       "NETFLIX_2017_10K",
+       30
+      ]
+     ],
+     "recall@1": 1.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 1.0
+    },
+    "document/bm25": {
+     "first_hit": 2,
+     "retrieved": [
+      [
+       "NETFLIX_2017_10K",
+       51
+      ],
+      [
+       "NETFLIX_2017_10K",
+       45
+      ],
+      [
+       "NETFLIX_2017_10K",
+       31
+      ],
+      [
+       "NETFLIX_2017_10K",
+       54
+      ],
+      [
+       "NETFLIX_2017_10K",
+       31
+      ],
+      [
+       "NETFLIX_2017_10K",
+       13
+      ],
+      [
+       "NETFLIX_2017_10K",
+       30
+      ],
+      [
+       "NETFLIX_2017_10K",
+       51
+      ],
+      [
+       "NETFLIX_2017_10K",
+       19
+      ],
+      [
+       "NETFLIX_2017_10K",
+       60
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.5
+    },
+    "document/hybrid": {
+     "first_hit": 1,
+     "retrieved": [
+      [
+       "NETFLIX_2017_10K",
+       45
+      ],
+      [
+       "NETFLIX_2017_10K",
+       13
+      ],
+      [
+       "NETFLIX_2017_10K",
+       30
+      ],
+      [
+       "NETFLIX_2017_10K",
+       31
+      ],
+      [
+       "NETFLIX_2017_10K",
+       54
+      ],
+      [
+       "NETFLIX_2017_10K",
+       51
+      ],
+      [
+       "NETFLIX_2017_10K",
+       45
+      ],
+      [
+       "NETFLIX_2017_10K",
+       41
+      ],
+      [
+       "NETFLIX_2017_10K",
+       54
+      ],
+      [
+       "NETFLIX_2017_10K",
+       44
+      ]
+     ],
+     "recall@1": 1.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 1.0
+    },
+    "document/hybrid_rerank": {
+     "first_hit": 1,
+     "retrieved": [
+      [
+       "NETFLIX_2017_10K",
+       45
+      ],
+      [
+       "NETFLIX_2017_10K",
+       45
+      ],
+      [
+       "NETFLIX_2017_10K",
+       54
+      ],
+      [
+       "NETFLIX_2017_10K",
+       54
+      ],
+      [
+       "NETFLIX_2017_10K",
+       30
+      ],
+      [
+       "NETFLIX_2017_10K",
+       60
+      ],
+      [
+       "NETFLIX_2017_10K",
+       44
+      ],
+      [
+       "NETFLIX_2017_10K",
+       51
+      ],
+      [
+       "NETFLIX_2017_10K",
+       60
+      ],
+      [
+       "NETFLIX_2017_10K",
+       31
+      ]
+     ],
+     "recall@1": 1.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 1.0
+    }
+   }
+  },
+  {
+   "financebench_id": "financebench_id_08135",
+   "question_type": "metrics-generated",
+   "relevant": [
+    [
+     "AMAZON_2017_10K",
+     38
+    ]
+   ],
+   "runs": {
+    "corpus/dense": {
+     "first_hit": 6,
+     "retrieved": [
+      [
+       "AMAZON_2017_10K",
+       26
+      ],
+      [
+       "AMAZON_2019_10K",
+       31
+      ],
+      [
+       "AMAZON_2017_10K",
+       26
+      ],
+      [
+       "AMAZON_2017_10K",
+       32
+      ],
+      [
+       "AMAZON_2019_10K",
+       25
+      ],
+      [
+       "AMAZON_2017_10K",
+       38
+      ],
+      [
+       "AMAZON_2019_10K",
+       38
+      ],
+      [
+       "AMAZON_2019_10K",
+       22
+      ],
+      [
+       "AMAZON_2019_10K",
+       4
+      ],
+      [
+       "AMAZON_2017_10K",
+       26
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.16666666666666666
+    },
+    "corpus/bm25": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "AMAZON_2017_10K",
+       53
+      ],
+      [
+       "AMCOR_2023_10K",
+       93
+      ],
+      [
+       "BOEING_2022_10K",
+       106
+      ],
+      [
+       "BOEING_2022_10K",
+       26
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       3
+      ],
+      [
+       "AMCOR_2023_10K",
+       60
+      ],
+      [
+       "NIKE_2019_10K",
+       44
+      ],
+      [
+       "AMAZON_2019_10K",
+       49
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       12
+      ],
+      [
+       "AMAZON_2017_10K",
+       81
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "corpus/hybrid": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "AMAZON_2017_10K",
+       26
+      ],
+      [
+       "AMAZON_2017_10K",
+       53
+      ],
+      [
+       "AMAZON_2019_10K",
+       31
+      ],
+      [
+       "AMCOR_2023_10K",
+       93
+      ],
+      [
+       "AMAZON_2017_10K",
+       26
+      ],
+      [
+       "BOEING_2022_10K",
+       106
+      ],
+      [
+       "AMAZON_2017_10K",
+       32
+      ],
+      [
+       "BOEING_2022_10K",
+       26
+      ],
+      [
+       "AMAZON_2019_10K",
+       25
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       3
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "corpus/hybrid_rerank": {
+     "first_hit": 7,
+     "retrieved": [
+      [
+       "AMAZON_2019_10K",
+       49
+      ],
+      [
+       "AMAZON_2017_10K",
+       26
+      ],
+      [
+       "AMAZON_2017_10K",
+       26
+      ],
+      [
+       "AMAZON_2017_10K",
+       26
+      ],
+      [
+       "AMAZON_2019_10K",
+       4
+      ],
+      [
+       "AMAZON_2019_10K",
+       25
+      ],
+      [
+       "AMAZON_2017_10K",
+       38
+      ],
+      [
+       "AMAZON_2017_10K",
+       32
+      ],
+      [
+       "AMAZON_2019_10K",
+       38
+      ],
+      [
+       "AMAZON_2019_10K",
+       22
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.14285714285714285
+    },
+    "document/dense": {
+     "first_hit": 4,
+     "retrieved": [
+      [
+       "AMAZON_2017_10K",
+       26
+      ],
+      [
+       "AMAZON_2017_10K",
+       26
+      ],
+      [
+       "AMAZON_2017_10K",
+       32
+      ],
+      [
+       "AMAZON_2017_10K",
+       38
+      ],
+      [
+       "AMAZON_2017_10K",
+       26
+      ],
+      [
+       "AMAZON_2017_10K",
+       37
+      ],
+      [
+       "AMAZON_2017_10K",
+       43
+      ],
+      [
+       "AMAZON_2017_10K",
+       2
+      ],
+      [
+       "AMAZON_2017_10K",
+       69
+      ],
+      [
+       "AMAZON_2017_10K",
+       9
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.25
+    },
+    "document/bm25": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "AMAZON_2017_10K",
+       53
+      ],
+      [
+       "AMAZON_2017_10K",
+       81
+      ],
+      [
+       "AMAZON_2017_10K",
+       43
+      ],
+      [
+       "AMAZON_2017_10K",
+       63
+      ],
+      [
+       "AMAZON_2017_10K",
+       65
+      ],
+      [
+       "AMAZON_2017_10K",
+       51
+      ],
+      [
+       "AMAZON_2017_10K",
+       43
+      ],
+      [
+       "AMAZON_2017_10K",
+       20
+      ],
+      [
+       "AMAZON_2017_10K",
+       48
+      ],
+      [
+       "AMAZON_2017_10K",
+       47
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "document/hybrid": {
+     "first_hit": 9,
+     "retrieved": [
+      [
+       "AMAZON_2017_10K",
+       43
+      ],
+      [
+       "AMAZON_2017_10K",
+       32
+      ],
+      [
+       "AMAZON_2017_10K",
+       49
+      ],
+      [
+       "AMAZON_2017_10K",
+       26
+      ],
+      [
+       "AMAZON_2017_10K",
+       53
+      ],
+      [
+       "AMAZON_2017_10K",
+       26
+      ],
+      [
+       "AMAZON_2017_10K",
+       81
+      ],
+      [
+       "AMAZON_2017_10K",
+       43
+      ],
+      [
+       "AMAZON_2017_10K",
+       38
+      ],
+      [
+       "AMAZON_2017_10K",
+       63
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.1111111111111111
+    },
+    "document/hybrid_rerank": {
+     "first_hit": 7,
+     "retrieved": [
+      [
+       "AMAZON_2017_10K",
+       26
+      ],
+      [
+       "AMAZON_2017_10K",
+       26
+      ],
+      [
+       "AMAZON_2017_10K",
+       26
+      ],
+      [
+       "AMAZON_2017_10K",
+       49
+      ],
+      [
+       "AMAZON_2017_10K",
+       43
+      ],
+      [
+       "AMAZON_2017_10K",
+       37
+      ],
+      [
+       "AMAZON_2017_10K",
+       38
+      ],
+      [
+       "AMAZON_2017_10K",
+       32
+      ],
+      [
+       "AMAZON_2017_10K",
+       53
+      ],
+      [
+       "AMAZON_2017_10K",
+       69
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.14285714285714285
+    }
+   }
+  },
+  {
+   "financebench_id": "financebench_id_06655",
+   "question_type": "metrics-generated",
+   "relevant": [
+    [
+     "AMAZON_2017_10K",
+     38
+    ],
+    [
+     "AMAZON_2017_10K",
+     40
+    ]
+   ],
+   "runs": {
+    "corpus/dense": {
+     "first_hit": 5,
+     "retrieved": [
+      [
+       "AMAZON_2017_10K",
+       9
+      ],
+      [
+       "AMAZON_2019_10K",
+       9
+      ],
+      [
+       "AMAZON_2017_10K",
+       57
+      ],
+      [
+       "AMAZON_2019_10K",
+       42
+      ],
+      [
+       "AMAZON_2017_10K",
+       40
+      ],
+      [
+       "AMAZON_2019_10K",
+       37
+      ],
+      [
+       "AMAZON_2017_10K",
+       41
+      ],
+      [
+       "AMAZON_2017_10K",
+       37
+      ],
+      [
+       "AMAZON_2019_10K",
+       40
+      ],
+      [
+       "AMAZON_2019_10K",
+       42
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.5,
+     "mrr@10": 0.2
+    },
+    "corpus/bm25": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "AMAZON_2017_10K",
+       20
+      ],
+      [
+       "AMAZON_2017_10K",
+       53
+      ],
+      [
+       "AMAZON_2017_10K",
+       19
+      ],
+      [
+       "AMAZON_2017_10K",
+       20
+      ],
+      [
+       "AMAZON_2017_10K",
+       9
+      ],
+      [
+       "NIKE_2019_10K",
+       70
+      ],
+      [
+       "AMAZON_2019_10K",
+       20
+      ],
+      [
+       "AMAZON_2017_10K",
+       1
+      ],
+      [
+       "BOEING_2022_10K",
+       43
+      ],
+      [
+       "AMAZON_2017_10K",
+       62
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "corpus/hybrid": {
+     "first_hit": 2,
+     "retrieved": [
+      [
+       "AMAZON_2017_10K",
+       9
+      ],
+      [
+       "AMAZON_2017_10K",
+       40
+      ],
+      [
+       "AMAZON_2017_10K",
+       20
+      ],
+      [
+       "AMAZON_2019_10K",
+       9
+      ],
+      [
+       "AMAZON_2017_10K",
+       53
+      ],
+      [
+       "AMAZON_2017_10K",
+       57
+      ],
+      [
+       "AMAZON_2017_10K",
+       19
+      ],
+      [
+       "AMAZON_2019_10K",
+       42
+      ],
+      [
+       "AMAZON_2017_10K",
+       20
+      ],
+      [
+       "AMAZON_2019_10K",
+       37
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.5,
+     "recall@10": 0.5,
+     "mrr@10": 0.5
+    },
+    "corpus/hybrid_rerank": {
+     "first_hit": 2,
+     "retrieved": [
+      [
+       "AMAZON_2017_10K",
+       9
+      ],
+      [
+       "AMAZON_2017_10K",
+       40
+      ],
+      [
+       "AMAZON_2017_10K",
+       1
+      ],
+      [
+       "AMAZON_2019_10K",
+       9
+      ],
+      [
+       "AMAZON_2019_10K",
+       20
+      ],
+      [
+       "AMAZON_2017_10K",
+       57
+      ],
+      [
+       "AMAZON_2017_10K",
+       37
+      ],
+      [
+       "AMAZON_2019_10K",
+       40
+      ],
+      [
+       "AMAZON_2019_10K",
+       37
+      ],
+      [
+       "AMAZON_2017_10K",
+       37
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.5,
+     "recall@10": 0.5,
+     "mrr@10": 0.5
+    },
+    "document/dense": {
+     "first_hit": 3,
+     "retrieved": [
+      [
+       "AMAZON_2017_10K",
+       9
+      ],
+      [
+       "AMAZON_2017_10K",
+       57
+      ],
+      [
+       "AMAZON_2017_10K",
+       40
+      ],
+      [
+       "AMAZON_2017_10K",
+       41
+      ],
+      [
+       "AMAZON_2017_10K",
+       37
+      ],
+      [
+       "AMAZON_2017_10K",
+       37
+      ],
+      [
+       "AMAZON_2017_10K",
+       63
+      ],
+      [
+       "AMAZON_2017_10K",
+       49
+      ],
+      [
+       "AMAZON_2017_10K",
+       20
+      ],
+      [
+       "AMAZON_2017_10K",
+       74
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.5,
+     "recall@10": 0.5,
+     "mrr@10": 0.3333333333333333
+    },
+    "document/bm25": {
+     "first_hit": 9,
+     "retrieved": [
+      [
+       "AMAZON_2017_10K",
+       20
+      ],
+      [
+       "AMAZON_2017_10K",
+       53
+      ],
+      [
+       "AMAZON_2017_10K",
+       19
+      ],
+      [
+       "AMAZON_2017_10K",
+       20
+      ],
+      [
+       "AMAZON_2017_10K",
+       9
+      ],
+      [
+       "AMAZON_2017_10K",
+       1
+      ],
+      [
+       "AMAZON_2017_10K",
+       62
+      ],
+      [
+       "AMAZON_2017_10K",
+       42
+      ],
+      [
+       "AMAZON_2017_10K",
+       40
+      ],
+      [
+       "AMAZON_2017_10K",
+       84
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.5,
+     "mrr@10": 0.1111111111111111
+    },
+    "document/hybrid": {
+     "first_hit": 2,
+     "retrieved": [
+      [
+       "AMAZON_2017_10K",
+       9
+      ],
+      [
+       "AMAZON_2017_10K",
+       40
+      ],
+      [
+       "AMAZON_2017_10K",
+       42
+      ],
+      [
+       "AMAZON_2017_10K",
+       20
+      ],
+      [
+       "AMAZON_2017_10K",
+       57
+      ],
+      [
+       "AMAZON_2017_10K",
+       53
+      ],
+      [
+       "AMAZON_2017_10K",
+       19
+      ],
+      [
+       "AMAZON_2017_10K",
+       41
+      ],
+      [
+       "AMAZON_2017_10K",
+       20
+      ],
+      [
+       "AMAZON_2017_10K",
+       37
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.5,
+     "recall@10": 0.5,
+     "mrr@10": 0.5
+    },
+    "document/hybrid_rerank": {
+     "first_hit": 2,
+     "retrieved": [
+      [
+       "AMAZON_2017_10K",
+       9
+      ],
+      [
+       "AMAZON_2017_10K",
+       40
+      ],
+      [
+       "AMAZON_2017_10K",
+       1
+      ],
+      [
+       "AMAZON_2017_10K",
+       57
+      ],
+      [
+       "AMAZON_2017_10K",
+       37
+      ],
+      [
+       "AMAZON_2017_10K",
+       42
+      ],
+      [
+       "AMAZON_2017_10K",
+       20
+      ],
+      [
+       "AMAZON_2017_10K",
+       37
+      ],
+      [
+       "AMAZON_2017_10K",
+       48
+      ],
+      [
+       "AMAZON_2017_10K",
+       63
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.5,
+     "recall@10": 0.5,
+     "mrr@10": 0.5
+    }
+   }
+  },
+  {
+   "financebench_id": "financebench_id_03531",
+   "question_type": "metrics-generated",
+   "relevant": [
+    [
+     "NIKE_2019_10K",
+     54
+    ]
+   ],
+   "runs": {
+    "corpus/dense": {
+     "first_hit": 1,
+     "retrieved": [
+      [
+       "NIKE_2019_10K",
+       54
+      ],
+      [
+       "NIKE_2019_10K",
+       55
+      ],
+      [
+       "NIKE_2019_10K",
+       82
+      ],
+      [
+       "NIKE_2019_10K",
+       40
+      ],
+      [
+       "NIKE_2019_10K",
+       64
+      ],
+      [
+       "NIKE_2019_10K",
+       40
+      ],
+      [
+       "NIKE_2019_10K",
+       82
+      ],
+      [
+       "NIKE_2019_10K",
+       52
+      ],
+      [
+       "NIKE_2019_10K",
+       65
+      ],
+      [
+       "NIKE_2019_10K",
+       37
+      ]
+     ],
+     "recall@1": 1.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 1.0
+    },
+    "corpus/bm25": {
+     "first_hit": 4,
+     "retrieved": [
+      [
+       "NIKE_2019_10K",
+       77
+      ],
+      [
+       "AMCOR_2023_10K",
+       88
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       10
+      ],
+      [
+       "NIKE_2019_10K",
+       54
+      ],
+      [
+       "AMCOR_2023_10K",
+       38
+      ],
+      [
+       "AMCOR_2023_10K",
+       78
+      ],
+      [
+       "NIKE_2019_10K",
+       64
+      ],
+      [
+       "BESTBUY_2023_10K",
+       53
+      ],
+      [
+       "BESTBUY_2023_10K",
+       31
+      ],
+      [
+       "NIKE_2019_10K",
+       79
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.25
+    },
+    "corpus/hybrid": {
+     "first_hit": 1,
+     "retrieved": [
+      [
+       "NIKE_2019_10K",
+       54
+      ],
+      [
+       "NIKE_2019_10K",
+       64
+      ],
+      [
+       "NIKE_2019_10K",
+       77
+      ],
+      [
+       "NIKE_2019_10K",
+       55
+      ],
+      [
+       "AMCOR_2023_10K",
+       88
+      ],
+      [
+       "NIKE_2019_10K",
+       82
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       10
+      ],
+      [
+       "NIKE_2019_10K",
+       40
+      ],
+      [
+       "NIKE_2019_10K",
+       64
+      ],
+      [
+       "AMCOR_2023_10K",
+       38
+      ]
+     ],
+     "recall@1": 1.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 1.0
+    },
+    "corpus/hybrid_rerank": {
+     "first_hit": 1,
+     "retrieved": [
+      [
+       "NIKE_2019_10K",
+       54
+      ],
+      [
+       "NIKE_2019_10K",
+       64
+      ],
+      [
+       "NIKE_2019_10K",
+       64
+      ],
+      [
+       "NIKE_2019_10K",
+       82
+      ],
+      [
+       "NIKE_2019_10K",
+       65
+      ],
+      [
+       "NIKE_2019_10K",
+       82
+      ],
+      [
+       "NIKE_2019_10K",
+       77
+      ],
+      [
+       "NIKE_2019_10K",
+       79
+      ],
+      [
+       "NIKE_2019_10K",
+       55
+      ],
+      [
+       "NIKE_2019_10K",
+       52
+      ]
+     ],
+     "recall@1": 1.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 1.0
+    },
+    "document/dense": {
+     "first_hit": 1,
+     "retrieved": [
+      [
+       "NIKE_2019_10K",
+       54
+      ],
+      [
+       "NIKE_2019_10K",
+       55
+      ],
+      [
+       "NIKE_2019_10K",
+       82
+      ],
+      [
+       "NIKE_2019_10K",
+       40
+      ],
+      [
+       "NIKE_2019_10K",
+       64
+      ],
+      [
+       "NIKE_2019_10K",
+       40
+      ],
+      [
+       "NIKE_2019_10K",
+       82
+      ],
+      [
+       "NIKE_2019_10K",
+       52
+      ],
+      [
+       "NIKE_2019_10K",
+       65
+      ],
+      [
+       "NIKE_2019_10K",
+       37
+      ]
+     ],
+     "recall@1": 1.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 1.0
+    },
+    "document/bm25": {
+     "first_hit": 2,
+     "retrieved": [
+      [
+       "NIKE_2019_10K",
+       77
+      ],
+      [
+       "NIKE_2019_10K",
+       54
+      ],
+      [
+       "NIKE_2019_10K",
+       64
+      ],
+      [
+       "NIKE_2019_10K",
+       79
+      ],
+      [
+       "NIKE_2019_10K",
+       60
+      ],
+      [
+       "NIKE_2019_10K",
+       62
+      ],
+      [
+       "NIKE_2019_10K",
+       72
+      ],
+      [
+       "NIKE_2019_10K",
+       39
+      ],
+      [
+       "NIKE_2019_10K",
+       82
+      ],
+      [
+       "NIKE_2019_10K",
+       29
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.5
+    },
+    "document/hybrid": {
+     "first_hit": 1,
+     "retrieved": [
+      [
+       "NIKE_2019_10K",
+       54
+      ],
+      [
+       "NIKE_2019_10K",
+       82
+      ],
+      [
+       "NIKE_2019_10K",
+       64
+      ],
+      [
+       "NIKE_2019_10K",
+       64
+      ],
+      [
+       "NIKE_2019_10K",
+       26
+      ],
+      [
+       "NIKE_2019_10K",
+       77
+      ],
+      [
+       "NIKE_2019_10K",
+       55
+      ],
+      [
+       "NIKE_2019_10K",
+       40
+      ],
+      [
+       "NIKE_2019_10K",
+       79
+      ],
+      [
+       "NIKE_2019_10K",
+       60
+      ]
+     ],
+     "recall@1": 1.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 1.0
+    },
+    "document/hybrid_rerank": {
+     "first_hit": 1,
+     "retrieved": [
+      [
+       "NIKE_2019_10K",
+       54
+      ],
+      [
+       "NIKE_2019_10K",
+       64
+      ],
+      [
+       "NIKE_2019_10K",
+       64
+      ],
+      [
+       "NIKE_2019_10K",
+       82
+      ],
+      [
+       "NIKE_2019_10K",
+       65
+      ],
+      [
+       "NIKE_2019_10K",
+       82
+      ],
+      [
+       "NIKE_2019_10K",
+       77
+      ],
+      [
+       "NIKE_2019_10K",
+       79
+      ],
+      [
+       "NIKE_2019_10K",
+       72
+      ],
+      [
+       "NIKE_2019_10K",
+       55
+      ]
+     ],
+     "recall@1": 1.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 1.0
+    }
+   }
+  },
+  {
+   "financebench_id": "financebench_id_00460",
+   "question_type": "novel-generated",
+   "relevant": [
+    [
+     "BESTBUY_2024Q2_10Q",
+     17
+    ]
+   ],
+   "runs": {
+    "corpus/dense": {
+     "first_hit": 1,
+     "retrieved": [
+      [
+       "BESTBUY_2024Q2_10Q",
+       17
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       17
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       19
+      ],
+      [
+       "BESTBUY_2023_10K",
+       19
+      ],
+      [
+       "BESTBUY_2023_10K",
+       26
+      ],
+      [
+       "BESTBUY_2023_10K",
+       19
+      ],
+      [
+       "BESTBUY_2023_10K",
+       26
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       18
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       25
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       2
+      ]
+     ],
+     "recall@1": 1.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 1.0
+    },
+    "corpus/bm25": {
+     "first_hit": 2,
+     "retrieved": [
+      [
+       "BESTBUY_2024Q2_10Q",
+       19
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       17
+      ],
+      [
+       "BESTBUY_2023_10K",
+       27
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       15
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       14
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       14
+      ],
+      [
+       "BESTBUY_2023_10K",
+       13
+      ],
+      [
+       "BESTBUY_2023_10K",
+       21
+      ],
+      [
+       "BESTBUY_2023_10K",
+       26
+      ],
+      [
+       "BESTBUY_2023_10K",
+       13
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.5
+    },
+    "corpus/hybrid": {
+     "first_hit": 2,
+     "retrieved": [
+      [
+       "BESTBUY_2024Q2_10Q",
+       19
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       17
+      ],
+      [
+       "BESTBUY_2023_10K",
+       27
+      ],
+      [
+       "BESTBUY_2023_10K",
+       26
+      ],
+      [
+       "BESTBUY_2023_10K",
+       19
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       15
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       17
+      ],
+      [
+       "BESTBUY_2023_10K",
+       69
+      ],
+      [
+       "BESTBUY_2023_10K",
+       19
+      ],
+      [
+       "BESTBUY_2023_10K",
+       26
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.5
+    },
+    "corpus/hybrid_rerank": {
+     "first_hit": 1,
+     "retrieved": [
+      [
+       "BESTBUY_2024Q2_10Q",
+       17
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       19
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       17
+      ],
+      [
+       "BESTBUY_2023_10K",
+       26
+      ],
+      [
+       "BESTBUY_2023_10K",
+       26
+      ],
+      [
+       "BESTBUY_2023_10K",
+       27
+      ],
+      [
+       "BESTBUY_2023_10K",
+       19
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       15
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       18
+      ],
+      [
+       "BESTBUY_2023_10K",
+       13
+      ]
+     ],
+     "recall@1": 1.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 1.0
+    },
+    "document/dense": {
+     "first_hit": 1,
+     "retrieved": [
+      [
+       "BESTBUY_2024Q2_10Q",
+       17
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       17
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       19
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       18
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       25
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       2
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       19
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       15
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       15
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       23
+      ]
+     ],
+     "recall@1": 1.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 1.0
+    },
+    "document/bm25": {
+     "first_hit": 2,
+     "retrieved": [
+      [
+       "BESTBUY_2024Q2_10Q",
+       19
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       17
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       15
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       14
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       14
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       15
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       23
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       25
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       14
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       13
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.5
+    },
+    "document/hybrid": {
+     "first_hit": 2,
+     "retrieved": [
+      [
+       "BESTBUY_2024Q2_10Q",
+       19
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       17
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       15
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       17
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       15
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       1
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       16
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       18
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       14
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       25
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.5
+    },
+    "document/hybrid_rerank": {
+     "first_hit": 1,
+     "retrieved": [
+      [
+       "BESTBUY_2024Q2_10Q",
+       17
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       19
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       17
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       23
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       15
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       19
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       18
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       16
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       15
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       14
+      ]
+     ],
+     "recall@1": 1.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 1.0
+    }
+   }
+  },
+  {
+   "financebench_id": "financebench_id_00382",
+   "question_type": "novel-generated",
+   "relevant": [
+    [
+     "MGMRESORTS_2022Q4_EARNINGS",
+     13
+    ]
+   ],
+   "runs": {
+    "corpus/dense": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       4
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       7
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       14
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       2
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       14
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       1
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       1
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       2
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       8
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       3
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "corpus/bm25": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       4
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       4
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       2
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       2
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       14
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       2
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       14
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       14
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       1
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       8
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "corpus/hybrid": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       4
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       2
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       14
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       14
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       2
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       1
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       2
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       4
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       3
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       8
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "corpus/hybrid_rerank": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       2
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       2
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       4
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       4
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       2
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       1
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       1
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       3
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       14
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       14
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "document/dense": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       4
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       7
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       14
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       2
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       14
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       1
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       1
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       2
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       8
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       3
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "document/bm25": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       4
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       4
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       2
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       2
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       14
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       2
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       14
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       14
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       1
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       8
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "document/hybrid": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       4
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       2
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       14
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       14
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       2
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       1
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       2
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       4
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       3
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       14
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "document/hybrid_rerank": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       2
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       2
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       4
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       4
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       2
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       1
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       1
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       3
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       14
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       14
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    }
+   }
+  },
+  {
+   "financebench_id": "financebench_id_00464",
+   "question_type": "novel-generated",
+   "relevant": [
+    [
+     "BOEING_2022_10K",
+     8
+    ]
+   ],
+   "runs": {
+    "corpus/dense": {
+     "first_hit": 1,
+     "retrieved": [
+      [
+       "BOEING_2022_10K",
+       8
+      ],
+      [
+       "BOEING_2022_10K",
+       7
+      ],
+      [
+       "BOEING_2022_10K",
+       3
+      ],
+      [
+       "BOEING_2022_10K",
+       63
+      ],
+      [
+       "BOEING_2022_10K",
+       10
+      ],
+      [
+       "BOEING_2022_10K",
+       22
+      ],
+      [
+       "BOEING_2022_10K",
+       37
+      ],
+      [
+       "BOEING_2022_10K",
+       14
+      ],
+      [
+       "BOEING_2022_10K",
+       36
+      ],
+      [
+       "BOEING_2022_10K",
+       30
+      ]
+     ],
+     "recall@1": 1.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 1.0
+    },
+    "corpus/bm25": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "BOEING_2022_10K",
+       12
+      ],
+      [
+       "BOEING_2022_10K",
+       14
+      ],
+      [
+       "BOEING_2022_10K",
+       12
+      ],
+      [
+       "BOEING_2022_10K",
+       17
+      ],
+      [
+       "BOEING_2022_10K",
+       175
+      ],
+      [
+       "BOEING_2022_10K",
+       175
+      ],
+      [
+       "BOEING_2022_10K",
+       14
+      ],
+      [
+       "BOEING_2022_10K",
+       168
+      ],
+      [
+       "NIKE_2019_10K",
+       19
+      ],
+      [
+       "BOEING_2022_10K",
+       182
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "corpus/hybrid": {
+     "first_hit": 2,
+     "retrieved": [
+      [
+       "BOEING_2022_10K",
+       14
+      ],
+      [
+       "BOEING_2022_10K",
+       8
+      ],
+      [
+       "BOEING_2022_10K",
+       12
+      ],
+      [
+       "BOEING_2022_10K",
+       7
+      ],
+      [
+       "BOEING_2022_10K",
+       14
+      ],
+      [
+       "BOEING_2022_10K",
+       3
+      ],
+      [
+       "BOEING_2022_10K",
+       12
+      ],
+      [
+       "BOEING_2022_10K",
+       63
+      ],
+      [
+       "BOEING_2022_10K",
+       17
+      ],
+      [
+       "BOEING_2022_10K",
+       10
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.5
+    },
+    "corpus/hybrid_rerank": {
+     "first_hit": 1,
+     "retrieved": [
+      [
+       "BOEING_2022_10K",
+       8
+      ],
+      [
+       "BOEING_2022_10K",
+       17
+      ],
+      [
+       "BOEING_2022_10K",
+       12
+      ],
+      [
+       "BOEING_2022_10K",
+       14
+      ],
+      [
+       "BOEING_2022_10K",
+       12
+      ],
+      [
+       "BOEING_2022_10K",
+       14
+      ],
+      [
+       "BOEING_2022_10K",
+       7
+      ],
+      [
+       "BOEING_2022_10K",
+       14
+      ],
+      [
+       "BOEING_2022_10K",
+       3
+      ],
+      [
+       "BOEING_2022_10K",
+       22
+      ]
+     ],
+     "recall@1": 1.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 1.0
+    },
+    "document/dense": {
+     "first_hit": 1,
+     "retrieved": [
+      [
+       "BOEING_2022_10K",
+       8
+      ],
+      [
+       "BOEING_2022_10K",
+       7
+      ],
+      [
+       "BOEING_2022_10K",
+       3
+      ],
+      [
+       "BOEING_2022_10K",
+       63
+      ],
+      [
+       "BOEING_2022_10K",
+       10
+      ],
+      [
+       "BOEING_2022_10K",
+       22
+      ],
+      [
+       "BOEING_2022_10K",
+       37
+      ],
+      [
+       "BOEING_2022_10K",
+       14
+      ],
+      [
+       "BOEING_2022_10K",
+       36
+      ],
+      [
+       "BOEING_2022_10K",
+       30
+      ]
+     ],
+     "recall@1": 1.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 1.0
+    },
+    "document/bm25": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "BOEING_2022_10K",
+       12
+      ],
+      [
+       "BOEING_2022_10K",
+       14
+      ],
+      [
+       "BOEING_2022_10K",
+       12
+      ],
+      [
+       "BOEING_2022_10K",
+       17
+      ],
+      [
+       "BOEING_2022_10K",
+       175
+      ],
+      [
+       "BOEING_2022_10K",
+       175
+      ],
+      [
+       "BOEING_2022_10K",
+       14
+      ],
+      [
+       "BOEING_2022_10K",
+       168
+      ],
+      [
+       "BOEING_2022_10K",
+       182
+      ],
+      [
+       "BOEING_2022_10K",
+       145
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "document/hybrid": {
+     "first_hit": 2,
+     "retrieved": [
+      [
+       "BOEING_2022_10K",
+       14
+      ],
+      [
+       "BOEING_2022_10K",
+       8
+      ],
+      [
+       "BOEING_2022_10K",
+       12
+      ],
+      [
+       "BOEING_2022_10K",
+       7
+      ],
+      [
+       "BOEING_2022_10K",
+       14
+      ],
+      [
+       "BOEING_2022_10K",
+       3
+      ],
+      [
+       "BOEING_2022_10K",
+       12
+      ],
+      [
+       "BOEING_2022_10K",
+       63
+      ],
+      [
+       "BOEING_2022_10K",
+       17
+      ],
+      [
+       "BOEING_2022_10K",
+       10
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.5
+    },
+    "document/hybrid_rerank": {
+     "first_hit": 1,
+     "retrieved": [
+      [
+       "BOEING_2022_10K",
+       8
+      ],
+      [
+       "BOEING_2022_10K",
+       17
+      ],
+      [
+       "BOEING_2022_10K",
+       12
+      ],
+      [
+       "BOEING_2022_10K",
+       14
+      ],
+      [
+       "BOEING_2022_10K",
+       12
+      ],
+      [
+       "BOEING_2022_10K",
+       14
+      ],
+      [
+       "BOEING_2022_10K",
+       7
+      ],
+      [
+       "BOEING_2022_10K",
+       14
+      ],
+      [
+       "BOEING_2022_10K",
+       3
+      ],
+      [
+       "BOEING_2022_10K",
+       22
+      ]
+     ],
+     "recall@1": 1.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 1.0
+    }
+   }
+  },
+  {
+   "financebench_id": "financebench_id_01476",
+   "question_type": "novel-generated",
+   "relevant": [
+    [
+     "PEPSICO_2023Q1_EARNINGS",
+     1
+    ]
+   ],
+   "runs": {
+    "corpus/dense": {
+     "first_hit": 1,
+     "retrieved": [
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       1
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       3
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       1
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       3
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       10
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       1
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       2
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       8
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       12
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       7
+      ]
+     ],
+     "recall@1": 1.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 1.0
+    },
+    "corpus/bm25": {
+     "first_hit": 1,
+     "retrieved": [
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       1
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       10
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       1
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       3
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       10
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       3
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       2
+      ],
+      [
+       "NIKE_2019_10K",
+       35
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       12
+      ],
+      [
+       "NIKE_2019_10K",
+       34
+      ]
+     ],
+     "recall@1": 1.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 1.0
+    },
+    "corpus/hybrid": {
+     "first_hit": 1,
+     "retrieved": [
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       1
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       1
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       3
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       10
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       3
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       2
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       12
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       10
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       1
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       8
+      ]
+     ],
+     "recall@1": 1.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 1.0
+    },
+    "corpus/hybrid_rerank": {
+     "first_hit": 1,
+     "retrieved": [
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       1
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       1
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       3
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       3
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       2
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       12
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       10
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       10
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       12
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       11
+      ]
+     ],
+     "recall@1": 1.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 1.0
+    },
+    "document/dense": {
+     "first_hit": 1,
+     "retrieved": [
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       1
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       3
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       1
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       3
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       10
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       1
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       2
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       8
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       12
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       7
+      ]
+     ],
+     "recall@1": 1.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 1.0
+    },
+    "document/bm25": {
+     "first_hit": 1,
+     "retrieved": [
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       1
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       10
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       1
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       3
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       10
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       3
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       2
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       12
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       2
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       9
+      ]
+     ],
+     "recall@1": 1.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 1.0
+    },
+    "document/hybrid": {
+     "first_hit": 1,
+     "retrieved": [
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       1
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       1
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       3
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       10
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       3
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       2
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       12
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       10
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       9
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       15
+      ]
+     ],
+     "recall@1": 1.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 1.0
+    },
+    "document/hybrid_rerank": {
+     "first_hit": 1,
+     "retrieved": [
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       1
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       1
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       3
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       3
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       2
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       12
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       10
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       10
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       12
+      ],
+      [
+       "PEPSICO_2023Q1_EARNINGS",
+       11
+      ]
+     ],
+     "recall@1": 1.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 1.0
+    }
+   }
+  },
+  {
+   "financebench_id": "financebench_id_01928",
+   "question_type": "novel-generated",
+   "relevant": [
+    [
+     "AMCOR_2023Q4_EARNINGS",
+     12
+    ]
+   ],
+   "runs": {
+    "corpus/dense": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "AMCOR_2023_10K",
+       35
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       4
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       1
+      ],
+      [
+       "AMCOR_2023_10K",
+       33
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       11
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       5
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       3
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       2
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       7
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       11
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "corpus/bm25": {
+     "first_hit": 10,
+     "retrieved": [
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       7
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       7
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       11
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       1
+      ],
+      [
+       "AMCOR_2023_10K",
+       35
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       11
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       58
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       1
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       5
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       12
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.1
+    },
+    "corpus/hybrid": {
+     "first_hit": 10,
+     "retrieved": [
+      [
+       "AMCOR_2023_10K",
+       35
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       11
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       7
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       1
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       5
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       4
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       1
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       11
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       7
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       12
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.1
+    },
+    "corpus/hybrid_rerank": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       2
+      ],
+      [
+       "AMCOR_2023_10K",
+       35
+      ],
+      [
+       "AMCOR_2023_10K",
+       33
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       4
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       11
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       1
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       1
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       5
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       2
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       13
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "document/dense": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       4
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       1
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       11
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       5
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       3
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       2
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       7
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       11
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       8
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       1
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "document/bm25": {
+     "first_hit": 8,
+     "retrieved": [
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       7
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       7
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       11
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       1
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       11
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       1
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       5
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       12
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       12
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       4
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.125
+    },
+    "document/hybrid": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       11
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       1
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       7
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       4
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       5
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       11
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       1
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       7
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       2
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       3
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "document/hybrid_rerank": {
+     "first_hit": 10,
+     "retrieved": [
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       2
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       4
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       11
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       1
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       1
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       5
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       2
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       13
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       3
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       12
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.1
+    }
+   }
+  },
+  {
+   "financebench_id": "financebench_id_00494",
+   "question_type": "novel-generated",
+   "relevant": [
+    [
+     "BOEING_2022_10K",
+     9
+    ]
+   ],
+   "runs": {
+    "corpus/dense": {
+     "first_hit": 4,
+     "retrieved": [
+      [
+       "BOEING_2022_10K",
+       35
+      ],
+      [
+       "BOEING_2022_10K",
+       35
+      ],
+      [
+       "BOEING_2022_10K",
+       34
+      ],
+      [
+       "BOEING_2022_10K",
+       9
+      ],
+      [
+       "BOEING_2022_10K",
+       91
+      ],
+      [
+       "BOEING_2022_10K",
+       81
+      ],
+      [
+       "BOEING_2022_10K",
+       22
+      ],
+      [
+       "BOEING_2022_10K",
+       38
+      ],
+      [
+       "BOEING_2022_10K",
+       91
+      ],
+      [
+       "BOEING_2022_10K",
+       81
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.25
+    },
+    "corpus/bm25": {
+     "first_hit": 1,
+     "retrieved": [
+      [
+       "BOEING_2022_10K",
+       9
+      ],
+      [
+       "BOEING_2022_10K",
+       36
+      ],
+      [
+       "BOEING_2022_10K",
+       35
+      ],
+      [
+       "BESTBUY_2023_10K",
+       14
+      ],
+      [
+       "BOEING_2022_10K",
+       53
+      ],
+      [
+       "BOEING_2022_10K",
+       36
+      ],
+      [
+       "NIKE_2019_10K",
+       10
+      ],
+      [
+       "BOEING_2022_10K",
+       9
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       12
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       14
+      ]
+     ],
+     "recall@1": 1.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 1.0
+    },
+    "corpus/hybrid": {
+     "first_hit": 2,
+     "retrieved": [
+      [
+       "BOEING_2022_10K",
+       35
+      ],
+      [
+       "BOEING_2022_10K",
+       9
+      ],
+      [
+       "BOEING_2022_10K",
+       9
+      ],
+      [
+       "BOEING_2022_10K",
+       33
+      ],
+      [
+       "BOEING_2022_10K",
+       35
+      ],
+      [
+       "BOEING_2022_10K",
+       36
+      ],
+      [
+       "BOEING_2022_10K",
+       34
+      ],
+      [
+       "BESTBUY_2023_10K",
+       14
+      ],
+      [
+       "BOEING_2022_10K",
+       91
+      ],
+      [
+       "BOEING_2022_10K",
+       53
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.5
+    },
+    "corpus/hybrid_rerank": {
+     "first_hit": 2,
+     "retrieved": [
+      [
+       "BOEING_2022_10K",
+       35
+      ],
+      [
+       "BOEING_2022_10K",
+       9
+      ],
+      [
+       "BOEING_2022_10K",
+       35
+      ],
+      [
+       "BOEING_2022_10K",
+       9
+      ],
+      [
+       "BOEING_2022_10K",
+       81
+      ],
+      [
+       "BOEING_2022_10K",
+       81
+      ],
+      [
+       "BOEING_2022_10K",
+       36
+      ],
+      [
+       "BOEING_2022_10K",
+       33
+      ],
+      [
+       "BOEING_2022_10K",
+       34
+      ],
+      [
+       "BOEING_2022_10K",
+       91
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.5
+    },
+    "document/dense": {
+     "first_hit": 4,
+     "retrieved": [
+      [
+       "BOEING_2022_10K",
+       35
+      ],
+      [
+       "BOEING_2022_10K",
+       35
+      ],
+      [
+       "BOEING_2022_10K",
+       34
+      ],
+      [
+       "BOEING_2022_10K",
+       9
+      ],
+      [
+       "BOEING_2022_10K",
+       91
+      ],
+      [
+       "BOEING_2022_10K",
+       81
+      ],
+      [
+       "BOEING_2022_10K",
+       22
+      ],
+      [
+       "BOEING_2022_10K",
+       38
+      ],
+      [
+       "BOEING_2022_10K",
+       91
+      ],
+      [
+       "BOEING_2022_10K",
+       81
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.25
+    },
+    "document/bm25": {
+     "first_hit": 1,
+     "retrieved": [
+      [
+       "BOEING_2022_10K",
+       9
+      ],
+      [
+       "BOEING_2022_10K",
+       36
+      ],
+      [
+       "BOEING_2022_10K",
+       35
+      ],
+      [
+       "BOEING_2022_10K",
+       53
+      ],
+      [
+       "BOEING_2022_10K",
+       36
+      ],
+      [
+       "BOEING_2022_10K",
+       9
+      ],
+      [
+       "BOEING_2022_10K",
+       33
+      ],
+      [
+       "BOEING_2022_10K",
+       91
+      ],
+      [
+       "BOEING_2022_10K",
+       34
+      ],
+      [
+       "BOEING_2022_10K",
+       9
+      ]
+     ],
+     "recall@1": 1.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 1.0
+    },
+    "document/hybrid": {
+     "first_hit": 2,
+     "retrieved": [
+      [
+       "BOEING_2022_10K",
+       35
+      ],
+      [
+       "BOEING_2022_10K",
+       9
+      ],
+      [
+       "BOEING_2022_10K",
+       9
+      ],
+      [
+       "BOEING_2022_10K",
+       34
+      ],
+      [
+       "BOEING_2022_10K",
+       33
+      ],
+      [
+       "BOEING_2022_10K",
+       81
+      ],
+      [
+       "BOEING_2022_10K",
+       22
+      ],
+      [
+       "BOEING_2022_10K",
+       35
+      ],
+      [
+       "BOEING_2022_10K",
+       36
+      ],
+      [
+       "BOEING_2022_10K",
+       53
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.5
+    },
+    "document/hybrid_rerank": {
+     "first_hit": 2,
+     "retrieved": [
+      [
+       "BOEING_2022_10K",
+       35
+      ],
+      [
+       "BOEING_2022_10K",
+       9
+      ],
+      [
+       "BOEING_2022_10K",
+       35
+      ],
+      [
+       "BOEING_2022_10K",
+       9
+      ],
+      [
+       "BOEING_2022_10K",
+       81
+      ],
+      [
+       "BOEING_2022_10K",
+       81
+      ],
+      [
+       "BOEING_2022_10K",
+       36
+      ],
+      [
+       "BOEING_2022_10K",
+       91
+      ],
+      [
+       "BOEING_2022_10K",
+       33
+      ],
+      [
+       "BOEING_2022_10K",
+       34
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.5
+    }
+   }
+  },
+  {
+   "financebench_id": "financebench_id_00283",
+   "question_type": "novel-generated",
+   "relevant": [
+    [
+     "Pfizer_2023Q2_10Q",
+     41
+    ]
+   ],
+   "runs": {
+    "corpus/dense": {
+     "first_hit": 1,
+     "retrieved": [
+      [
+       "Pfizer_2023Q2_10Q",
+       41
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       14
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       41
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       15
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       40
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       31
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       49
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       31
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       37
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       40
+      ]
+     ],
+     "recall@1": 1.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 1.0
+    },
+    "corpus/bm25": {
+     "first_hit": 9,
+     "retrieved": [
+      [
+       "Pfizer_2023Q2_10Q",
+       34
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       14
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       37
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       35
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       34
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       6
+      ],
+      [
+       "BOEING_2022_10K",
+       92
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       31
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       41
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       41
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.1111111111111111
+    },
+    "corpus/hybrid": {
+     "first_hit": 2,
+     "retrieved": [
+      [
+       "Pfizer_2023Q2_10Q",
+       14
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       41
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       41
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       37
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       31
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       31
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       34
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       15
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       35
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       40
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.5
+    },
+    "corpus/hybrid_rerank": {
+     "first_hit": 1,
+     "retrieved": [
+      [
+       "Pfizer_2023Q2_10Q",
+       41
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       14
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       37
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       40
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       35
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       15
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       44
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       40
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       49
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       31
+      ]
+     ],
+     "recall@1": 1.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 1.0
+    },
+    "document/dense": {
+     "first_hit": 1,
+     "retrieved": [
+      [
+       "Pfizer_2023Q2_10Q",
+       41
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       14
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       41
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       15
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       40
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       31
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       49
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       31
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       37
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       40
+      ]
+     ],
+     "recall@1": 1.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 1.0
+    },
+    "document/bm25": {
+     "first_hit": 8,
+     "retrieved": [
+      [
+       "Pfizer_2023Q2_10Q",
+       34
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       14
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       37
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       35
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       34
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       6
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       31
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       41
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       41
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       31
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.125
+    },
+    "document/hybrid": {
+     "first_hit": 2,
+     "retrieved": [
+      [
+       "Pfizer_2023Q2_10Q",
+       14
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       41
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       41
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       37
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       31
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       31
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       40
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       41
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       34
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       15
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.5
+    },
+    "document/hybrid_rerank": {
+     "first_hit": 1,
+     "retrieved": [
+      [
+       "Pfizer_2023Q2_10Q",
+       41
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       14
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       37
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       64
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       51
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       41
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       40
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       35
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       15
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       44
+      ]
+     ],
+     "recall@1": 1.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 1.0
+    }
+   }
+  },
+  {
+   "financebench_id": "financebench_id_00601",
+   "question_type": "novel-generated",
+   "relevant": [
+    [
+     "ULTABEAUTY_2023Q4_EARNINGS",
+     2
+    ]
+   ],
+   "runs": {
+    "corpus/dense": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "AMCOR_2023_10K",
+       33
+      ],
+      [
+       "AMCOR_2023_10K",
+       33
+      ],
+      [
+       "BESTBUY_2023_10K",
+       25
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       19
+      ],
+      [
+       "COSTCO_2021_10K",
+       27
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       18
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       3
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       16
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       18
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       18
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "corpus/bm25": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "BESTBUY_2023_10K",
+       51
+      ],
+      [
+       "COSTCO_2021_10K",
+       22
+      ],
+      [
+       "COSTCO_2021_10K",
+       27
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       13
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       14
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       12
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       18
+      ],
+      [
+       "BESTBUY_2023_10K",
+       31
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       10
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       11
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "corpus/hybrid": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "COSTCO_2021_10K",
+       27
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       18
+      ],
+      [
+       "AMCOR_2023_10K",
+       33
+      ],
+      [
+       "BESTBUY_2023_10K",
+       25
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       19
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       18
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       16
+      ],
+      [
+       "AMCOR_2023_10K",
+       33
+      ],
+      [
+       "BESTBUY_2023_10K",
+       51
+      ],
+      [
+       "COSTCO_2021_10K",
+       22
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "corpus/hybrid_rerank": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "AMCOR_2023_10K",
+       33
+      ],
+      [
+       "COSTCO_2021_10K",
+       27
+      ],
+      [
+       "AMCOR_2023_10K",
+       33
+      ],
+      [
+       "COSTCO_2021_10K",
+       22
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       19
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       18
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       18
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       18
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       16
+      ],
+      [
+       "BESTBUY_2023_10K",
+       31
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "document/dense": {
+     "first_hit": 1,
+     "retrieved": [
+      [
+       "ULTABEAUTY_2023Q4_EARNINGS",
+       2
+      ],
+      [
+       "ULTABEAUTY_2023Q4_EARNINGS",
+       2
+      ],
+      [
+       "ULTABEAUTY_2023Q4_EARNINGS",
+       2
+      ],
+      [
+       "ULTABEAUTY_2023Q4_EARNINGS",
+       2
+      ],
+      [
+       "ULTABEAUTY_2023Q4_EARNINGS",
+       2
+      ],
+      [
+       "ULTABEAUTY_2023Q4_EARNINGS",
+       3
+      ],
+      [
+       "ULTABEAUTY_2023Q4_EARNINGS",
+       8
+      ],
+      [
+       "ULTABEAUTY_2023Q4_EARNINGS",
+       1
+      ],
+      [
+       "ULTABEAUTY_2023Q4_EARNINGS",
+       6
+      ],
+      [
+       "ULTABEAUTY_2023Q4_EARNINGS",
+       1
+      ]
+     ],
+     "recall@1": 1.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 1.0
+    },
+    "document/bm25": {
+     "first_hit": 1,
+     "retrieved": [
+      [
+       "ULTABEAUTY_2023Q4_EARNINGS",
+       2
+      ],
+      [
+       "ULTABEAUTY_2023Q4_EARNINGS",
+       2
+      ],
+      [
+       "ULTABEAUTY_2023Q4_EARNINGS",
+       2
+      ],
+      [
+       "ULTABEAUTY_2023Q4_EARNINGS",
+       6
+      ],
+      [
+       "ULTABEAUTY_2023Q4_EARNINGS",
+       6
+      ],
+      [
+       "ULTABEAUTY_2023Q4_EARNINGS",
+       3
+      ],
+      [
+       "ULTABEAUTY_2023Q4_EARNINGS",
+       2
+      ],
+      [
+       "ULTABEAUTY_2023Q4_EARNINGS",
+       1
+      ],
+      [
+       "ULTABEAUTY_2023Q4_EARNINGS",
+       1
+      ],
+      [
+       "ULTABEAUTY_2023Q4_EARNINGS",
+       8
+      ]
+     ],
+     "recall@1": 1.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 1.0
+    },
+    "document/hybrid": {
+     "first_hit": 1,
+     "retrieved": [
+      [
+       "ULTABEAUTY_2023Q4_EARNINGS",
+       2
+      ],
+      [
+       "ULTABEAUTY_2023Q4_EARNINGS",
+       2
+      ],
+      [
+       "ULTABEAUTY_2023Q4_EARNINGS",
+       2
+      ],
+      [
+       "ULTABEAUTY_2023Q4_EARNINGS",
+       2
+      ],
+      [
+       "ULTABEAUTY_2023Q4_EARNINGS",
+       3
+      ],
+      [
+       "ULTABEAUTY_2023Q4_EARNINGS",
+       6
+      ],
+      [
+       "ULTABEAUTY_2023Q4_EARNINGS",
+       2
+      ],
+      [
+       "ULTABEAUTY_2023Q4_EARNINGS",
+       6
+      ],
+      [
+       "ULTABEAUTY_2023Q4_EARNINGS",
+       8
+      ],
+      [
+       "ULTABEAUTY_2023Q4_EARNINGS",
+       1
+      ]
+     ],
+     "recall@1": 1.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 1.0
+    },
+    "document/hybrid_rerank": {
+     "first_hit": 1,
+     "retrieved": [
+      [
+       "ULTABEAUTY_2023Q4_EARNINGS",
+       2
+      ],
+      [
+       "ULTABEAUTY_2023Q4_EARNINGS",
+       2
+      ],
+      [
+       "ULTABEAUTY_2023Q4_EARNINGS",
+       2
+      ],
+      [
+       "ULTABEAUTY_2023Q4_EARNINGS",
+       2
+      ],
+      [
+       "ULTABEAUTY_2023Q4_EARNINGS",
+       3
+      ],
+      [
+       "ULTABEAUTY_2023Q4_EARNINGS",
+       1
+      ],
+      [
+       "ULTABEAUTY_2023Q4_EARNINGS",
+       2
+      ],
+      [
+       "ULTABEAUTY_2023Q4_EARNINGS",
+       6
+      ],
+      [
+       "ULTABEAUTY_2023Q4_EARNINGS",
+       6
+      ],
+      [
+       "ULTABEAUTY_2023Q4_EARNINGS",
+       1
+      ]
+     ],
+     "recall@1": 1.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 1.0
+    }
+   }
+  },
+  {
+   "financebench_id": "financebench_id_01488",
+   "question_type": "novel-generated",
+   "relevant": [
+    [
+     "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+     4
+    ]
+   ],
+   "runs": {
+    "corpus/dense": {
+     "first_hit": 1,
+     "retrieved": [
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       4
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       13
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       11
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       23
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       2
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       1
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       22
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       4
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       1
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       20
+      ]
+     ],
+     "recall@1": 1.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 1.0
+    },
+    "corpus/bm25": {
+     "first_hit": 1,
+     "retrieved": [
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       4
+      ],
+      [
+       "AMCOR_2023_10K",
+       66
+      ],
+      [
+       "AMCOR_2023_10K",
+       25
+      ],
+      [
+       "AMCOR_2023_10K",
+       56
+      ],
+      [
+       "BOEING_2022_10K",
+       158
+      ],
+      [
+       "AMCOR_2023_10K",
+       72
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       13
+      ],
+      [
+       "COSTCO_2021_10K",
+       3
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       8
+      ],
+      [
+       "AMCOR_2023_10K",
+       64
+      ]
+     ],
+     "recall@1": 1.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 1.0
+    },
+    "corpus/hybrid": {
+     "first_hit": 1,
+     "retrieved": [
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       4
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       2
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       4
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       13
+      ],
+      [
+       "AMCOR_2023_10K",
+       66
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       11
+      ],
+      [
+       "AMCOR_2023_10K",
+       25
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       23
+      ],
+      [
+       "AMCOR_2023_10K",
+       56
+      ],
+      [
+       "BOEING_2022_10K",
+       158
+      ]
+     ],
+     "recall@1": 1.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 1.0
+    },
+    "corpus/hybrid_rerank": {
+     "first_hit": 1,
+     "retrieved": [
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       4
+      ],
+      [
+       "AMCOR_2023_10K",
+       66
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       1
+      ],
+      [
+       "AMCOR_2023_10K",
+       64
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       4
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       2
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       13
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       13
+      ],
+      [
+       "AMCOR_2023_10K",
+       56
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       11
+      ]
+     ],
+     "recall@1": 1.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 1.0
+    },
+    "document/dense": {
+     "first_hit": 1,
+     "retrieved": [
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       4
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       2
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       4
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       20
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       6
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       19
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       21
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       23
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       6
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       15
+      ]
+     ],
+     "recall@1": 1.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 1.0
+    },
+    "document/bm25": {
+     "first_hit": 1,
+     "retrieved": [
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       4
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       8
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       4
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       2
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       3
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       6
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       8
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       20
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       1
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       14
+      ]
+     ],
+     "recall@1": 1.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 1.0
+    },
+    "document/hybrid": {
+     "first_hit": 1,
+     "retrieved": [
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       4
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       2
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       4
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       20
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       8
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       19
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       6
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       23
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       21
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       24
+      ]
+     ],
+     "recall@1": 1.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 1.0
+    },
+    "document/hybrid_rerank": {
+     "first_hit": 1,
+     "retrieved": [
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       4
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       4
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       2
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       6
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       3
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       1
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       6
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       19
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       8
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       8
+      ]
+     ],
+     "recall@1": 1.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 1.0
+    }
+   }
+  },
+  {
+   "financebench_id": "financebench_id_00757",
+   "question_type": "novel-generated",
+   "relevant": [
+    [
+     "AMD_2022_10K",
+     12
+    ]
+   ],
+   "runs": {
+    "corpus/dense": {
+     "first_hit": 1,
+     "retrieved": [
+      [
+       "AMD_2022_10K",
+       12
+      ],
+      [
+       "AMD_2022_10K",
+       4
+      ],
+      [
+       "AMD_2022_10K",
+       67
+      ],
+      [
+       "AMD_2022_10K",
+       111
+      ],
+      [
+       "AMD_2022_10K",
+       19
+      ],
+      [
+       "AMD_2022_10K",
+       67
+      ],
+      [
+       "AMD_2022_10K",
+       43
+      ],
+      [
+       "AMD_2022_10K",
+       20
+      ],
+      [
+       "AMD_2022_10K",
+       80
+      ],
+      [
+       "AMD_2022_10K",
+       22
+      ]
+     ],
+     "recall@1": 1.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 1.0
+    },
+    "corpus/bm25": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "AMCOR_2023_10K",
+       14
+      ],
+      [
+       "AMCOR_2023_10K",
+       14
+      ],
+      [
+       "AMCOR_2023_10K",
+       47
+      ],
+      [
+       "BOEING_2022_10K",
+       19
+      ],
+      [
+       "BOEING_2022_10K",
+       19
+      ],
+      [
+       "AMCOR_2023_10K",
+       14
+      ],
+      [
+       "AMD_2022_10K",
+       102
+      ],
+      [
+       "AMD_2022_10K",
+       102
+      ],
+      [
+       "AMD_2022_10K",
+       102
+      ],
+      [
+       "AMD_2022_10K",
+       106
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "corpus/hybrid": {
+     "first_hit": 3,
+     "retrieved": [
+      [
+       "AMD_2022_10K",
+       102
+      ],
+      [
+       "AMD_2022_10K",
+       104
+      ],
+      [
+       "AMD_2022_10K",
+       12
+      ],
+      [
+       "AMCOR_2023_10K",
+       14
+      ],
+      [
+       "AMD_2022_10K",
+       4
+      ],
+      [
+       "AMCOR_2023_10K",
+       14
+      ],
+      [
+       "AMD_2022_10K",
+       67
+      ],
+      [
+       "AMCOR_2023_10K",
+       47
+      ],
+      [
+       "AMD_2022_10K",
+       111
+      ],
+      [
+       "BOEING_2022_10K",
+       19
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.3333333333333333
+    },
+    "corpus/hybrid_rerank": {
+     "first_hit": 6,
+     "retrieved": [
+      [
+       "AMD_2022_10K",
+       80
+      ],
+      [
+       "AMD_2022_10K",
+       4
+      ],
+      [
+       "BOEING_2022_10K",
+       19
+      ],
+      [
+       "AMD_2022_10K",
+       22
+      ],
+      [
+       "AMCOR_2023_10K",
+       14
+      ],
+      [
+       "AMD_2022_10K",
+       12
+      ],
+      [
+       "AMD_2022_10K",
+       67
+      ],
+      [
+       "AMD_2022_10K",
+       19
+      ],
+      [
+       "AMD_2022_10K",
+       102
+      ],
+      [
+       "AMD_2022_10K",
+       20
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.16666666666666666
+    },
+    "document/dense": {
+     "first_hit": 1,
+     "retrieved": [
+      [
+       "AMD_2022_10K",
+       12
+      ],
+      [
+       "AMD_2022_10K",
+       4
+      ],
+      [
+       "AMD_2022_10K",
+       67
+      ],
+      [
+       "AMD_2022_10K",
+       111
+      ],
+      [
+       "AMD_2022_10K",
+       19
+      ],
+      [
+       "AMD_2022_10K",
+       67
+      ],
+      [
+       "AMD_2022_10K",
+       43
+      ],
+      [
+       "AMD_2022_10K",
+       20
+      ],
+      [
+       "AMD_2022_10K",
+       80
+      ],
+      [
+       "AMD_2022_10K",
+       22
+      ]
+     ],
+     "recall@1": 1.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 1.0
+    },
+    "document/bm25": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "AMD_2022_10K",
+       102
+      ],
+      [
+       "AMD_2022_10K",
+       102
+      ],
+      [
+       "AMD_2022_10K",
+       102
+      ],
+      [
+       "AMD_2022_10K",
+       106
+      ],
+      [
+       "AMD_2022_10K",
+       103
+      ],
+      [
+       "AMD_2022_10K",
+       103
+      ],
+      [
+       "AMD_2022_10K",
+       104
+      ],
+      [
+       "AMD_2022_10K",
+       103
+      ],
+      [
+       "AMD_2022_10K",
+       106
+      ],
+      [
+       "AMD_2022_10K",
+       106
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "document/hybrid": {
+     "first_hit": 3,
+     "retrieved": [
+      [
+       "AMD_2022_10K",
+       102
+      ],
+      [
+       "AMD_2022_10K",
+       104
+      ],
+      [
+       "AMD_2022_10K",
+       12
+      ],
+      [
+       "AMD_2022_10K",
+       102
+      ],
+      [
+       "AMD_2022_10K",
+       4
+      ],
+      [
+       "AMD_2022_10K",
+       102
+      ],
+      [
+       "AMD_2022_10K",
+       67
+      ],
+      [
+       "AMD_2022_10K",
+       111
+      ],
+      [
+       "AMD_2022_10K",
+       106
+      ],
+      [
+       "AMD_2022_10K",
+       19
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.3333333333333333
+    },
+    "document/hybrid_rerank": {
+     "first_hit": 4,
+     "retrieved": [
+      [
+       "AMD_2022_10K",
+       80
+      ],
+      [
+       "AMD_2022_10K",
+       4
+      ],
+      [
+       "AMD_2022_10K",
+       22
+      ],
+      [
+       "AMD_2022_10K",
+       12
+      ],
+      [
+       "AMD_2022_10K",
+       67
+      ],
+      [
+       "AMD_2022_10K",
+       19
+      ],
+      [
+       "AMD_2022_10K",
+       103
+      ],
+      [
+       "AMD_2022_10K",
+       102
+      ],
+      [
+       "AMD_2022_10K",
+       20
+      ],
+      [
+       "AMD_2022_10K",
+       106
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.25
+    }
+   }
+  },
+  {
+   "financebench_id": "financebench_id_00585",
+   "question_type": "novel-generated",
+   "relevant": [
+    [
+     "BOEING_2022_10K",
+     55
+    ]
+   ],
+   "runs": {
+    "corpus/dense": {
+     "first_hit": 8,
+     "retrieved": [
+      [
+       "BOEING_2022_10K",
+       79
+      ],
+      [
+       "BOEING_2022_10K",
+       77
+      ],
+      [
+       "NIKE_2019_10K",
+       72
+      ],
+      [
+       "BOEING_2022_10K",
+       43
+      ],
+      [
+       "COSTCO_2021_10K",
+       57
+      ],
+      [
+       "BOEING_2022_10K",
+       27
+      ],
+      [
+       "BOEING_2022_10K",
+       23
+      ],
+      [
+       "BOEING_2022_10K",
+       55
+      ],
+      [
+       "BOEING_2022_10K",
+       100
+      ],
+      [
+       "BOEING_2022_10K",
+       78
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.125
+    },
+    "corpus/bm25": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "COSTCO_2021_10K",
+       57
+      ],
+      [
+       "NIKE_2019_10K",
+       72
+      ],
+      [
+       "COSTCO_2021_10K",
+       59
+      ],
+      [
+       "COSTCO_2021_10K",
+       28
+      ],
+      [
+       "AMCOR_2023_10K",
+       93
+      ],
+      [
+       "NIKE_2019_10K",
+       71
+      ],
+      [
+       "BOEING_2022_10K",
+       145
+      ],
+      [
+       "NETFLIX_2017_10K",
+       27
+      ],
+      [
+       "NETFLIX_2017_10K",
+       27
+      ],
+      [
+       "AMAZON_2017_10K",
+       29
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "corpus/hybrid": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "NIKE_2019_10K",
+       72
+      ],
+      [
+       "COSTCO_2021_10K",
+       57
+      ],
+      [
+       "AMCOR_2023_10K",
+       93
+      ],
+      [
+       "NETFLIX_2017_10K",
+       27
+      ],
+      [
+       "NETFLIX_2017_10K",
+       27
+      ],
+      [
+       "BOEING_2022_10K",
+       79
+      ],
+      [
+       "BOEING_2022_10K",
+       77
+      ],
+      [
+       "COSTCO_2021_10K",
+       59
+      ],
+      [
+       "BOEING_2022_10K",
+       43
+      ],
+      [
+       "COSTCO_2021_10K",
+       28
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "corpus/hybrid_rerank": {
+     "first_hit": 6,
+     "retrieved": [
+      [
+       "BOEING_2022_10K",
+       79
+      ],
+      [
+       "BOEING_2022_10K",
+       77
+      ],
+      [
+       "BOEING_2022_10K",
+       78
+      ],
+      [
+       "AMCOR_2023_10K",
+       93
+      ],
+      [
+       "BOEING_2022_10K",
+       27
+      ],
+      [
+       "BOEING_2022_10K",
+       55
+      ],
+      [
+       "BOEING_2022_10K",
+       43
+      ],
+      [
+       "BOEING_2022_10K",
+       43
+      ],
+      [
+       "NETFLIX_2017_10K",
+       27
+      ],
+      [
+       "COSTCO_2021_10K",
+       57
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.16666666666666666
+    },
+    "document/dense": {
+     "first_hit": 6,
+     "retrieved": [
+      [
+       "BOEING_2022_10K",
+       79
+      ],
+      [
+       "BOEING_2022_10K",
+       77
+      ],
+      [
+       "BOEING_2022_10K",
+       43
+      ],
+      [
+       "BOEING_2022_10K",
+       27
+      ],
+      [
+       "BOEING_2022_10K",
+       23
+      ],
+      [
+       "BOEING_2022_10K",
+       55
+      ],
+      [
+       "BOEING_2022_10K",
+       100
+      ],
+      [
+       "BOEING_2022_10K",
+       78
+      ],
+      [
+       "BOEING_2022_10K",
+       43
+      ],
+      [
+       "BOEING_2022_10K",
+       52
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.16666666666666666
+    },
+    "document/bm25": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "BOEING_2022_10K",
+       145
+      ],
+      [
+       "BOEING_2022_10K",
+       79
+      ],
+      [
+       "BOEING_2022_10K",
+       79
+      ],
+      [
+       "BOEING_2022_10K",
+       133
+      ],
+      [
+       "BOEING_2022_10K",
+       77
+      ],
+      [
+       "BOEING_2022_10K",
+       70
+      ],
+      [
+       "BOEING_2022_10K",
+       142
+      ],
+      [
+       "BOEING_2022_10K",
+       24
+      ],
+      [
+       "BOEING_2022_10K",
+       78
+      ],
+      [
+       "BOEING_2022_10K",
+       145
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "document/hybrid": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "BOEING_2022_10K",
+       79
+      ],
+      [
+       "BOEING_2022_10K",
+       77
+      ],
+      [
+       "BOEING_2022_10K",
+       78
+      ],
+      [
+       "BOEING_2022_10K",
+       77
+      ],
+      [
+       "BOEING_2022_10K",
+       52
+      ],
+      [
+       "BOEING_2022_10K",
+       145
+      ],
+      [
+       "BOEING_2022_10K",
+       79
+      ],
+      [
+       "BOEING_2022_10K",
+       43
+      ],
+      [
+       "BOEING_2022_10K",
+       27
+      ],
+      [
+       "BOEING_2022_10K",
+       133
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "document/hybrid_rerank": {
+     "first_hit": 9,
+     "retrieved": [
+      [
+       "BOEING_2022_10K",
+       79
+      ],
+      [
+       "BOEING_2022_10K",
+       79
+      ],
+      [
+       "BOEING_2022_10K",
+       77
+      ],
+      [
+       "BOEING_2022_10K",
+       24
+      ],
+      [
+       "BOEING_2022_10K",
+       78
+      ],
+      [
+       "BOEING_2022_10K",
+       52
+      ],
+      [
+       "BOEING_2022_10K",
+       52
+      ],
+      [
+       "BOEING_2022_10K",
+       27
+      ],
+      [
+       "BOEING_2022_10K",
+       55
+      ],
+      [
+       "BOEING_2022_10K",
+       43
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.1111111111111111
+    }
+   }
+  },
+  {
+   "financebench_id": "financebench_id_00724",
+   "question_type": "novel-generated",
+   "relevant": [
+    [
+     "Pfizer_2023Q2_10Q",
+     38
+    ]
+   ],
+   "runs": {
+    "corpus/dense": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "Pfizer_2023Q2_10Q",
+       49
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       42
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       45
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       47
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       45
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       46
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       46
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       47
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       42
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       45
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "corpus/bm25": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "NIKE_2019_10K",
+       37
+      ],
+      [
+       "NIKE_2019_10K",
+       29
+      ],
+      [
+       "BOEING_2022_10K",
+       152
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       49
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       49
+      ],
+      [
+       "NETFLIX_2015_10K",
+       60
+      ],
+      [
+       "NETFLIX_2017_10K",
+       61
+      ],
+      [
+       "NIKE_2019_10K",
+       30
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       4
+      ],
+      [
+       "AMAZON_2017_10K",
+       25
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "corpus/hybrid": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "Pfizer_2023Q2_10Q",
+       49
+      ],
+      [
+       "NIKE_2019_10K",
+       37
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       42
+      ],
+      [
+       "NIKE_2019_10K",
+       29
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       45
+      ],
+      [
+       "BOEING_2022_10K",
+       152
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       47
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       49
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       45
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       46
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "corpus/hybrid_rerank": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "Pfizer_2023Q2_10Q",
+       46
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       49
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       47
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       42
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       42
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       42
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       45
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       46
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       49
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       45
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "document/dense": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "Pfizer_2023Q2_10Q",
+       49
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       42
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       45
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       47
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       45
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       46
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       46
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       47
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       42
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       45
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "document/bm25": {
+     "first_hit": 8,
+     "retrieved": [
+      [
+       "Pfizer_2023Q2_10Q",
+       49
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       49
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       56
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       13
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       46
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       46
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       37
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       38
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       47
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       42
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.125
+    },
+    "document/hybrid": {
+     "first_hit": 7,
+     "retrieved": [
+      [
+       "Pfizer_2023Q2_10Q",
+       49
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       46
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       47
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       45
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       42
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       42
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       38
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       38
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       49
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       56
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.14285714285714285
+    },
+    "document/hybrid_rerank": {
+     "first_hit": 6,
+     "retrieved": [
+      [
+       "Pfizer_2023Q2_10Q",
+       46
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       49
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       47
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       42
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       42
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       38
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       42
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       45
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       46
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       49
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.16666666666666666
+    }
+   }
+  },
+  {
+   "financebench_id": "financebench_id_01484",
+   "question_type": "novel-generated",
+   "relevant": [
+    [
+     "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+     2
+    ]
+   ],
+   "runs": {
+    "corpus/dense": {
+     "first_hit": 4,
+     "retrieved": [
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       1
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       18
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       18
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       2
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       6
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       17
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       2
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       19
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       1
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       14
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.25
+    },
+    "corpus/bm25": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       1
+      ],
+      [
+       "AMAZON_2019_10K",
+       24
+      ],
+      [
+       "AMAZON_2019_10K",
+       24
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       3
+      ],
+      [
+       "AMAZON_2017_10K",
+       6
+      ],
+      [
+       "AMAZON_2019_10K",
+       6
+      ],
+      [
+       "AMAZON_2017_10K",
+       25
+      ],
+      [
+       "AMAZON_2017_10K",
+       25
+      ],
+      [
+       "BESTBUY_2024Q2_10Q",
+       18
+      ],
+      [
+       "BESTBUY_2023_10K",
+       18
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "corpus/hybrid": {
+     "first_hit": 9,
+     "retrieved": [
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       1
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       1
+      ],
+      [
+       "AMAZON_2019_10K",
+       24
+      ],
+      [
+       "AMAZON_2017_10K",
+       25
+      ],
+      [
+       "AMAZON_2017_10K",
+       25
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       18
+      ],
+      [
+       "AMAZON_2019_10K",
+       24
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       18
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       2
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       3
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.1111111111111111
+    },
+    "corpus/hybrid_rerank": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "AMAZON_2019_10K",
+       24
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       14
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       1
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       17
+      ],
+      [
+       "AMAZON_2017_10K",
+       25
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       3
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       18
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       1
+      ],
+      [
+       "AMAZON_2017_10K",
+       25
+      ],
+      [
+       "AMAZON_2019_10K",
+       24
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "document/dense": {
+     "first_hit": 2,
+     "retrieved": [
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       1
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       2
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       6
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       2
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       19
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       1
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       14
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       18
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       17
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       16
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.5
+    },
+    "document/bm25": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       1
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       3
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       1
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       6
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       14
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       13
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       20
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       6
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       7
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       4
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "document/hybrid": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       1
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       1
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       6
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       14
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       20
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       20
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       13
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       17
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       16
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       19
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "document/hybrid_rerank": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       14
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       13
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       1
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       3
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       1
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       4
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       17
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       18
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       16
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       20
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    }
+   }
+  },
+  {
+   "financebench_id": "financebench_id_02419",
+   "question_type": "novel-generated",
+   "relevant": [
+    [
+     "Pfizer_2023Q2_10Q",
+     41
+    ]
+   ],
+   "runs": {
+    "corpus/dense": {
+     "first_hit": 6,
+     "retrieved": [
+      [
+       "Pfizer_2023Q2_10Q",
+       45
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       13
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       42
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       39
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       42
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       41
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       17
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       37
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       42
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       58
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.16666666666666666
+    },
+    "corpus/bm25": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "Pfizer_2023Q2_10Q",
+       34
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       34
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       37
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       37
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       13
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       6
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       35
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       45
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       1
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       14
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "corpus/hybrid": {
+     "first_hit": 4,
+     "retrieved": [
+      [
+       "Pfizer_2023Q2_10Q",
+       13
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       37
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       45
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       41
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       14
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       38
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       34
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       34
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       42
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       37
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.25
+    },
+    "corpus/hybrid_rerank": {
+     "first_hit": 5,
+     "retrieved": [
+      [
+       "Pfizer_2023Q2_10Q",
+       13
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       37
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       38
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       45
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       41
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       42
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       45
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       40
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       37
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       14
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.2
+    },
+    "document/dense": {
+     "first_hit": 6,
+     "retrieved": [
+      [
+       "Pfizer_2023Q2_10Q",
+       45
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       13
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       42
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       39
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       42
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       41
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       17
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       37
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       42
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       58
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.16666666666666666
+    },
+    "document/bm25": {
+     "first_hit": null,
+     "retrieved": [
+      [
+       "Pfizer_2023Q2_10Q",
+       34
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       34
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       37
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       37
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       13
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       6
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       35
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       45
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       1
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       14
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 0.0,
+     "mrr@10": 0.0
+    },
+    "document/hybrid": {
+     "first_hit": 4,
+     "retrieved": [
+      [
+       "Pfizer_2023Q2_10Q",
+       13
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       37
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       45
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       41
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       14
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       38
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       34
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       34
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       42
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       37
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.25
+    },
+    "document/hybrid_rerank": {
+     "first_hit": 5,
+     "retrieved": [
+      [
+       "Pfizer_2023Q2_10Q",
+       13
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       37
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       38
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       45
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       41
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       42
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       45
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       40
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       37
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       14
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.2
+    }
+   }
+  },
+  {
+   "financebench_id": "financebench_id_01491",
+   "question_type": "novel-generated",
+   "relevant": [
+    [
+     "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+     4
+    ]
+   ],
+   "runs": {
+    "corpus/dense": {
+     "first_hit": 1,
+     "retrieved": [
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       4
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       4
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       2
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       4
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       6
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       6
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       6
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       24
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       15
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       23
+      ]
+     ],
+     "recall@1": 1.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 1.0
+    },
+    "corpus/bm25": {
+     "first_hit": 2,
+     "retrieved": [
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       2
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       4
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       4
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       6
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       4
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       6
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       8
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       7
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       24
+      ],
+      [
+       "AMCOR_2023_10K",
+       30
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.5
+    },
+    "corpus/hybrid": {
+     "first_hit": 1,
+     "retrieved": [
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       4
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       2
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       4
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       4
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       6
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       6
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       24
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       23
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       22
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       6
+      ]
+     ],
+     "recall@1": 1.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 1.0
+    },
+    "corpus/hybrid_rerank": {
+     "first_hit": 1,
+     "retrieved": [
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       4
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       4
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       4
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       6
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       6
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       2
+      ],
+      [
+       "Pfizer_2023Q2_10Q",
+       15
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       6
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       22
+      ],
+      [
+       "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+       23
+      ]
+     ],
+     "recall@1": 1.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 1.0
+    },
+    "document/dense": {
+     "first_hit": 1,
+     "retrieved": [
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       4
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       4
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       2
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       4
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       6
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       6
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       6
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       27
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       19
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       23
+      ]
+     ],
+     "recall@1": 1.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 1.0
+    },
+    "document/bm25": {
+     "first_hit": 2,
+     "retrieved": [
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       2
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       4
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       4
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       6
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       4
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       6
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       8
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       6
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       16
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       6
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.5
+    },
+    "document/hybrid": {
+     "first_hit": 1,
+     "retrieved": [
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       4
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       2
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       4
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       4
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       6
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       6
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       6
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       27
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       16
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       15
+      ]
+     ],
+     "recall@1": 1.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 1.0
+    },
+    "document/hybrid_rerank": {
+     "first_hit": 1,
+     "retrieved": [
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       4
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       4
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       4
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       6
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       6
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       2
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       6
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       8
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       16
+      ],
+      [
+       "JOHNSON_JOHNSON_2023_8K_dated-2023-08-30",
+       27
+      ]
+     ],
+     "recall@1": 1.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 1.0
+    }
+   }
+  },
+  {
+   "financebench_id": "financebench_id_01911",
+   "question_type": "novel-generated",
+   "relevant": [
+    [
+     "MGMRESORTS_2022Q4_EARNINGS",
+     14
+    ]
+   ],
+   "runs": {
+    "corpus/dense": {
+     "first_hit": 2,
+     "retrieved": [
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       7
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       14
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       8
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       4
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       14
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       2
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       7
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       2
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       9
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       4
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.5
+    },
+    "corpus/bm25": {
+     "first_hit": 9,
+     "retrieved": [
+      [
+       "AMCOR_2023_10K",
+       35
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       4
+      ],
+      [
+       "AMCOR_2023_10K",
+       35
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       11
+      ],
+      [
+       "AMCOR_2023_10K",
+       35
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       7
+      ],
+      [
+       "AMD_2022_10K",
+       80
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       7
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       14
+      ],
+      [
+       "AMAZON_2017_10K",
+       79
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 0.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.1111111111111111
+    },
+    "corpus/hybrid": {
+     "first_hit": 3,
+     "retrieved": [
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       4
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       7
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       14
+      ],
+      [
+       "AMCOR_2023_10K",
+       35
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       7
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       9
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       7
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       8
+      ],
+      [
+       "AMCOR_2023_10K",
+       35
+      ],
+      [
+       "AMCOR_2023Q4_EARNINGS",
+       11
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.3333333333333333
+    },
+    "corpus/hybrid_rerank": {
+     "first_hit": 2,
+     "retrieved": [
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       7
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       14
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       2
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       9
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       4
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       2
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       7
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       7
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       14
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       8
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.5
+    },
+    "document/dense": {
+     "first_hit": 2,
+     "retrieved": [
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       7
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       14
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       8
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       14
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       2
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       7
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       2
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       9
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       4
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       11
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.5
+    },
+    "document/bm25": {
+     "first_hit": 2,
+     "retrieved": [
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       7
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       14
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       7
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       7
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       9
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       7
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       14
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       9
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       2
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       3
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.5
+    },
+    "document/hybrid": {
+     "first_hit": 2,
+     "retrieved": [
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       7
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       14
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       7
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       14
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       9
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       7
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       4
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       4
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       7
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       11
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.5
+    },
+    "document/hybrid_rerank": {
+     "first_hit": 2,
+     "retrieved": [
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       7
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       14
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       14
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       2
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       9
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       4
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       2
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       7
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       7
+      ],
+      [
+       "MGMRESORTS_2022Q4_EARNINGS",
+       4
+      ]
+     ],
+     "recall@1": 0.0,
+     "recall@4": 1.0,
+     "recall@10": 1.0,
+     "mrr@10": 0.5
+    }
+   }
+  }
+ ],
+ "config": {
+  "chunking": {
+   "max_words": 150,
+   "overlap_words": 30
+  },
+  "embedding": {
+   "model": "BAAI/bge-small-en-v1.5",
+   "query_prefix": "Represent this sentence for searching relevant passages: ",
+   "batch_size": 32,
+   "device": "cpu"
+  },
+  "reranker": {
+   "model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+   "batch_size": 16,
+   "device": "cpu"
+  },
+  "retrieval": {
+   "candidates": 20,
+   "rrf_k": 60,
+   "top_k": 4
+  }
+ }
+}

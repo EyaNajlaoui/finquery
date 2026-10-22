@@ -37,6 +37,7 @@ questions: see [Results](#results).
 - **Cited answers**: each number is followed by a `[document · page]` badge; a citation to a page the model
   never received is flagged in red. Sources and the agent's reasoning steps can be opened under each answer.
 - **Evaluation page** in the app: answer quality per system, error diagnosis, retrieval metrics.
+- **Sources panel**: for the last answer, every page the model read, with the lines holding the numbers it used.
 
 ## Architecture
 
@@ -136,6 +137,8 @@ Correctness is graded by an LLM judge against the FinanceBench analyst answer (c
 incorrect); everything that can be checked exactly is checked by code: numbers (1% tolerance), citations,
 whether the evidence page reached the LLM. The judge is a different model from the one answering
 (less self-preference, separate API quota).
+
+![Evaluation page of the app](docs/images/app_evaluation.png)
 
 **RAG vs agent** — first 10 dev questions, same model (`openai/gpt-oss-20b`), corpus setting:
 

@@ -98,7 +98,7 @@ def test_agent_stays_inside_the_user_selection():
     result = agent.answer("Revenue?", {"doc_name": ["UP_ACME_1"]})
     assert agent.retriever.calls[0] == ("revenue", {"doc_name": ["UP_ACME_1"]})  # default = selection
     assert result["trace"][1]["output_preview"].startswith("Error")  # outside the selection
-    assert "UP_ACME_1: Acme, other, fiscal year unknown" in llm.received[0][0]["content"]
+    assert "UP_ACME_1: Acme, fiscal year unknown" in llm.received[0][0]["content"]
     assert "AMCOR_2023_10K" not in llm.received[0][0]["content"]
 
 

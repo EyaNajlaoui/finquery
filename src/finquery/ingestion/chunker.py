@@ -15,7 +15,8 @@ import hashlib
 import re
 from typing import Any
 
-DOC_TYPE_LABELS = {"10k": "10-K", "10q": "10-Q", "8k": "8-K", "earnings": "Earnings release"}
+DOC_TYPE_LABELS = {"10k": "10-K", "10q": "10-Q", "8k": "8-K", "earnings": "Earnings release",
+                   "annual report": "Annual report", "other": "Document"}
 
 _LETTERS = re.compile(r"[A-Za-z]")
 
@@ -73,7 +74,7 @@ def make_context(doc: dict[str, Any], page: int, title: str) -> str:
     """'Costco | 10-K | FY2021 | page 38 | <page title>'. Unknown fields (possible for an
     uploaded document) are skipped; the file title is used when the company is unknown."""
     parts = [doc.get("company") or doc.get("title") or doc["doc_name"],
-             doc_type_label(doc["doc_type"]) if doc.get("doc_type") else "",
+             doc_type_label(doc["doc_type"]) if doc.get("doc_type") not in (None, "", "other") else "",
              f"FY{doc['doc_period']}" if doc.get("doc_period") else "", f"page {page}"]
     return " | ".join([p for p in parts if p] + ([title] if title else []))
 

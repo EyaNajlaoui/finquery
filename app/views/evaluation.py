@@ -62,7 +62,7 @@ if retrieval:
     chart = table.pivot(index="Mode", columns="Setting", values="recall@4").reindex(
         ["dense", "bm25", "hybrid", "hybrid_rerank"])
     st.markdown("**Recall@4 by search mode**")
-    st.bar_chart(chart, horizontal=True, stack=False, color=["#0F766E", "#94C9C1"],
+    st.bar_chart(chart, horizontal=True, stack=False, color=["#6366F1", "#C7C9FA"],
                  x_label="", y_label="", height=260)
     st.dataframe(table, hide_index=True, width="stretch",
                  column_config={c: st.column_config.NumberColumn(format="%.2f")

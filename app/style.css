@@ -1,0 +1,99 @@
+/* FinQuery styles. The colour variables are filled from PALETTES in ui.py. */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+:root {--side: $side; --side2: $side2; --side-text: $side_text; --accent: $accent;
+       --accent-dark: $accent_dark; --accent-soft: $accent_soft; --user: $user;
+       --bg: #F5F7FA; --card: #FFFFFF; --line: #E4E8EE; --text: #0F172A; --muted: #64748B;}
+/* Inter for text only: icons are spans using the Material Symbols font and must keep it */
+.stApp p, .stApp li, .stApp label, .stApp h1, .stApp h2, .stApp h3, .stApp h4, .stApp h5, .stApp input,
+.stApp textarea, .stApp button p, .stApp div[data-testid="stMarkdownContainer"],
+.stApp [data-testid="stMetricValue"], .stApp [data-testid="stMetricLabel"] {font-family: 'Inter', sans-serif !important;}
+.stApp {background: var(--bg);}
+.block-container {padding-top: 4.2rem; padding-bottom: 1rem; max-width: 1400px;}
+h1, h2, h3 {letter-spacing: -0.02em;}
+
+/* --- sidebar ---------------------------------------------------------------------------- */
+[data-testid="stSidebar"] {background: linear-gradient(180deg, var(--side) 0%, var(--side2) 140%);}
+[data-testid="stSidebar"] * {color: var(--side-text);}
+[data-testid="stSidebar"] .fq-logo {display: flex; align-items: center; gap: .6rem; margin: .2rem 0 1.2rem;}
+.fq-logo .mark {width: 34px; height: 34px; border-radius: 9px; background: var(--accent); display: grid;
+                place-items: center; color: #fff !important; font-weight: 700; font-size: 1.05rem;}
+.fq-logo .name {font-size: 1.25rem; font-weight: 700; color: #fff !important; letter-spacing: -0.01em;}
+.fq-side-label {font-size: .68rem; letter-spacing: .09em; font-weight: 600; opacity: .6;
+                margin: 1.1rem 0 .35rem;}
+[data-testid="stSidebar"] [data-testid="stFileUploaderDropzone"] {background: var(--accent);
+    border: none; border-radius: 10px; padding: .55rem .8rem;}
+[data-testid="stSidebar"] [data-testid="stFileUploaderDropzone"] * {color: #fff !important;}
+[data-testid="stSidebar"] [data-testid="stFileUploaderDropzone"] button {background: rgba(255,255,255,.18);
+    border: none;}
+[data-testid="stSidebar"] .stButton button {justify-content: flex-start; background: transparent;
+    border: none; border-radius: 8px; padding: .35rem .6rem; min-height: 0; text-align: left;}
+[data-testid="stSidebar"] .stButton button:hover {background: rgba(255,255,255,.07);}
+[data-testid="stSidebar"] .stButton button[kind="primary"] {background: rgba(255,255,255,.12);
+    color: #fff !important; font-weight: 600;}
+[data-testid="stSidebar"] .stButton button p {font-size: .86rem;}
+[data-testid="stSidebar"] [data-testid="stExpander"] details {border: 1px solid rgba(255,255,255,.12);
+    border-radius: 10px;}
+.fq-status {display: flex; align-items: center; gap: .45rem; font-size: .78rem; opacity: .85; margin-top: 1rem;}
+.fq-dot {width: 8px; height: 8px; border-radius: 50%; background: var(--accent); display: inline-block;}
+
+/* --- top navigation ------------------------------------------------------------------------ */
+header[data-testid="stHeader"] {background: rgba(245,247,250,.85); backdrop-filter: blur(6px);}
+
+/* --- work area ------------------------------------------------------------------------------ */
+.fq-topbar {display: flex; justify-content: space-between; align-items: center; background: var(--card);
+            border: 1px solid var(--line); border-radius: 14px; padding: .8rem 1.1rem; margin-bottom: .8rem;}
+.fq-topbar .title {font-weight: 700; font-size: 1.02rem; color: var(--text);}
+.fq-topbar .sub {font-size: .78rem; color: var(--muted);}
+.fq-pill {display: inline-block; padding: .14rem .55rem; border-radius: 999px; font-size: .72rem;
+          font-weight: 600; background: var(--accent-soft); color: var(--accent-dark); margin-left: .4rem;}
+.fq-hero {background: linear-gradient(135deg, var(--side) 0%, var(--side2) 100%); border-radius: 18px;
+          padding: 1.6rem 1.8rem; color: #fff; margin-bottom: 1rem;}
+.fq-hero h2 {color: #fff; margin: 0 0 .3rem; font-size: 1.55rem;}
+.fq-hero p {color: var(--side-text); margin: 0; font-size: .95rem;}
+.fq-hero .kpis {display: flex; gap: 1.8rem; margin-top: 1.1rem;}
+.fq-hero .kpi b {display: block; font-size: 1.3rem; color: #fff;}
+.fq-hero .kpi span {font-size: .75rem; color: var(--side-text);}
+.fq-section {font-size: .72rem; letter-spacing: .09em; font-weight: 600; color: var(--muted); margin: .4rem 0 .5rem;}
+
+/* chat bubbles */
+[data-testid="stChatMessage"] {background: transparent; padding: .3rem 0;}
+[data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarUser"]) {flex-direction: row-reverse;}
+[data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarUser"]) [data-testid="stChatMessageContent"] {
+    background: var(--user); color: #fff; border-radius: 16px 16px 4px 16px; padding: .55rem .95rem;
+    flex: 0 1 auto; max-width: 75%; margin-left: auto;}
+[data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarUser"]) p {color: #fff;}
+[data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarUser"]) [data-testid="stChatMessageAvatarUser"] {display: none;}
+[data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarCustom"]) [data-testid="stChatMessageContent"] {
+    background: var(--card); border: 1px solid var(--line); border-radius: 4px 16px 16px 16px;
+    padding: .8rem 1.1rem; box-shadow: 0 1px 2px rgba(15,23,42,.04);}
+[data-testid="stChatMessageAvatarCustom"] {background: var(--accent) !important; color: #fff !important;}
+[data-testid="stChatInput"] {border-radius: 14px; border: 1px solid var(--line); background: var(--card);
+    box-shadow: 0 2px 10px rgba(15,23,42,.05);}
+[data-testid="stChatInput"] button {background: var(--accent) !important; border-radius: 10px;}
+[data-testid="stChatInput"] button svg {fill: #fff;}
+
+/* citations and meta */
+.fq-cite {display: inline-block; padding: .05rem .5rem; border-radius: 6px; background: var(--accent-soft);
+          color: var(--accent-dark); font-size: .74rem; font-weight: 600; white-space: nowrap;}
+.fq-cite.bad {background: #FDECEC; color: #B42318;}
+.fq-meta {color: var(--muted); font-size: .76rem;}
+.fq-chip {display: inline-block; padding: .15rem .6rem; margin: 0 .35rem .35rem 0; border-radius: 999px;
+          background: var(--accent-soft); color: var(--accent-dark); font-size: .78rem; font-weight: 600;}
+
+/* sources panel */
+.fq-source {background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: .75rem .85rem;
+            margin-bottom: .6rem;}
+.fq-source .head {display: flex; justify-content: space-between; align-items: center; gap: .4rem;}
+.fq-source .doc {font-weight: 600; font-size: .8rem; color: var(--text);}
+.fq-source .page {font-size: .7rem; padding: .08rem .45rem; border-radius: 6px; background: #F1F4F8;
+                  color: var(--muted); white-space: nowrap;}
+.fq-source .quote {font-size: .78rem; color: #475569; margin: .45rem 0 .4rem; line-height: 1.45;
+                   border-left: 3px solid var(--accent); padding-left: .55rem;}
+.fq-source .status {font-size: .7rem; font-weight: 600; color: var(--accent-dark);}
+.fq-source .status.read {color: var(--muted); font-weight: 500;}
+.fq-step {font-size: .78rem; color: #334155; padding: .35rem 0; border-bottom: 1px dashed var(--line);}
+.fq-step code {font-size: .72rem;}
+.fq-note {background: var(--accent-soft); color: var(--accent-dark); border-radius: 10px; padding: .6rem .75rem;
+          font-size: .76rem; margin-top: .4rem;}
+[data-testid="stMetric"] {background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+                          padding: .8rem 1rem;}

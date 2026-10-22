@@ -5,6 +5,8 @@ import html
 import json
 import os
 import re
+import string
+from pathlib import Path
 from typing import Any
 
 import streamlit as st
@@ -15,19 +17,17 @@ from finquery.ingestion.chunker import doc_type_label
 
 CITATION = re.compile(r"[\[【]\s*([A-Za-z0-9_.\-]+)\s+p\.\s*(\d+)\s*[\]】]")
 
-CSS = """
-<style>
-.block-container {padding-top: 2.2rem; max-width: 1100px;}
-.fq-hero h1 {font-size: 2.1rem; margin-bottom: 0;}
-.fq-hero p {color: #475569; margin-top: .2rem;}
-.fq-chip {display: inline-block; padding: .15rem .6rem; margin: 0 .35rem .35rem 0; border-radius: 999px;
-          background: #E6F2F0; color: #0F766E; font-size: .8rem; font-weight: 600;}
-.fq-cite {display: inline-block; padding: 0 .45rem; border-radius: 6px; background: #E6F2F0;
-          color: #0F766E; font-size: .78rem; font-weight: 600; white-space: nowrap;}
-.fq-cite.bad {background: #FDECEC; color: #B42318;}
-.fq-meta {color: #64748B; font-size: .8rem;}
-</style>
-"""
+# Colour themes: the sidebar is dark, the work area light, one accent colour for actions and citations.
+PALETTES = {
+    "emerald": {"side": "#0B1730", "side2": "#14254A", "side_text": "#C7D2E3", "accent": "#10B981",
+                "accent_dark": "#047857", "accent_soft": "#E6F7F0", "user": "#0B1730"},
+    "indigo": {"side": "#1A1745", "side2": "#2A2665", "side_text": "#D4D2F2", "accent": "#6366F1",
+               "accent_dark": "#4338CA", "accent_soft": "#EEF0FF", "user": "#1A1745"},
+}
+PALETTE = PALETTES.get(os.getenv("FINQUERY_PALETTE", "indigo"), PALETTES["indigo"])
+
+CSS = "<style>" + string.Template((Path(__file__).parent / "style.css").read_text(encoding="utf-8")) \
+    .substitute(PALETTE) + "</style>"
 
 
 def setup_page() -> None:
@@ -80,6 +80,14 @@ def short_label(doc_name: str) -> str:
     return doc_name.replace("_", " ")
 
 
+def badge_label(doc_name: str) -> str:
+    """Short name for citation badges: the company (or title) only, the full name is in the tooltip."""
+    for doc in catalog():
+        if doc["doc_name"] == doc_name:
+            return doc.get("company") or doc.get("title") or doc_name
+    return doc_name.replace("_", " ")
+
+
 def render_answer(text: str, given: set[tuple[str, int]]) -> str:
     """Answer as HTML-safe markdown: '$' escaped (Streamlit reads $...$ as LaTeX) and
     citations shown as badges; red badge for a page the model never received.
@@ -89,7 +97,7 @@ def render_answer(text: str, given: set[tuple[str, int]]) -> str:
     def badge(match: re.Match) -> str:
         doc, page = match.group(1), int(match.group(2))
         css = "fq-cite" if (doc, page) in given else "fq-cite bad"
-        return f'<span class="{css}" title="{doc}">{short_label(doc)} · p.{page}</span>'
+        return f'<span class="{css}" title="{short_label(doc)}">{badge_label(doc)} · p.{page}</span>'
 
     return CITATION.sub(badge, text)
 
@@ -102,3 +110,14 @@ def settings_ready() -> list[str]:
         problems.append("Add your Groq key to `.env`: `GROQ_API_KEY=gsk_...`")
     return problems
 
+
+
+def snippet(page_text: str, answer: str, max_chars: int = 230) -> str:
+    """The lines of a source page that contain numbers used in the answer (else its first lines),
+    so the sources panel shows *why* the page matters."""
+    numbers = {n for n in re.findall(r"\d[\d,.]*\d|\d", answer) if len(n.replace(",", "")) >= 3}
+    lines = [line for line in page_text.splitlines() if line.strip()]
+    hits = [line for line in lines if any(n in line for n in numbers)]
+    text = " … ".join(hits[:3]) if hits else " ".join(lines[:4])
+    text = text if len(text) <= max_chars else text[:max_chars].rsplit(" ", 1)[0] + " …"
+    return html.escape(text)

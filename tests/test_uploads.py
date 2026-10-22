@@ -44,7 +44,7 @@ def test_detect_metadata_with_llm_and_bad_output():
 
 def test_context_header_with_missing_fields():
     doc = {"doc_name": "UP_X_1", "company": "", "doc_type": "other", "doc_period": None, "title": "Acme AR"}
-    assert make_context(doc, 3, "") == "Acme AR | other | page 3"
+    assert make_context(doc, 3, "") == "Acme AR | page 3"
 
 
 def test_upload_store_add_and_remove(tmp_path):

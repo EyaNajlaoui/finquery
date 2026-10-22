@@ -74,7 +74,7 @@ def catalog_text(catalog: list[dict[str, Any]]) -> str:
     lines = []
     for d in catalog:
         parts = [d.get("company") or d.get("title") or "",
-                 doc_type_label(d["doc_type"]) if d.get("doc_type") else "",
+                 doc_type_label(d["doc_type"]) if d.get("doc_type") not in (None, "", "other") else "",
                  f"FY{d['doc_period']}" if d.get("doc_period") else "fiscal year unknown"]
         lines.append(f"- {d['doc_name']}: " + ", ".join(p for p in parts if p))
     return "\n".join(lines)

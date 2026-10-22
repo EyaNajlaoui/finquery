@@ -19,4 +19,4 @@ pages = [
     st.Page(str(APP_DIR / "views" / "evaluation.py"), title="Evaluation", icon=":material/monitoring:"),
     st.Page(str(APP_DIR / "views" / "documents.py"), title="Documents", icon=":material/folder_open:"),
 ]
-st.navigation(pages).run()
+st.navigation(pages, position="top").run()

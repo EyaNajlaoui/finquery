@@ -1,4 +1,7 @@
-"""Ask: upload any financial document (or use the sample library) and ask questions."""
+"""Ask: upload a financial document (or use the sample library) and chat with it.
+
+Layout: dark sidebar (documents, mode) | conversation | sources of the last answer.
+"""
 from __future__ import annotations
 
 import streamlit as st
@@ -9,9 +12,9 @@ from finquery.ingestion.uploads import SUPPORTED, UploadError
 
 UPLOAD_EXAMPLES = [
     "Summarize the key financial results of this document.",
-    "What were total revenue and net income, and how did they change versus the prior year?",
+    "What were revenue and net income, and how did they change versus the prior year?",
     "What is the gross margin for the latest fiscal year? Show the calculation.",
-    "What are the main risks or uncertainties mentioned?",
+    "What are the main risks mentioned?",
 ]
 LIBRARY_EXAMPLES = [
     "What were Costco's total assets at the end of FY2021?",
@@ -24,145 +27,202 @@ FILE_TYPES = [s.strip(".") for s in SUPPORTED]
 ui.setup_page()
 settings = get_settings()
 st.session_state.setdefault("messages", [])
+docs = ui.catalog()
+by_name = {d["doc_name"]: d for d in docs}
+uploaded = [d for d in docs if d["source"] == "upload"]
+library = [d for d in docs if d["source"] == "library"]
+# By default, search the user's own documents (the sample library only if there are none)
+st.session_state.setdefault("scope", [d["doc_name"] for d in uploaded])
+if "pending_scope" in st.session_state:
+    st.session_state.scope = st.session_state.pop("pending_scope")
+st.session_state.scope = [n for n in st.session_state.scope if n in by_name]
+
+
+def select(names: list[str]) -> None:
+    st.session_state.pending_scope = names
+    st.session_state.messages = []
 
 
 def handle_upload(file) -> None:
-    """Index an uploaded file once, then select it for the next questions."""
+    """Index an uploaded file once, then select it."""
     if file is None or st.session_state.get("last_upload") == file.file_id:
         return
     st.session_state.last_upload = file.file_id
     if file.size > settings["uploads"]["max_mb"] * 1e6:
         st.error(f"This file is larger than {settings['uploads']['max_mb']} MB.")
         return
-    system = ui.get_system()
     with st.status(f"Adding **{file.name}**...", expanded=True) as status:
         try:
-            doc = system.upload(file.name, file.getvalue(), step=status.write)
+            doc = ui.get_system().upload(file.name, file.getvalue(), step=status.write)
         except UploadError as error:
             status.update(label=str(error), state="error")
             return
-        status.update(label=f"Ready: {ui.doc_label({**doc, 'source': 'upload'})} ({doc['pages']} pages)",
-                      state="complete", expanded=False)
-    st.session_state.pending_scope = [doc["doc_name"]]  # applied before the widget is drawn
+        status.update(label=f"Ready: {ui.doc_label({**doc, 'source': 'upload'})}", state="complete")
+    select([doc["doc_name"]])
+    st.session_state.uploader_n = st.session_state.get("uploader_n", 0) + 1  # empties the upload widget
     st.rerun()
 
 
 # --- sidebar ---------------------------------------------------------------------------------
-docs = ui.catalog()
-by_name = {d["doc_name"]: d for d in docs}
-# By default, search the user's own documents (the sample library only if there are none)
-st.session_state.setdefault("scope", [d["doc_name"] for d in docs if d["source"] == "upload"])
-if "pending_scope" in st.session_state:
-    st.session_state.scope = st.session_state.pop("pending_scope")
-st.session_state.scope = [n for n in st.session_state.scope if n in by_name]
-
 with st.sidebar:
-    st.markdown("### Your documents")
-    sidebar_file = st.file_uploader("Add a financial document", type=FILE_TYPES,
+    st.markdown('<div class="fq-logo"><div class="mark">F</div><div class="name">FinQuery</div></div>',
+                unsafe_allow_html=True)
+    sidebar_file = st.file_uploader("Add a document", type=FILE_TYPES, label_visibility="collapsed",
+                                    key=f"side_upload_{st.session_state.get('uploader_n', 0)}",
                                     help="Annual or quarterly report, earnings release, 10-K... "
                                          "PDF with selectable text, or a text file.")
-    st.multiselect("Search in", list(by_name), key="scope", format_func=lambda n: ui.doc_label(by_name[n]),
-                   placeholder="All documents",
-                   help="Leave empty to search every document. 📄 = uploaded by you.")
-    st.markdown("### Answer")
-    mode = st.segmented_control("Mode", ["Agent", "Fast"], default="Agent", key="mode",
-                                help="Agent: plans several searches and uses a calculator (slower, "
-                                     "better for ratios). Fast: one search, one answer.") or "Agent"
-    show_sources = st.toggle("Show sources", value=True)
-    st.divider()
-    if st.button("New conversation", icon=":material/refresh:", width="stretch"):
-        st.session_state.messages = []
-        st.rerun()
-    st.caption("Answers can be wrong: check the cited pages. Not investment advice.")
-handle_upload(sidebar_file)
+    st.markdown(f'<div class="fq-side-label">MY DOCUMENTS · {len(uploaded)}</div>', unsafe_allow_html=True)
+    if not uploaded:
+        st.caption("Upload a PDF to start.")
+    for d in uploaded:
+        active = st.session_state.scope == [d["doc_name"]]
+        label = ui.doc_label(d).removeprefix("📄 ")
+        st.button(label, key=f"doc_{d['doc_name']}", icon=":material/description:", width="stretch",
+                  type="primary" if active else "secondary", on_click=select, args=([d["doc_name"]],))
+    if len(uploaded) > 1:
+        mine = [d["doc_name"] for d in uploaded]
+        st.button("All my documents", icon=":material/folder_copy:", width="stretch",
+                  type="primary" if st.session_state.scope == mine else "secondary",
+                  on_click=select, args=(mine,))
+    if library:
+        with st.expander(f"Sample library · {len(library)}"):
+            for d in library:
+                st.button(ui.doc_label(d), key=f"lib_{d['doc_name']}", width="stretch",
+                          type="primary" if st.session_state.scope == [d["doc_name"]] else "secondary",
+                          on_click=select, args=([d["doc_name"]],))
+            st.button("All sample filings", key="lib_all", width="stretch", on_click=select, args=([],))
 
-# --- header ----------------------------------------------------------------------------------
-st.markdown(
-    '<div class="fq-hero"><h1>FinQuery</h1>'
-    "<p>Upload a financial report and ask questions. Every number comes with its source page.</p></div>",
-    unsafe_allow_html=True)
-uploaded = [d for d in docs if d["source"] == "upload"]
-library = [d for d in docs if d["source"] == "library"]
-chips = [f"{len(uploaded)} uploaded" if uploaded else "", f"{len(library)} sample filings" if library else "",
-         "Hybrid search + reranking", "Cited answers"]
-st.markdown("".join(f'<span class="fq-chip">{c}</span>' for c in chips if c), unsafe_allow_html=True)
+    st.markdown('<div class="fq-side-label">ANSWER MODE</div>', unsafe_allow_html=True)
+    mode = st.segmented_control("Mode", ["Agent", "Fast"], default="Agent", key="mode",
+                                label_visibility="collapsed",
+                                help="Agent: plans several searches and uses a calculator "
+                                     "(better for ratios). Fast: one search, one answer.") or "Agent"
+    show_sources = st.toggle("Show sources panel", value=True)
+    chunks = sum(d.get("chunks", 0) for d in uploaded)
+    st.markdown(f'<div class="fq-status"><span class="fq-dot"></span>Index up to date'
+                f'{f" · {chunks:,} chunks" if chunks else ""}</div>', unsafe_allow_html=True)
+handle_upload(sidebar_file)
 
 problems = ui.settings_ready()
 if problems:
     st.error("FinQuery is not ready yet:\n\n" + "\n".join(f"- {p}" for p in problems))
     st.stop()
 
+# --- top bar ---------------------------------------------------------------------------------
+scope_docs = [by_name[n] for n in st.session_state.scope]
+if len(scope_docs) == 1:
+    d = scope_docs[0]
+    title = ui.doc_label(d).removeprefix("📄 ")
+    sub = f"{d.get('filename', d['doc_name'])} · {d.get('pages', '?')} pages"
+elif scope_docs:
+    title = f"{len(scope_docs)} documents"
+    sub = " · ".join(ui.short_label(d["doc_name"]) for d in scope_docs[:3])
+else:
+    title, sub = "All documents", f"{len(uploaded)} uploaded · {len(library)} sample filings"
+left, right = st.columns([2.3, 1], gap="large") if show_sources else (st.container(), None)
 
-def show_result(result: dict) -> None:
-    given = {(p["doc_name"], p["page"]) for p in result["passages"]}
-    if result["refusal"]:
-        st.warning("The selected documents do not seem to contain this information.",
-                   icon=":material/search_off:")
-    st.markdown(ui.render_answer(result["answer"], given), unsafe_allow_html=True)
+with left:
+    bar, button = st.columns([5, 1.4], vertical_alignment="center")
+    bar.markdown(f'<div class="fq-topbar"><div><div class="title">{title}'
+                 f'<span class="fq-pill">{mode}</span></div><div class="sub">{sub}</div></div></div>',
+                 unsafe_allow_html=True)
+    if button.button("New chat", icon=":material/add_comment:", width="stretch"):
+        st.session_state.messages = []
+        st.rerun()
 
-    tokens = sum(result["usage"].values()) if result["usage"] else 0
-    meta = [f"{result['seconds']:.1f} s", f"{tokens:,} tokens", f"{len(result['passages'])} pages read"]
-    if result.get("trace") is not None:
-        meta.append(f"{sum(t['tool'] == 'search_filings' for t in result['trace'])} searches")
-    st.markdown(f'<span class="fq-meta">{" · ".join(meta)}</span>', unsafe_allow_html=True)
+    chat = st.container(height=560, border=False)
+    with chat:
+        if not st.session_state.messages:
+            st.markdown(
+                '<div class="fq-hero"><h2>Ask anything about your financial documents</h2>'
+                "<p>Hybrid search finds the right pages, an agent computes the ratios, "
+                "and every number links to its source page.</p>"
+                '<div class="kpis"><div class="kpi"><b>Hybrid search</b><span>embeddings + BM25 + reranking'
+                '</span></div><div class="kpi"><b>Agent</b><span>multi-step search + calculator</span></div>'
+                '<div class="kpi"><b>Cited pages</b><span>every number linked to its source</span></div>'
+                "</div></div>",
+                unsafe_allow_html=True)
+            if not uploaded:
+                handle_upload(st.file_uploader("Upload a financial document to start", type=FILE_TYPES,
+                                               key="main_upload"))
+            examples = UPLOAD_EXAMPLES if any(d["source"] == "upload" for d in scope_docs or uploaded) \
+                else LIBRARY_EXAMPLES
+            st.markdown('<div class="fq-section">TRY ONE OF THESE</div>', unsafe_allow_html=True)
+            cols = st.columns(2)
+            for i, example in enumerate(examples):
+                if cols[i % 2].button(example, key=f"ex{i}", width="stretch"):
+                    st.session_state.pending = example
+                    st.rerun()
+        for message in st.session_state.messages:
+            if message["role"] == "user":
+                with st.chat_message("user"):
+                    st.markdown(message["content"].replace("$", "\\$"))
+                continue
+            result = message["result"]
+            with st.chat_message("assistant", avatar=":material/query_stats:"):
+                if result["refusal"]:
+                    st.warning("The selected documents do not seem to contain this information.",
+                               icon=":material/search_off:")
+                given = {(p["doc_name"], p["page"]) for p in result["passages"]}
+                st.markdown(ui.render_answer(result["answer"], given), unsafe_allow_html=True)
+                tokens = sum(result["usage"].values()) if result["usage"] else 0
+                st.markdown(f'<span class="fq-meta">{result["seconds"]:.1f} s · {tokens:,} tokens · '
+                            f'{len(result["passages"])} pages read</span>', unsafe_allow_html=True)
+                if result["invalid_citations"]:
+                    st.error("Some citations point to pages the model never received (in red).")
+        if st.session_state.get("thinking"):
+            with st.chat_message("assistant", avatar=":material/query_stats:"):
+                label = "Planning searches and calculations..." if mode == "Agent" else "Searching..."
+                with st.spinner(label):
+                    question = st.session_state.pop("thinking")
+                    try:
+                        result = ui.get_system().ask(question, agent=mode == "Agent",
+                                                     doc_names=st.session_state.scope)
+                        st.session_state.messages.append({"role": "assistant", "result": result})
+                    except Exception as error:  # show the problem instead of a stack trace
+                        st.session_state.messages.append({"role": "assistant", "result": {
+                            "answer": f"Something went wrong: {error}", "passages": [], "citations": [],
+                            "invalid_citations": [], "refusal": False, "usage": {}, "seconds": 0.0}})
+                st.rerun()
 
-    if result["invalid_citations"]:
-        st.error("Some citations point to pages the model never received (shown in red).",
-                 icon=":material/error:")
-    if result.get("trace"):
-        with st.expander(f"Reasoning steps ({len(result['trace'])})", icon=":material/account_tree:"):
-            for t in result["trace"]:
-                icon = ":material/search:" if t["tool"] == "search_filings" else ":material/calculate:"
-                st.markdown(f"{icon} **Step {t['step']}** · `{t['tool']}`")
-                st.code(t["arguments"], language="json")
-    if show_sources and result["passages"]:
-        cited = {tuple(c) for c in result["citations"]}
-        with st.expander(f"Sources ({len(result['passages'])} pages)", icon=":material/description:"):
-            for p in result["passages"]:
-                status = "cited" if (p["doc_name"], p["page"]) in cited else "read, not cited"
-                st.markdown(f"**{ui.short_label(p['doc_name'])} · page {p['page']}** "
-                            f'<span class="fq-meta">· {status}</span>', unsafe_allow_html=True)
-                with st.container(height=180, border=True):  # scrollable: pages can be long
-                    st.text(p["text"])
+    question = st.chat_input("Ask a question about your documents...") \
+        or st.session_state.pop("pending", None)
+    if question:
+        st.session_state.messages.append({"role": "user", "content": question})
+        st.session_state.thinking = question
+        st.rerun()
+    st.markdown('<div class="fq-meta" style="text-align:center">Answers come only from the selected '
+                "documents and can be wrong: check the cited pages. Not investment advice.</div>",
+                unsafe_allow_html=True)
 
-
-# --- conversation ----------------------------------------------------------------------------
-for message in st.session_state.messages:
-    with st.chat_message(message["role"], avatar=":material/person:" if message["role"] == "user"
-                         else ":material/query_stats:"):
-        if message["role"] == "user":
-            st.markdown(message["content"].replace("$", "\\$"))
+# --- sources panel ---------------------------------------------------------------------------
+if right is not None:
+    with right:
+        st.markdown('<div class="fq-section">SOURCES OF THE LAST ANSWER</div>', unsafe_allow_html=True)
+        last = next((m["result"] for m in reversed(st.session_state.messages) if m["role"] == "assistant"),
+                    None)
+        if not last or not last["passages"]:
+            st.markdown('<div class="fq-note">Sources appear here after your first question: every page the '
+                        "model read, with the lines it used.</div>", unsafe_allow_html=True)
         else:
-            show_result(message["result"])
-
-question = st.chat_input("Ask about your documents...") or st.session_state.pop("pending", None)
-if not st.session_state.messages and not question:
-    if not uploaded:
-        handle_upload(st.file_uploader("Upload a financial document to start", type=FILE_TYPES,
-                                       key="main_upload"))
-        if library:
-            st.caption(f"Or try the sample library: {len(library)} SEC filings from FinanceBench.")
-    in_scope = [by_name[n] for n in st.session_state.scope] or uploaded
-    examples = UPLOAD_EXAMPLES if any(d["source"] == "upload" for d in in_scope) else LIBRARY_EXAMPLES
-    st.markdown("##### Try one of these")
-    cols = st.columns(2)
-    for i, example in enumerate(examples):
-        if cols[i % 2].button(example, key=f"ex{i}", width="stretch"):
-            st.session_state.pending = example  # asked on the next run, once the buttons are gone
-            st.rerun()
-
-if question:
-    st.session_state.messages.append({"role": "user", "content": question})
-    with st.chat_message("user", avatar=":material/person:"):
-        st.markdown(question.replace("$", "\\$"))
-    with st.chat_message("assistant", avatar=":material/query_stats:"):
-        system = ui.get_system()
-        label = "Planning searches and calculations..." if mode == "Agent" else "Searching the documents..."
-        with st.spinner(label):
-            try:
-                result = system.ask(question, agent=mode == "Agent", doc_names=st.session_state.scope)
-            except Exception as error:  # show the problem instead of a stack trace
-                st.error(f"Something went wrong: {error}")
-                st.stop()
-        show_result(result)
-    st.session_state.messages.append({"role": "assistant", "result": result})
+            cited = {tuple(c) for c in last["citations"]}
+            ordered = sorted(last["passages"], key=lambda p: (p["doc_name"], p["page"]) not in cited)
+            for p in ordered:
+                used = (p["doc_name"], p["page"]) in cited
+                st.markdown(
+                    f'<div class="fq-source"><div class="head"><span class="doc">'
+                    f'{ui.short_label(p["doc_name"])}</span><span class="page">Page {p["page"]}</span></div>'
+                    f'<div class="quote">{ui.snippet(p["text"], last["answer"])}</div>'
+                    f'<div class="status{"" if used else " read"}">'
+                    f'{"● Cited in the answer" if used else "○ Read, not cited"}</div></div>',
+                    unsafe_allow_html=True)
+            if last.get("trace"):
+                st.markdown('<div class="fq-section" style="margin-top:1rem">REASONING STEPS</div>',
+                            unsafe_allow_html=True)
+                for t in last["trace"]:
+                    icon = "🔎" if t["tool"] == "search_filings" else "🧮"
+                    st.markdown(f'<div class="fq-step">{icon} <b>{t["tool"]}</b> '
+                                f'<code>{ui.html.escape(t["arguments"][:90])}</code></div>',
+                                unsafe_allow_html=True)
+            st.markdown('<div class="fq-note">Every number is followed by a badge with its page. A red '
+                        "badge means a page the model never received.</div>", unsafe_allow_html=True)

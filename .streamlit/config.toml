@@ -1,11 +1,16 @@
-# FinQuery look: calm finance palette, teal accent
+# FinQuery look: dark indigo sidebar, light work area, violet accent (palettes in app/ui.py)
 [theme]
 base = "light"
-primaryColor = "#0F766E"
-backgroundColor = "#FFFFFF"
-secondaryBackgroundColor = "#F2F5F7"
+primaryColor = "#6366F1"
+backgroundColor = "#F5F7FA"
+secondaryBackgroundColor = "#FFFFFF"
 textColor = "#0F172A"
 font = "sans serif"
+
+[theme.sidebar]
+backgroundColor = "#1A1745"
+secondaryBackgroundColor = "#2A2665"
+textColor = "#D4D2F2"
 
 [client]
 toolbarMode = "minimal"

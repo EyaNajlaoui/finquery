@@ -54,8 +54,32 @@ retrieval:
 
 llm:
   model: openai/gpt-oss-120b   # Groq; API key in GROQ_API_KEY (env)
-  judge_model: openai/gpt-oss-120b
+  fallback_models:             # used by the app when the main model hits its DAILY limit
+    - openai/gpt-oss-20b       # (Groq counts daily tokens per model). Evaluations never fall back.
+  judge_model: openai/gpt-oss-20b  # another model: its own daily quota, and less self-preference
   temperature: 0
+  max_retries: 10              # the Groq SDK waits and retries on rate limits (HTTP 429)
+  pause_seconds: 2             # pause between calls in evaluation scripts
+
+generation:
+  retrieval_mode: hybrid_rerank
+  context_mode: window         # chunks | window (chunk + neighbours, one passage per page) | page
+  neighbours: 1                # window mode: chunks added before and after each retrieved chunk
+
+agent:
+  max_steps: 6                 # model turns with tool calls before the agent must answer
+  passages_per_search: 2       # pages returned by one search_filings call
+  max_chars_per_search: 4000   # text returned by one search (~1,100 tokens)
+  max_total_chars: 16000       # all searches of one question: keeps every request under ~6,000 tokens
+                               # (Groq free tier: 8,000 tokens per minute for gpt-oss-20b)
+
+uploads:                       # documents added by the user in the app
+  dir: data/uploads            # files, pages, chunks and catalog (not committed)
+  collection: finquery_uploads # separate from the benchmark collection
+  max_mb: 30
+
+logging:
+  path: data/logs/queries.jsonl  # one line per question / upload (latency, tokens, refusals...)
 
 vector_store:
   collection: finquery

@@ -1,0 +1,33 @@
+{
+  "system": "agent",
+  "model": "openai/gpt-oss-20b",
+  "context": "window",
+  "setting": "corpus",
+  "questions": 10,
+  "correct": 0.8,
+  "partial": 0.0,
+  "incorrect": 0.2,
+  "score": 0.8,
+  "refusals": 0.1,
+  "evidence_in_context": 0.9,
+  "answers_with_citation": 0.9,
+  "cites_evidence_page": 0.7,
+  "invalid_citations": 0,
+  "numeric_match": 1.0,
+  "score_by_type": {
+    "domain-relevant": 0.8333333333333334,
+    "metrics-generated": 1.0,
+    "novel-generated": 0.0
+  },
+  "diagnosis": {
+    "evidence found, answer correct": 7,
+    "evidence found, answer not correct (generation problem)": 2,
+    "evidence missing, answer correct": 1,
+    "evidence missing, answer not correct (retrieval problem)": 0
+  },
+  "avg_seconds": 72.45,
+  "avg_prompt_tokens": 10036,
+  "avg_steps": 4.0,
+  "avg_searches": 2.6,
+  "avg_calculations": 0.4
+}

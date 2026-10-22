@@ -17,6 +17,8 @@ COPY config ./config
 COPY src ./src
 COPY app ./app
 COPY scripts ./scripts
+COPY .streamlit ./.streamlit
+COPY results ./results
 
 EXPOSE 8501
 HEALTHCHECK CMD python -c "import urllib.request; urllib.request.urlopen('http://localhost:8501/_stcore/health')"

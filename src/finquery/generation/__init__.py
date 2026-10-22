@@ -1,1 +1,1 @@
-"""Step 4: LLM client (Groq), prompts and citations."""
+"""Step 4: context building, prompts, Groq client and grounded answers with citations."""

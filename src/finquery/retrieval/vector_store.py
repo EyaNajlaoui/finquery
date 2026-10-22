@@ -66,6 +66,25 @@ def stored_hashes(client: QdrantClient, name: str) -> dict[str, str]:
             return hashes
 
 
+def upsert_chunks(client: QdrantClient, name: str, chunks: list[dict[str, Any]],
+                  embed: Callable[[list[str]], Any], text_of: Callable[[dict], str],
+                  batch_size: int = 256, progress: Callable[[int, int], None] | None = None) -> None:
+    """Embed and write chunks (adds or overwrites, never deletes)."""
+    for start in range(0, len(chunks), batch_size):
+        batch = chunks[start:start + batch_size]
+        vectors = embed([text_of(c) for c in batch])
+        client.upsert(name, points=[
+            models.PointStruct(id=point_id(c["chunk_id"]), vector=list(map(float, v)), payload=c)
+            for c, v in zip(batch, vectors, strict=True)])
+        if progress:
+            progress(start + len(batch), len(chunks))
+
+
+def delete_document(client: QdrantClient, name: str, doc_name: str) -> None:
+    selector = models.FilterSelector(filter=to_qdrant_filter({"doc_name": doc_name}))
+    client.delete(name, points_selector=selector)
+
+
 def sync_chunks(client: QdrantClient, name: str, chunks: list[dict[str, Any]],
                 embed: Callable[[list[str]], Any], text_of: Callable[[dict], str],
                 batch_size: int = 256, progress: Callable[[int, int], None] | None = None) -> dict[str, int]:
@@ -76,14 +95,7 @@ def sync_chunks(client: QdrantClient, name: str, chunks: list[dict[str, Any]],
     todo = [c for c in chunks if existing.get(c["chunk_id"]) != c["content_hash"]]
     gone = [cid for cid in existing if cid not in current]
 
-    for start in range(0, len(todo), batch_size):
-        batch = todo[start:start + batch_size]
-        vectors = embed([text_of(c) for c in batch])
-        client.upsert(name, points=[
-            models.PointStruct(id=point_id(c["chunk_id"]), vector=list(map(float, v)), payload=c)
-            for c, v in zip(batch, vectors, strict=True)])
-        if progress:
-            progress(start + len(batch), len(todo))
+    upsert_chunks(client, name, todo, embed, text_of, batch_size, progress)
     if gone:
         client.delete(name, points_selector=models.PointIdsList(points=[point_id(c) for c in gone]))
 

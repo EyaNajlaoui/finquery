@@ -5,6 +5,8 @@
 data/raw/*.pdf
 data/qdrant/
 data/processed/
+data/uploads/
+data/logs/
 
 # Python
 __pycache__/

@@ -1,0 +1,26 @@
+{
+  "questions": 20,
+  "correct": 0.45,
+  "partial": 0.05,
+  "incorrect": 0.5,
+  "score": 0.475,
+  "refusals": 0.2,
+  "evidence_in_context": 0.65,
+  "answers_with_citation": 0.4,
+  "cites_evidence_page": 0.25,
+  "invalid_citations": 0,
+  "numeric_match": 0.6666666666666666,
+  "score_by_type": {
+    "domain-relevant": 0.5833333333333334,
+    "metrics-generated": 0.6666666666666666,
+    "novel-generated": 0.36363636363636365
+  },
+  "diagnosis": {
+    "evidence found, answer correct": 8,
+    "evidence found, answer not correct (generation problem)": 5,
+    "evidence missing, answer correct": 1,
+    "evidence missing, answer not correct (retrieval problem)": 6
+  },
+  "avg_seconds": 13.84,
+  "avg_prompt_tokens": 2526
+}

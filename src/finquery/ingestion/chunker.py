@@ -70,8 +70,12 @@ def split_lines(text: str, max_words: int, overlap_words: int) -> list[str]:
 
 
 def make_context(doc: dict[str, Any], page: int, title: str) -> str:
-    parts = [doc["company"], doc_type_label(doc["doc_type"]), f"FY{doc['doc_period']}", f"page {page}"]
-    return " | ".join(parts + ([title] if title else []))
+    """'Costco | 10-K | FY2021 | page 38 | <page title>'. Unknown fields (possible for an
+    uploaded document) are skipped; the file title is used when the company is unknown."""
+    parts = [doc.get("company") or doc.get("title") or doc["doc_name"],
+             doc_type_label(doc["doc_type"]) if doc.get("doc_type") else "",
+             f"FY{doc['doc_period']}" if doc.get("doc_period") else "", f"page {page}"]
+    return " | ".join([p for p in parts if p] + ([title] if title else []))
 
 
 def chunk_page(text: str, page: int, doc: dict[str, Any],
@@ -84,9 +88,9 @@ def chunk_page(text: str, page: int, doc: dict[str, Any],
         chunks.append({
             "chunk_id": f"{doc['doc_name']}:p{page}:c{i}",
             "doc_name": doc["doc_name"],
-            "company": doc["company"],
-            "doc_type": doc["doc_type"],
-            "doc_period": doc["doc_period"],
+            "company": doc.get("company") or "",
+            "doc_type": doc.get("doc_type") or "",
+            "doc_period": doc.get("doc_period"),
             "page": page,
             "chunk_index": i,
             "context": context,

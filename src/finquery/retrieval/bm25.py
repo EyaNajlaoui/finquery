@@ -27,13 +27,13 @@ def tokenize(text: str) -> list[str]:
 
 class BM25Index:
     def __init__(self, chunks: list[dict[str, Any]]) -> None:
-        if not chunks:
-            raise ValueError("BM25Index needs at least one chunk")
         self.chunks = chunks
-        self.bm25 = BM25Okapi([tokenize(text_for_embedding(c)) for c in chunks])
+        self.bm25 = BM25Okapi([tokenize(text_for_embedding(c)) for c in chunks]) if chunks else None
 
     def search(self, query: str, limit: int = 20,
                filters: dict[str, Any] | None = None) -> list[tuple[dict[str, Any], float]]:
+        if self.bm25 is None:  # nothing indexed yet (no library, no upload)
+            return []
         scores = self.bm25.get_scores(tokenize(query))
         if filters:
             allowed = np.array([matches(c, filters) for c in self.chunks])

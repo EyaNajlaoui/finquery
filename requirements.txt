@@ -1,5 +1,5 @@
 # Runtime dependencies
-streamlit>=1.38
+streamlit>=1.48
 qdrant-client>=1.12
 sentence-transformers>=3.0
 rank-bm25>=0.2.2

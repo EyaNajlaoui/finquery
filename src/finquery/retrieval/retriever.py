@@ -54,9 +54,10 @@ class Retriever:
         return self.search_all_modes(query, k, filters)[mode]
 
 
-def build_retriever(settings: dict[str, Any], with_reranker: bool = True) -> tuple[Retriever, Any]:
+def build_retriever(settings: dict[str, Any], with_reranker: bool = True,
+                    client: Any = None) -> tuple[Retriever, Any]:
     """Retriever on the Qdrant collection. Returns (retriever, qdrant_client): close the
-    client when done (local Qdrant locks its folder)."""
+    client when done (local Qdrant locks its folder). Pass `client` to share one."""
     from finquery.config import resolve
     from finquery.data.financebench import read_jsonl
     from finquery.retrieval.embedder import Embedder
@@ -64,7 +65,7 @@ def build_retriever(settings: dict[str, Any], with_reranker: bool = True) -> tup
     from finquery.retrieval.vector_store import dense_search, get_client
 
     chunks = read_jsonl(resolve(settings["data"]["processed_dir"]) / "chunks.jsonl")
-    client = get_client(settings)
+    client = client or get_client(settings)
     collection = settings["vector_store"]["collection"]
     retriever = Retriever(
         chunks,

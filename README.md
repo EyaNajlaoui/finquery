@@ -12,7 +12,7 @@ letting the LLM do arithmetic. When the documents do not contain the answer, it 
 Every design choice is measured on a public benchmark, [FinanceBench](https://github.com/patronus-ai/financebench),
 with a fixed dev/test split.
 
-![FinQuery start screen](docs/images/app_start.png)
+![A cited answer with its sources and the agent's reasoning steps](docs/images/app_answer.png)
 
 ## Key results (dev set)
 
@@ -24,14 +24,16 @@ with a fixed dev/test split.
 | Numbers matching the analyst's answer (computed metrics) | 0.67 | **1.00** | |
 
 The agent costs more: ~10,000 prompt tokens and ~70 s per question, against ~2,500 tokens and ~14 s.
-Small samples: one question = 0.05 on 20 questions, 0.10 on 10. Final scores on the 30 held-out test
-questions: see [Results](#results).
+Small samples: one question = 0.05 on 20 questions, 0.10 on 10. On the 30 held-out test questions the
+retrieval gain does **not** hold (reranked hybrid and dense search both rank the evidence first for 0.30 of
+the questions): see [Results](#results).
 
 ## Features
 
 - **Upload any financial document** (PDF with text, TXT, MD): parsed, cleaned, chunked and indexed in about
   a minute. A small LLM detects the company, document type and fiscal year from the first pages.
-- **Sample library**: 18 SEC filings from 13 companies (FinanceBench) to try the app without a file.
+- **Choose what to search**: tick any combination of your documents and of the sample library
+  (18 SEC filings from 13 companies, FinanceBench); every search stays inside the selection.
 - **Two answer modes**: *Fast* (one hybrid search, one answer) and *Agent* (plans several searches, uses a
   calculator, stays inside the documents the user selected).
 - **Cited answers**: each number is followed by a `[document · page]` badge; a citation to a page the model
@@ -259,7 +261,26 @@ finquery/
 
 ## Results
 
-Test set (30 questions, run once with the final configuration): *to be added (step 8).*
+Held-out test set (30 FinanceBench questions), run once with the configuration frozen on the dev set.
+
+**Retrieval** (`python scripts/eval_retrieval.py --split test`):
+
+| Mode | Corpus R@1 | Corpus R@4 | Corpus MRR@10 | Document R@4 | Document R@10 |
+|---|---:|---:|---:|---:|---:|
+| Dense (bge-small) | 0.30 | **0.50** | 0.40 | **0.62** | 0.72 |
+| BM25 | 0.10 | 0.20 | 0.16 | 0.33 | 0.52 |
+| Hybrid (RRF) | 0.17 | 0.45 | 0.32 | 0.55 | 0.65 |
+| Hybrid + rerank (chosen on dev) | 0.30 | 0.42 | 0.40 | 0.52 | **0.78** |
+
+The test set does **not** confirm the dev ranking: reranked hybrid search was the best mode on the 20 dev
+questions (R@4 0.65) but dense search alone is better on the 30 test questions (0.50 vs 0.42). With 20
+questions, the dev set was too small to separate the methods reliably; 8 test questions are not found by
+any mode in the corpus setting. The configuration was not changed after seeing these numbers.
+
+**Answers** (agent, `gpt-oss-20b`, stratified sample of 15 test questions chosen by rule, seed 42):
+*in progress — the free API quota limits the run to a few questions per day.* On the first 11 test
+questions completed so far, 9 answers are correct, several of them for questions where the first searches
+missed the evidence page: the agent searches again until it finds the figures.
 
 ## Disclaimer
 

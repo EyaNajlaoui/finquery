@@ -36,7 +36,7 @@ for path in sorted((ui.ROOT / "results").glob("generation_dev_*.json")):
 if rows:
     best = max(rows, key=lambda r: r["Score"])
     c1, c2, c3 = st.columns(3)
-    c1.metric("Best score", f"{best['Score']:.0%}", help="correct = 1, partial = 0.5")
+    c1.metric("Best score", f"{best['Score']:.0%}", help=f"{best['System']} (correct = 1, partial = 0.5)")
     c2.metric("Correct answers", f"{best['Correct']:.0%}", help=best["System"])
     c3.metric("Cites the evidence page", f"{best['Cites evidence page']:.0%}")
     st.dataframe(pd.DataFrame(rows), hide_index=True, width="stretch", column_config={
@@ -44,6 +44,8 @@ if rows:
         for c in ("Score", "Correct", "Refusals", "Cites evidence page")} | {
         "Tokens / question": st.column_config.NumberColumn(format="%d"),
         "Seconds": st.column_config.NumberColumn(format="%.1f")})
+    st.caption("Compare rows with the same model and number of questions (q): the agent and the RAG "
+               "baseline on the same 10 questions with gpt-oss-20b is the like-for-like comparison.")
     diag = summaries[best["System"]]["diagnosis"]
     st.markdown(f"**Where the errors come from** ({best['System']})")
     st.dataframe(pd.DataFrame([{"Case": k, "Questions": v} for k, v in diag.items()]),

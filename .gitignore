@@ -3,10 +3,12 @@
 
 # Data that is downloaded or generated
 data/raw/*.pdf
-data/qdrant/
-data/processed/
+data/processed/experiments/
+data/qdrant/.lock
 data/uploads/
 data/logs/
+# data/processed/ (chunks, pages) and data/qdrant/ (vectors) ARE committed: the online demo
+# (Streamlit Community Cloud) needs the sample library index without re-running the pipeline
 
 # Python
 __pycache__/

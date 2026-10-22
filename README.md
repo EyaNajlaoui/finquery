@@ -12,6 +12,8 @@ letting the LLM do arithmetic. When the documents do not contain the answer, it 
 Every design choice is measured on a public benchmark, [FinanceBench](https://github.com/patronus-ai/financebench),
 with a fixed dev/test split.
 
+**Live demo:** https://YOUR-APP.streamlit.app — upload a report or tick a sample filing, then ask a question.
+
 ![A cited answer with its sources and the agent's reasoning steps](docs/images/app_answer.png)
 
 ## Key results (dev set)
@@ -171,7 +173,7 @@ benefits".
 | Safety | the calculator cannot run code; the model's text is HTML-escaped before display; API key only in `.env` |
 | Isolation | uploads in their own folder and Qdrant collection, never mixed with the benchmark |
 | Quality gates | 79 unit tests (no model download, Qdrant in memory) and ruff on every push (GitHub Actions) |
-| Deployment | Docker image (CPU PyTorch) + Qdrant server with Docker Compose |
+| Deployment | public demo on Streamlit Community Cloud (prebuilt index shipped in the repo, API key in secrets); Docker image + Qdrant server with Docker Compose for a self-hosted setup |
 
 ## Quickstart
 
@@ -196,7 +198,24 @@ python scripts/build_index.py      # embeddings -> Qdrant (~10 min on CPU, incre
 streamlit run app/Home.py          # http://localhost:8501
 ```
 
-### Docker
+### Streamlit Community Cloud (the public demo)
+
+The sample library index (`data/processed/` chunks and pages, `data/qdrant/` vectors, ~40 MB) is committed,
+so the cloud app starts without running the pipeline. On [share.streamlit.io](https://share.streamlit.io):
+repository `EyaNajlaoui/finquery`, branch `main`, main file `app/Home.py`, Python 3.12, and in
+*Advanced settings → Secrets*:
+
+```toml
+GROQ_API_KEY = "gsk_..."
+```
+
+Documents uploaded on the public demo live on the cloud app's temporary disk and disappear when it restarts.
+
+### Docker (self-hosted)
+
+For a server you control (VPS, Render, Railway...): the image contains the app with CPU-only PyTorch, and
+Docker Compose adds a Qdrant **server** instead of the local folder, the setup used when several app
+instances share one index.
 
 ```bash
 cp .env.example .env               # add your GROQ_API_KEY
@@ -223,7 +242,8 @@ finquery/
 ├── data/
 │   ├── eval/                 # dev.jsonl, test.jsonl (FinanceBench subset)
 │   ├── documents.jsonl       # sample library metadata
-│   └── raw/ processed/ uploads/ qdrant/ logs/   # generated, not in git
+│   ├── processed/ qdrant/    # sample library index, committed for the online demo
+│   └── raw/ uploads/ logs/   # generated, not in git
 ├── docs/images/              # screenshots
 ├── results/                  # evaluation outputs (JSON), committed
 ├── scripts/                  # download, ingest, index, search, ask, evaluations, experiments

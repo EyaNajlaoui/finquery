@@ -1,4 +1,8 @@
 # Runtime dependencies
+# CPU-only PyTorch (the default Linux wheel adds ~2.5 GB of GPU libraries we never use)
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch
+torchvision                    
 streamlit>=1.48
 qdrant-client>=1.12
 sentence-transformers>=3.0

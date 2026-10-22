@@ -28,7 +28,7 @@ for d in uploads:
     c2.markdown(f"<span class='fq-meta'>{d['pages']} pages · {d['chunks']} chunks</span>",
                 unsafe_allow_html=True)
     if c3.button("", icon=":material/delete:", key=f"rm_{d['doc_name']}", help="Remove this document"):
-        ui.get_system().remove(d["doc_name"])
+        ui.get_system().remove(d["doc_name"], owner=ui.owner())
         st.rerun()
 
 st.subheader("Sample library", divider="gray")

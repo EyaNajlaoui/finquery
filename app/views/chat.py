@@ -54,7 +54,8 @@ def handle_upload(file) -> None:
         return
     with st.status(f"Adding **{file.name}**...", expanded=True) as status:
         try:
-            doc = ui.get_system().upload(file.name, file.getvalue(), step=status.write)
+            doc = ui.get_system().upload(file.name, file.getvalue(), step=status.write,
+                                          owner=ui.owner())
         except UploadError as error:
             status.update(label=str(error), state="error")
             return
@@ -88,6 +89,9 @@ with st.sidebar:
         document_list(uploaded, "mine")
     else:
         st.caption("Upload a PDF to start.")
+    st.caption(f":material/lock: Private to you: other visitors cannot see your documents. They are "
+               f"deleted after {settings['uploads'].get('max_age_hours', 2)} hours, and a page reload "
+               "starts a new session.")
     if library:
         checked_lib = sum(st.session_state[f"sel_{d['doc_name']}"] for d in library)
         with st.expander(f"Sample library · {checked_lib}/{len(library)} selected"):
@@ -180,7 +184,7 @@ with left:
                     question = st.session_state.pop("thinking")
                     try:
                         result = ui.get_system().ask(question, agent=mode == "Agent",
-                                                     doc_names=st.session_state.scope)
+                                                     doc_names=st.session_state.scope, owner=ui.owner())
                         st.session_state.messages.append({"role": "assistant", "result": result})
                     except Exception as error:  # show the problem instead of a stack trace
                         st.session_state.messages.append({"role": "assistant", "result": {

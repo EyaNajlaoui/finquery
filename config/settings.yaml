@@ -77,6 +77,7 @@ uploads:                       # documents added by the user in the app
   dir: data/uploads            # files, pages, chunks and catalog (not committed)
   collection: finquery_uploads # separate from the benchmark collection
   max_mb: 30
+  max_age_hours: 2             # uploads are private to one visitor and deleted after this delay
 
 logging:
   path: data/logs/queries.jsonl  # one line per question / upload (latency, tokens, refusals...)

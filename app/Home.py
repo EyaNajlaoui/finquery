@@ -10,13 +10,20 @@ from pathlib import Path
 
 import streamlit as st
 
-# Streamlit Community Cloud passes secrets through st.secrets; locally the .env file is used
+# Streamlit Community Cloud passes secrets through st.secrets; locally the .env file is used.
+# Keys are accepted at the top level or inside a [section] of the secrets.
 try:
+    secrets = {k: v for k, v in st.secrets.items()}
+    for value in list(secrets.values()):
+        if hasattr(value, "items"):
+            secrets.update({k: v for k, v in value.items()})
     for key in ("GROQ_API_KEY", "QDRANT_URL"):
-        if key in st.secrets and not os.getenv(key):
-            os.environ[key] = str(st.secrets[key])
-except Exception:  # no secrets.toml: nothing to copy
-    pass
+        if secrets.get(key) and not os.getenv(key):
+            os.environ[key] = str(secrets[key]).strip()
+except Exception as error:
+    # no secrets at all (local run): .env is used; badly formatted secrets: say so in the app
+    if not str(error).startswith("No secrets found"):
+        os.environ["FINQUERY_SECRETS_ERROR"] = str(error).split(": ")[-1]
 
 APP_DIR = Path(__file__).resolve().parent
 sys.path.insert(0, str(APP_DIR.parent / "src"))

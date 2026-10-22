@@ -170,9 +170,10 @@ benefits".
 | Reproducible evaluation | answers and grades cached with a signature of the prompts and settings: a prompt change regenerates exactly what it affects |
 | Unexpected model output | JSON mode failures retried in normal mode; unparsable grades recorded, never crashing a run |
 | Monitoring | every question and upload logged to `data/logs/queries.jsonl` (latency, tokens, refusals, invalid citations) |
-| Safety | the calculator cannot run code; the model's text is HTML-escaped before display; API key only in `.env` |
+| Safety | the calculator cannot run code; the model's text is HTML-escaped before display; API key only in `.env` or the app secrets |
+| Privacy | each visitor only sees, searches and deletes their own uploads (one id per browser session, checked on every search); uploads expire after 2 hours |
 | Isolation | uploads in their own folder and Qdrant collection, never mixed with the benchmark |
-| Quality gates | 79 unit tests (no model download, Qdrant in memory) and ruff on every push (GitHub Actions) |
+| Quality gates | 81 unit tests (no model download, Qdrant in memory) and ruff on every push (GitHub Actions) |
 | Deployment | public demo on Streamlit Community Cloud (prebuilt index shipped in the repo, API key in secrets); Docker image + Qdrant server with Docker Compose for a self-hosted setup |
 
 ## Quickstart
@@ -255,7 +256,7 @@ finquery/
 │   ├── tools/                # safe calculator
 │   ├── evaluation/           # retrieval and answer metrics, LLM judge
 │   └── data/                 # FinanceBench loading and dev/test split
-├── tests/                    # 79 tests
+├── tests/                    # 81 tests
 ├── Dockerfile, docker-compose.yml
 └── .github/workflows/ci.yml
 ```

@@ -65,3 +65,19 @@ def test_upload_rejects_empty_and_unsupported(tmp_path):
         store.add("empty.txt", b"   ", lambda chunks: None)
     with pytest.raises(UploadError):
         store.add("sheet.xlsx", b"data", lambda chunks: None)
+
+
+def test_uploads_are_private_to_their_owner(tmp_path):
+    store = UploadStore(tmp_path, 150, 30)
+    alice = store.add("acme.txt", REPORT.encode(), lambda _: None, owner="alice")
+    bob = store.add("acme.txt", REPORT.encode(), lambda _: None, owner="bob")
+    assert alice["doc_name"] != bob["doc_name"]  # same file, two private copies
+    assert store.catalog("alice") == [alice] and store.catalog("bob") == [bob]
+    assert store.catalog("carol") == [] and len(store.catalog()) == 2
+
+
+def test_old_uploads_expire(tmp_path):
+    store = UploadStore(tmp_path, 150, 30)
+    doc = store.add("acme.txt", REPORT.encode(), lambda _: None, owner="alice")
+    assert store.expired(2) == []
+    assert store.expired(2, now=doc["added_at"] + 3 * 3600) == [doc["doc_name"]]

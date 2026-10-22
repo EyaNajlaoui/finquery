@@ -6,6 +6,7 @@ import json
 import os
 import re
 import string
+import uuid
 from pathlib import Path
 from typing import Any
 
@@ -49,13 +50,20 @@ def get_system() -> Any:
     return FinQuerySystem(get_settings(), client=get_client())
 
 
+def owner() -> str:
+    """A random id for this browser session: uploads are private to the visitor who added them.
+    A new tab or a page reload starts a new session (and an empty document list)."""
+    return st.session_state.setdefault("owner", uuid.uuid4().hex)
+
+
 def catalog() -> list[dict[str, Any]]:
-    """Uploaded documents first, then the sample library. Read from disk (cheap), so it
+    """This visitor's uploads first, then the sample library. Read from disk (cheap), so it
     works before the models are loaded."""
     settings = get_settings()
     uploads = resolve(settings["uploads"]["dir"]) / "catalog.jsonl"
     library = resolve(settings["data"]["documents_file"])
-    return ([{**d, "source": "upload"} for d in (read_jsonl(uploads) if uploads.exists() else [])]
+    mine = [d for d in (read_jsonl(uploads) if uploads.exists() else []) if d.get("owner") == owner()]
+    return ([{**d, "source": "upload"} for d in mine]
             + [{**d, "source": "library"} for d in (read_jsonl(library) if library.exists() else [])])
 
 
@@ -106,8 +114,12 @@ def settings_ready() -> list[str]:
     """What is missing before the chat can work, as instructions."""
     get_settings()  # loads .env
     problems = []
-    if not os.getenv("GROQ_API_KEY", "").startswith("gsk_"):
-        problems.append("Add your Groq key to `.env`: `GROQ_API_KEY=gsk_...`")
+    if os.getenv("FINQUERY_SECRETS_ERROR"):
+        problems.append("The app secrets could not be read (check the TOML format, the value needs "
+                        f'quotes: `GROQ_API_KEY = "gsk_..."`): {os.environ["FINQUERY_SECRETS_ERROR"]}')
+    if not os.getenv("GROQ_API_KEY", "").strip().startswith("gsk_"):
+        problems.append("Add your Groq key: locally in `.env` (`GROQ_API_KEY=gsk_...`), on Streamlit Cloud "
+                        'in **Settings → Secrets** (`GROQ_API_KEY = "gsk_..."`), then reboot the app.')
     return problems
 
 

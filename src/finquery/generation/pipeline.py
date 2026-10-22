@@ -66,7 +66,11 @@ def build_agent(settings: dict[str, Any], llm: Any = None) -> tuple[Any, Any]:
 
 class FinQuerySystem:
     """Everything the app needs: models loaded once, the benchmark filings plus the user's
-    uploads, and both answering modes. Uploads have their own Qdrant collection."""
+    uploads, and both answering modes. Uploads have their own Qdrant collection.
+
+    One instance serves every visitor, so uploads are private: each one has an `owner`
+    (the visitor's session id), and every search is limited to the sample library plus that
+    visitor's own documents. Uploads older than uploads.max_age_hours are deleted."""
 
     def __init__(self, settings: dict[str, Any], client: Any = None) -> None:
         from finquery.ingestion.uploads import UploadStore
@@ -92,7 +96,9 @@ class FinQuerySystem:
             if docs_file.exists() else []
         self.uploads = UploadStore(resolve(settings["uploads"]["dir"]),
                                    settings["chunking"]["max_words"], settings["chunking"]["overlap_words"])
+        self.max_age_hours = settings["uploads"].get("max_age_hours", 2)
         self.refresh()
+        self.cleanup()
 
     # --- search over both collections ------------------------------------------------------
     def _dense(self, vector: Any, limit: int, filters: dict[str, Any] | None) -> list:
@@ -113,16 +119,32 @@ class FinQuerySystem:
                                    cfg["retrieval"]["candidates"], cfg["retrieval"].get("rrf_k", 60))
         self.answerer = make_answerer(cfg, self.retriever, pages, self.llm)
         self.agent = make_agent(cfg, self.retriever, pages, self.llm)
-        self.agent.catalog = self.catalog()
 
-    def catalog(self) -> list[dict[str, Any]]:
-        return [{**d, "source": "upload"} for d in self.uploads.catalog()] + self.library_catalog
+    def catalog(self, owner: str | None = None) -> list[dict[str, Any]]:
+        """The visitor's uploads, then the sample library."""
+        return [{**d, "source": "upload"} for d in self.uploads.catalog(owner or "")] + self.library_catalog
+
+    def allowed(self, doc_names: list[str] | None, owner: str | None = None) -> list[str]:
+        """The documents a question may search: the selection, restricted to what this visitor
+        can see (all of it when nothing is selected). Never another visitor's upload."""
+        visible = [d["doc_name"] for d in self.catalog(owner)]
+        return [n for n in doc_names or [] if n in visible] or visible
 
     # --- actions ---------------------------------------------------------------------------
-    def ask(self, question: str, agent: bool = True, doc_names: list[str] | None = None) -> dict[str, Any]:
-        filters = {"doc_name": doc_names} if doc_names else None
+    def ask(self, question: str, agent: bool = True, doc_names: list[str] | None = None,
+            owner: str | None = None) -> dict[str, Any]:
+        import copy
+
+        self.cleanup()
+        names = self.allowed(doc_names, owner)
+        filters = {"doc_name": names}
+        if agent:  # a copy per question: the agent keeps its scope, and visitors ask in parallel
+            system = copy.copy(self.agent)
+            system.catalog = [d for d in self.catalog(owner) if d["doc_name"] in names]
+        else:
+            system = self.answerer
         try:
-            result = (self.agent if agent else self.answerer).answer(question, filters)
+            result = system.answer(question, filters)
         except Exception as error:
             self._log({"event": "error", "mode": "agent" if agent else "fast", "question": question,
                        "error": f"{type(error).__name__}: {str(error)[:300]}"})
@@ -147,7 +169,8 @@ class FinQuerySystem:
             f.write(json.dumps({"time": datetime.now(timezone.utc).isoformat(timespec="seconds"), **record},
                                ensure_ascii=False) + "\n")
 
-    def upload(self, filename: str, data: bytes, step: Any = lambda _: None) -> dict[str, Any]:
+    def upload(self, filename: str, data: bytes, step: Any = lambda _: None,
+               owner: str | None = None) -> dict[str, Any]:
         from finquery.ingestion.chunker import text_for_embedding
         from finquery.retrieval.vector_store import ensure_collection, upsert_chunks
 
@@ -157,16 +180,32 @@ class FinQuerySystem:
             upsert_chunks(self.client, self.upload_collection, chunks, self.embedder.encode_documents,
                           text_for_embedding)
 
-        doc = self.uploads.add(filename, data, embed_and_store, llm=self.small_llm, step=step)
+        doc = self.uploads.add(filename, data, embed_and_store, llm=self.small_llm, step=step,
+                               owner=owner or "")
         self.refresh()
         self._log({"event": "upload", "doc_name": doc["doc_name"], "pages": doc["pages"],
                    "chunks": doc["chunks"]})
         return doc
 
-    def remove(self, doc_name: str) -> None:
+    def remove(self, doc_name: str, owner: str | None = None, refresh: bool = True) -> None:
+        """Delete one upload; a visitor can only delete their own (owner=None: any, for cleanup)."""
         from finquery.retrieval.vector_store import delete_document
 
+        if owner is not None and doc_name not in {d["doc_name"] for d in self.uploads.catalog(owner)}:
+            return
         if self.client.collection_exists(self.upload_collection):
             delete_document(self.client, self.upload_collection, doc_name)
         self.uploads.remove(doc_name)
-        self.refresh()
+        if refresh:
+            self.refresh()
+
+    def cleanup(self) -> list[str]:
+        """Delete the uploads older than max_age_hours (Streamlit has no reliable "visitor left"
+        event, so uploads expire instead). Returns the deleted names."""
+        old = self.uploads.expired(self.max_age_hours)
+        for name in old:
+            self.remove(name, refresh=False)
+        if old:
+            self.refresh()
+            self._log({"event": "cleanup", "removed": len(old)})
+        return old

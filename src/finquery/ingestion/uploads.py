@@ -5,11 +5,15 @@ context header -> embed), but are stored apart:
 - files, pages, chunks and catalog in data/uploads/
 - vectors in their own Qdrant collection
 so the FinanceBench evaluation is never mixed with user documents.
+
+Each upload belongs to one visitor (`owner`, a random id per browser session): a visitor only
+sees, searches and deletes their own documents, and uploads are deleted after a few hours.
 """
 from __future__ import annotations
 
 import hashlib
 import re
+import time
 from collections.abc import Callable
 from pathlib import Path
 from typing import Any
@@ -41,10 +45,11 @@ def text_pages(text: str) -> list[str]:
     return pages
 
 
-def make_doc_name(filename: str, data: bytes) -> str:
-    """'Annual Report 2024.pdf' -> 'UP_ANNUAL_REPORT_2024_3f2a1c' (stable for the same file)."""
+def make_doc_name(filename: str, data: bytes, owner: str = "") -> str:
+    """'Annual Report 2024.pdf' -> 'UP_ANNUAL_REPORT_2024_3f2a1c9b' (stable for the same file and
+    owner: two visitors uploading the same file get two separate documents)."""
     stem = re.sub(r"[^A-Za-z0-9]+", "_", Path(filename).stem).strip("_").upper()[:40] or "DOCUMENT"
-    return f"UP_{stem}_{hashlib.sha1(data).hexdigest()[:6]}"
+    return f"UP_{stem}_{hashlib.sha1(owner.encode() + data).hexdigest()[:8]}"
 
 
 class UploadStore:
@@ -55,8 +60,15 @@ class UploadStore:
         self.max_words, self.overlap_words = max_words, overlap_words
 
     # --- reading -------------------------------------------------------------------------
-    def catalog(self) -> list[dict[str, Any]]:
-        return read_jsonl(self.catalog_path) if self.catalog_path.exists() else []
+    def catalog(self, owner: str | None = None) -> list[dict[str, Any]]:
+        """All uploads (owner=None) or only one visitor's."""
+        docs = read_jsonl(self.catalog_path) if self.catalog_path.exists() else []
+        return docs if owner is None else [d for d in docs if d.get("owner") == owner]
+
+    def expired(self, max_age_hours: float, now: float | None = None) -> list[str]:
+        """Uploads older than max_age_hours (documents without a date count as expired)."""
+        limit = (now or time.time()) - max_age_hours * 3600
+        return [d["doc_name"] for d in self.catalog() if d.get("added_at", 0) < limit]
 
     def chunks(self) -> list[dict[str, Any]]:
         return read_jsonl(self.chunks_path) if self.chunks_path.exists() else []
@@ -86,10 +98,10 @@ class UploadStore:
         return pages
 
     def add(self, filename: str, data: bytes, embed_and_store: Callable[[list[dict]], None],
-            llm: Any = None, step: Callable[[str], None] = lambda _: None) -> dict[str, Any]:
-        """Parse, describe, chunk and index one file. Returns its catalog entry.
+            llm: Any = None, step: Callable[[str], None] = lambda _: None, owner: str = "") -> dict[str, Any]:
+        """Parse, describe, chunk and index one file for one visitor. Returns its catalog entry.
         `embed_and_store(chunks)` writes the vectors (the caller owns the models)."""
-        doc_name = make_doc_name(filename, data)
+        doc_name = make_doc_name(filename, data, owner)
         existing = next((d for d in self.catalog() if d["doc_name"] == doc_name), None)
         if existing:
             return existing
@@ -99,6 +111,7 @@ class UploadStore:
         step("Detecting company, document type and fiscal year")
         doc = {"doc_name": doc_name, "filename": Path(filename).name,
                "stored_as": f"{doc_name}{Path(filename).suffix.lower()}", "pages": len(pages),
+               "owner": owner, "added_at": int(time.time()),
                **detect_metadata("\n".join(pages[:3]), filename, llm)}
         chunks = [c for i, text in enumerate(pages, start=1) if text.strip()
                   for c in chunk_page(text, i, doc, self.max_words, self.overlap_words)]
